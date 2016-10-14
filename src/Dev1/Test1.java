@@ -17,6 +17,9 @@ import Model.Degree;
 import Model.DegreePK;
 import Model.Employee;
 import Model.HeadquarterInfo;
+import Model.PositieDescription;
+import Model.PositieEmployer;
+import Model.PositieEmployerPK;
 import Model.Project;
 import Model.School;
 import Model.WorkingAddress;
@@ -105,6 +108,25 @@ public class Test1 {
         project.setCompanyname("Micrsoft");
         project.setHeadquarterid(headquarterinfo);
         
+        PositieDescription positiedescription = new PositieDescription();
+        
+        positiedescription.setPositieid(25);
+        positiedescription.setPositiename("Directeur");
+        positiedescription.setPositiedescription("Benny");
+        positiedescription.setAmountshours(40);
+        positiedescription.setHourfee(2600);
+        //positiedescription.set
+        
+        PositieEmployerPK positieemployerpk = new PositieEmployerPK();
+        positieemployerpk.setBsn(employee.getBsn());
+        positieemployerpk.setPositieid(positiedescription.getPositieid());
+        
+        
+        PositieEmployer positieemployer = new PositieEmployer();
+        positieemployer.setPositieEmployerPK(positieemployerpk);
+        positieemployer.setEmployee(employee);
+        positieemployer.setProjectid(project);
+         positieemployer.setHeadquarterid(headquarterinfo);
 
         
         //Opslaan tabelen in Database Employee Side

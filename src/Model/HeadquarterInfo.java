@@ -8,6 +8,7 @@ package Model;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -32,6 +33,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "HeadquarterInfo.findByRoomamount", query = "SELECT h FROM HeadquarterInfo h WHERE h.roomamount = :roomamount"),
     @NamedQuery(name = "HeadquarterInfo.findByMonthrent", query = "SELECT h FROM HeadquarterInfo h WHERE h.monthrent = :monthrent")})
 public class HeadquarterInfo implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "headquarterid")
+    private Collection<PositieEmployer> positieEmployerCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -137,6 +140,14 @@ public class HeadquarterInfo implements Serializable {
     @Override
     public String toString() {
         return "Model.HeadquarterInfo[ headquarterid=" + headquarterid + " ]";
+    }
+
+    public Collection<PositieEmployer> getPositieEmployerCollection() {
+        return positieEmployerCollection;
+    }
+
+    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
+        this.positieEmployerCollection = positieEmployerCollection;
     }
     
 }

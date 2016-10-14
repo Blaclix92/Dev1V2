@@ -6,6 +6,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,6 +32,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Project.findByAllocatedhour", query = "SELECT p FROM Project p WHERE p.allocatedhour = :allocatedhour"),
     @NamedQuery(name = "Project.findByCompanyname", query = "SELECT p FROM Project p WHERE p.companyname = :companyname")})
 public class Project implements Serializable {
+    @OneToMany(mappedBy = "projectid")
+    private Collection<PositieEmployer> positieEmployerCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -126,6 +130,14 @@ public class Project implements Serializable {
     @Override
     public String toString() {
         return "Model.Project[ projectid=" + projectid + " ]";
+    }
+
+    public Collection<PositieEmployer> getPositieEmployerCollection() {
+        return positieEmployerCollection;
+    }
+
+    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
+        this.positieEmployerCollection = positieEmployerCollection;
     }
     
 }

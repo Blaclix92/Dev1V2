@@ -29,6 +29,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Employee.findByEmployeename", query = "SELECT e FROM Employee e WHERE e.employeename = :employeename"),
     @NamedQuery(name = "Employee.findBySurname", query = "SELECT e FROM Employee e WHERE e.surname = :surname")})
 public class Employee implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private Collection<PositieEmployer> positieEmployerCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -121,6 +123,14 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Model.Employee[ bsn=" + bsn + " ]";
+    }
+
+    public Collection<PositieEmployer> getPositieEmployerCollection() {
+        return positieEmployerCollection;
+    }
+
+    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
+        this.positieEmployerCollection = positieEmployerCollection;
     }
     
 }
