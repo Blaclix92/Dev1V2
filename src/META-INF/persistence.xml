@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Dev1PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>Models.Address</class>
+    <class>Models.HeadquarterInfo</class>
+    <class>Models.Employee</class>
+    <class>Models.Project</class>
+    <class>Models.Degree</class>
+    <class>Models.PositieEmployer</class>
+    <class>Models.WorkingAddress</class>
+    <class>Models.School</class>
+    <class>Models.PositieDescription</class>
+    <class>Model.ProjectSide.HeadquarterInfo</class>
+    <class>Model.ProjectSide.Project</class>
+    <class>Model.ProjectSide.EmployeeSide.Employee</class>
+    <class>Model.ProjectSide.EmployeeSide.Degree</class>
+    <class>Model.ProjectSide.EmployeeSide.WorkingAddress</class>
+    <class>Model.ProjectSide.EmployeeSide.Address</class>
+    <class>Model.ProjectSide.EmployeeSide.School</class>
+    <class>Model.EmployeeSide.Degree</class>
+    <class>Model.EmployeeSide.Employee</class>
+    <class>Model.EmployeeSide.School</class>
+    <class>Model.EmployeeSide.WorkingAddress</class>
+    <class>Model.EmployeeSide.Address</class>
+    <class>Model.ProjectSide.PositieEmployer</class>
+    <class>Model.ProjectSide.PositieDescription</class>
+    <class>Model.Address</class>
+    <class>Model.Employee</class>
+    <class>Model.School</class>
+    <class>Model.Degree</class>
+    <class>Model.WorkingAddress</class>
+    <class>Model.Project</class>
+    <class>Model.HeadquarterInfo</class>
+    <class>Model.PositieEmployer</class>
+    <class>Model.PositieDescription</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dev2?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="donovan"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>
