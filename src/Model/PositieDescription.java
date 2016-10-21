@@ -19,10 +19,10 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
-@Table(name = "positie_description")
+@Table(name = "positie_description", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "PositieDescription.findAll", query = "SELECT p FROM PositieDescription p"),
     @NamedQuery(name = "PositieDescription.findByPositieid", query = "SELECT p FROM PositieDescription p WHERE p.positieid = :positieid"),
@@ -34,12 +34,12 @@ public class PositieDescription implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Positie_id")
+    @Column(name = "Positie_id", nullable = false)
     private Integer positieid;
     @Basic(optional = false)
-    @Column(name = "Positie_name")
+    @Column(name = "Positie_name", nullable = false, length = 255)
     private String positiename;
-    @Column(name = "Positie_description")
+    @Column(name = "Positie_description", length = 255)
     private String positiedescription;
     @Column(name = "Hour_fee")
     private Integer hourfee;

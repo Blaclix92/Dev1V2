@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
 @Table(name = "working_address", catalog = "dev2", schema = "")
@@ -42,14 +42,14 @@ public class WorkingAddress implements Serializable {
     @Column(name = "End_date")
     @Temporal(TemporalType.DATE)
     private Date enddate;
-    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Employee employee;
     @JoinColumns({
         @JoinColumn(name = "Country", referencedColumnName = "Country", nullable = false, insertable = false, updatable = false),
         @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode", nullable = false, insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Address address;
+    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Employee employee;
 
     public WorkingAddress() {
     }
@@ -86,20 +86,20 @@ public class WorkingAddress implements Serializable {
         this.enddate = enddate;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override

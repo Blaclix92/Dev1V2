@@ -13,14 +13,17 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import Model.HeadquarterInfo;
+import Model.PositieEmployer;
 import Model.Project;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class ProjectJpaController implements Serializable {
 
@@ -34,6 +37,9 @@ public class ProjectJpaController implements Serializable {
     }
 
     public void create(Project project) throws PreexistingEntityException, Exception {
+        if (project.getPositieEmployerCollection() == null) {
+            project.setPositieEmployerCollection(new ArrayList<PositieEmployer>());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -43,10 +49,25 @@ public class ProjectJpaController implements Serializable {
                 headquarterid = em.getReference(headquarterid.getClass(), headquarterid.getHeadquarterid());
                 project.setHeadquarterid(headquarterid);
             }
+            Collection<PositieEmployer> attachedPositieEmployerCollection = new ArrayList<PositieEmployer>();
+            for (PositieEmployer positieEmployerCollectionPositieEmployerToAttach : project.getPositieEmployerCollection()) {
+                positieEmployerCollectionPositieEmployerToAttach = em.getReference(positieEmployerCollectionPositieEmployerToAttach.getClass(), positieEmployerCollectionPositieEmployerToAttach.getPositieEmployerPK());
+                attachedPositieEmployerCollection.add(positieEmployerCollectionPositieEmployerToAttach);
+            }
+            project.setPositieEmployerCollection(attachedPositieEmployerCollection);
             em.persist(project);
             if (headquarterid != null) {
                 headquarterid.getProjectCollection().add(project);
                 headquarterid = em.merge(headquarterid);
+            }
+            for (PositieEmployer positieEmployerCollectionPositieEmployer : project.getPositieEmployerCollection()) {
+                Project oldProjectidOfPositieEmployerCollectionPositieEmployer = positieEmployerCollectionPositieEmployer.getProjectid();
+                positieEmployerCollectionPositieEmployer.setProjectid(project);
+                positieEmployerCollectionPositieEmployer = em.merge(positieEmployerCollectionPositieEmployer);
+                if (oldProjectidOfPositieEmployerCollectionPositieEmployer != null) {
+                    oldProjectidOfPositieEmployerCollectionPositieEmployer.getPositieEmployerCollection().remove(positieEmployerCollectionPositieEmployer);
+                    oldProjectidOfPositieEmployerCollectionPositieEmployer = em.merge(oldProjectidOfPositieEmployerCollectionPositieEmployer);
+                }
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -69,10 +90,19 @@ public class ProjectJpaController implements Serializable {
             Project persistentProject = em.find(Project.class, project.getProjectid());
             HeadquarterInfo headquarteridOld = persistentProject.getHeadquarterid();
             HeadquarterInfo headquarteridNew = project.getHeadquarterid();
+            Collection<PositieEmployer> positieEmployerCollectionOld = persistentProject.getPositieEmployerCollection();
+            Collection<PositieEmployer> positieEmployerCollectionNew = project.getPositieEmployerCollection();
             if (headquarteridNew != null) {
                 headquarteridNew = em.getReference(headquarteridNew.getClass(), headquarteridNew.getHeadquarterid());
                 project.setHeadquarterid(headquarteridNew);
             }
+            Collection<PositieEmployer> attachedPositieEmployerCollectionNew = new ArrayList<PositieEmployer>();
+            for (PositieEmployer positieEmployerCollectionNewPositieEmployerToAttach : positieEmployerCollectionNew) {
+                positieEmployerCollectionNewPositieEmployerToAttach = em.getReference(positieEmployerCollectionNewPositieEmployerToAttach.getClass(), positieEmployerCollectionNewPositieEmployerToAttach.getPositieEmployerPK());
+                attachedPositieEmployerCollectionNew.add(positieEmployerCollectionNewPositieEmployerToAttach);
+            }
+            positieEmployerCollectionNew = attachedPositieEmployerCollectionNew;
+            project.setPositieEmployerCollection(positieEmployerCollectionNew);
             project = em.merge(project);
             if (headquarteridOld != null && !headquarteridOld.equals(headquarteridNew)) {
                 headquarteridOld.getProjectCollection().remove(project);
@@ -81,6 +111,23 @@ public class ProjectJpaController implements Serializable {
             if (headquarteridNew != null && !headquarteridNew.equals(headquarteridOld)) {
                 headquarteridNew.getProjectCollection().add(project);
                 headquarteridNew = em.merge(headquarteridNew);
+            }
+            for (PositieEmployer positieEmployerCollectionOldPositieEmployer : positieEmployerCollectionOld) {
+                if (!positieEmployerCollectionNew.contains(positieEmployerCollectionOldPositieEmployer)) {
+                    positieEmployerCollectionOldPositieEmployer.setProjectid(null);
+                    positieEmployerCollectionOldPositieEmployer = em.merge(positieEmployerCollectionOldPositieEmployer);
+                }
+            }
+            for (PositieEmployer positieEmployerCollectionNewPositieEmployer : positieEmployerCollectionNew) {
+                if (!positieEmployerCollectionOld.contains(positieEmployerCollectionNewPositieEmployer)) {
+                    Project oldProjectidOfPositieEmployerCollectionNewPositieEmployer = positieEmployerCollectionNewPositieEmployer.getProjectid();
+                    positieEmployerCollectionNewPositieEmployer.setProjectid(project);
+                    positieEmployerCollectionNewPositieEmployer = em.merge(positieEmployerCollectionNewPositieEmployer);
+                    if (oldProjectidOfPositieEmployerCollectionNewPositieEmployer != null && !oldProjectidOfPositieEmployerCollectionNewPositieEmployer.equals(project)) {
+                        oldProjectidOfPositieEmployerCollectionNewPositieEmployer.getPositieEmployerCollection().remove(positieEmployerCollectionNewPositieEmployer);
+                        oldProjectidOfPositieEmployerCollectionNewPositieEmployer = em.merge(oldProjectidOfPositieEmployerCollectionNewPositieEmployer);
+                    }
+                }
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -115,6 +162,11 @@ public class ProjectJpaController implements Serializable {
             if (headquarterid != null) {
                 headquarterid.getProjectCollection().remove(project);
                 headquarterid = em.merge(headquarterid);
+            }
+            Collection<PositieEmployer> positieEmployerCollection = project.getPositieEmployerCollection();
+            for (PositieEmployer positieEmployerCollectionPositieEmployer : positieEmployerCollection) {
+                positieEmployerCollectionPositieEmployer.setProjectid(null);
+                positieEmployerCollectionPositieEmployer = em.merge(positieEmployerCollectionPositieEmployer);
             }
             em.remove(project);
             em.getTransaction().commit();

@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
 @Table(name = "project", catalog = "dev2", schema = "")
@@ -32,8 +32,6 @@ import javax.persistence.Table;
     @NamedQuery(name = "Project.findByAllocatedhour", query = "SELECT p FROM Project p WHERE p.allocatedhour = :allocatedhour"),
     @NamedQuery(name = "Project.findByCompanyname", query = "SELECT p FROM Project p WHERE p.companyname = :companyname")})
 public class Project implements Serializable {
-    @OneToMany(mappedBy = "projectid")
-    private Collection<PositieEmployer> positieEmployerCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -51,6 +49,8 @@ public class Project implements Serializable {
     @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id")
     @ManyToOne
     private HeadquarterInfo headquarterid;
+    @OneToMany(mappedBy = "projectid")
+    private Collection<PositieEmployer> positieEmployerCollection;
 
     public Project() {
     }
@@ -107,6 +107,14 @@ public class Project implements Serializable {
         this.headquarterid = headquarterid;
     }
 
+    public Collection<PositieEmployer> getPositieEmployerCollection() {
+        return positieEmployerCollection;
+    }
+
+    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
+        this.positieEmployerCollection = positieEmployerCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -130,14 +138,6 @@ public class Project implements Serializable {
     @Override
     public String toString() {
         return "Model.Project[ projectid=" + projectid + " ]";
-    }
-
-    public Collection<PositieEmployer> getPositieEmployerCollection() {
-        return positieEmployerCollection;
-    }
-
-    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
-        this.positieEmployerCollection = positieEmployerCollection;
     }
     
 }

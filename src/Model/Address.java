@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
 @Table(name = "address", catalog = "dev2", schema = "")

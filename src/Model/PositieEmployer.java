@@ -16,10 +16,10 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
-@Table(name = "positie_employer")
+@Table(name = "positie_employer", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "PositieEmployer.findAll", query = "SELECT p FROM PositieEmployer p"),
     @NamedQuery(name = "PositieEmployer.findByPositieid", query = "SELECT p FROM PositieEmployer p WHERE p.positieEmployerPK.positieid = :positieid"),
@@ -28,18 +28,18 @@ public class PositieEmployer implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected PositieEmployerPK positieEmployerPK;
-    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", insertable = false, updatable = false)
+    @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id", nullable = false)
     @ManyToOne(optional = false)
-    private Employee employee;
-    @JoinColumn(name = "Positie_id", referencedColumnName = "Positie_id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private PositieDescription positieDescription;
+    private HeadquarterInfo headquarterid;
     @JoinColumn(name = "Project_id", referencedColumnName = "Project_id")
     @ManyToOne
     private Project projectid;
-    @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id")
+    @JoinColumn(name = "Positie_id", referencedColumnName = "Positie_id", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private HeadquarterInfo headquarterid;
+    private PositieDescription positieDescription;
+    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Employee employee;
 
     public PositieEmployer() {
     }
@@ -60,20 +60,12 @@ public class PositieEmployer implements Serializable {
         this.positieEmployerPK = positieEmployerPK;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public HeadquarterInfo getHeadquarterid() {
+        return headquarterid;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public PositieDescription getPositieDescription() {
-        return positieDescription;
-    }
-
-    public void setPositieDescription(PositieDescription positieDescription) {
-        this.positieDescription = positieDescription;
+    public void setHeadquarterid(HeadquarterInfo headquarterid) {
+        this.headquarterid = headquarterid;
     }
 
     public Project getProjectid() {
@@ -84,12 +76,20 @@ public class PositieEmployer implements Serializable {
         this.projectid = projectid;
     }
 
-    public HeadquarterInfo getHeadquarterid() {
-        return headquarterid;
+    public PositieDescription getPositieDescription() {
+        return positieDescription;
     }
 
-    public void setHeadquarterid(HeadquarterInfo headquarterid) {
-        this.headquarterid = headquarterid;
+    public void setPositieDescription(PositieDescription positieDescription) {
+        this.positieDescription = positieDescription;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override

@@ -22,7 +22,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
 @Table(name = "headquarter_info", catalog = "dev2", schema = "")
@@ -33,8 +33,6 @@ import javax.persistence.Table;
     @NamedQuery(name = "HeadquarterInfo.findByRoomamount", query = "SELECT h FROM HeadquarterInfo h WHERE h.roomamount = :roomamount"),
     @NamedQuery(name = "HeadquarterInfo.findByMonthrent", query = "SELECT h FROM HeadquarterInfo h WHERE h.monthrent = :monthrent")})
 public class HeadquarterInfo implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "headquarterid")
-    private Collection<PositieEmployer> positieEmployerCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -56,6 +54,8 @@ public class HeadquarterInfo implements Serializable {
     private Collection<Address> addressCollection;
     @OneToMany(mappedBy = "headquarterid")
     private Collection<Project> projectCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "headquarterid")
+    private Collection<PositieEmployer> positieEmployerCollection;
 
     public HeadquarterInfo() {
     }
@@ -117,6 +117,14 @@ public class HeadquarterInfo implements Serializable {
         this.projectCollection = projectCollection;
     }
 
+    public Collection<PositieEmployer> getPositieEmployerCollection() {
+        return positieEmployerCollection;
+    }
+
+    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
+        this.positieEmployerCollection = positieEmployerCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -140,14 +148,6 @@ public class HeadquarterInfo implements Serializable {
     @Override
     public String toString() {
         return "Model.HeadquarterInfo[ headquarterid=" + headquarterid + " ]";
-    }
-
-    public Collection<PositieEmployer> getPositieEmployerCollection() {
-        return positieEmployerCollection;
-    }
-
-    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
-        this.positieEmployerCollection = positieEmployerCollection;
     }
     
 }

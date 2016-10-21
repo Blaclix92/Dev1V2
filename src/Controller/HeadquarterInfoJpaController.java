@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Controller.exceptions.IllegalOrphanException;
 import Controller.exceptions.NonexistentEntityException;
 import Controller.exceptions.PreexistingEntityException;
 import java.io.Serializable;
@@ -17,13 +18,14 @@ import Model.HeadquarterInfo;
 import java.util.ArrayList;
 import java.util.Collection;
 import Model.Project;
+import Model.PositieEmployer;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class HeadquarterInfoJpaController implements Serializable {
 
@@ -43,6 +45,9 @@ public class HeadquarterInfoJpaController implements Serializable {
         if (headquarterInfo.getProjectCollection() == null) {
             headquarterInfo.setProjectCollection(new ArrayList<Project>());
         }
+        if (headquarterInfo.getPositieEmployerCollection() == null) {
+            headquarterInfo.setPositieEmployerCollection(new ArrayList<PositieEmployer>());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -59,6 +64,12 @@ public class HeadquarterInfoJpaController implements Serializable {
                 attachedProjectCollection.add(projectCollectionProjectToAttach);
             }
             headquarterInfo.setProjectCollection(attachedProjectCollection);
+            Collection<PositieEmployer> attachedPositieEmployerCollection = new ArrayList<PositieEmployer>();
+            for (PositieEmployer positieEmployerCollectionPositieEmployerToAttach : headquarterInfo.getPositieEmployerCollection()) {
+                positieEmployerCollectionPositieEmployerToAttach = em.getReference(positieEmployerCollectionPositieEmployerToAttach.getClass(), positieEmployerCollectionPositieEmployerToAttach.getPositieEmployerPK());
+                attachedPositieEmployerCollection.add(positieEmployerCollectionPositieEmployerToAttach);
+            }
+            headquarterInfo.setPositieEmployerCollection(attachedPositieEmployerCollection);
             em.persist(headquarterInfo);
             for (Address addressCollectionAddress : headquarterInfo.getAddressCollection()) {
                 addressCollectionAddress.getHeadquarterInfoCollection().add(headquarterInfo);
@@ -71,6 +82,15 @@ public class HeadquarterInfoJpaController implements Serializable {
                 if (oldHeadquarteridOfProjectCollectionProject != null) {
                     oldHeadquarteridOfProjectCollectionProject.getProjectCollection().remove(projectCollectionProject);
                     oldHeadquarteridOfProjectCollectionProject = em.merge(oldHeadquarteridOfProjectCollectionProject);
+                }
+            }
+            for (PositieEmployer positieEmployerCollectionPositieEmployer : headquarterInfo.getPositieEmployerCollection()) {
+                HeadquarterInfo oldHeadquarteridOfPositieEmployerCollectionPositieEmployer = positieEmployerCollectionPositieEmployer.getHeadquarterid();
+                positieEmployerCollectionPositieEmployer.setHeadquarterid(headquarterInfo);
+                positieEmployerCollectionPositieEmployer = em.merge(positieEmployerCollectionPositieEmployer);
+                if (oldHeadquarteridOfPositieEmployerCollectionPositieEmployer != null) {
+                    oldHeadquarteridOfPositieEmployerCollectionPositieEmployer.getPositieEmployerCollection().remove(positieEmployerCollectionPositieEmployer);
+                    oldHeadquarteridOfPositieEmployerCollectionPositieEmployer = em.merge(oldHeadquarteridOfPositieEmployerCollectionPositieEmployer);
                 }
             }
             em.getTransaction().commit();
@@ -86,7 +106,7 @@ public class HeadquarterInfoJpaController implements Serializable {
         }
     }
 
-    public void edit(HeadquarterInfo headquarterInfo) throws NonexistentEntityException, Exception {
+    public void edit(HeadquarterInfo headquarterInfo) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -96,6 +116,20 @@ public class HeadquarterInfoJpaController implements Serializable {
             Collection<Address> addressCollectionNew = headquarterInfo.getAddressCollection();
             Collection<Project> projectCollectionOld = persistentHeadquarterInfo.getProjectCollection();
             Collection<Project> projectCollectionNew = headquarterInfo.getProjectCollection();
+            Collection<PositieEmployer> positieEmployerCollectionOld = persistentHeadquarterInfo.getPositieEmployerCollection();
+            Collection<PositieEmployer> positieEmployerCollectionNew = headquarterInfo.getPositieEmployerCollection();
+            List<String> illegalOrphanMessages = null;
+            for (PositieEmployer positieEmployerCollectionOldPositieEmployer : positieEmployerCollectionOld) {
+                if (!positieEmployerCollectionNew.contains(positieEmployerCollectionOldPositieEmployer)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain PositieEmployer " + positieEmployerCollectionOldPositieEmployer + " since its headquarterid field is not nullable.");
+                }
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
             Collection<Address> attachedAddressCollectionNew = new ArrayList<Address>();
             for (Address addressCollectionNewAddressToAttach : addressCollectionNew) {
                 addressCollectionNewAddressToAttach = em.getReference(addressCollectionNewAddressToAttach.getClass(), addressCollectionNewAddressToAttach.getAddressPK());
@@ -110,6 +144,13 @@ public class HeadquarterInfoJpaController implements Serializable {
             }
             projectCollectionNew = attachedProjectCollectionNew;
             headquarterInfo.setProjectCollection(projectCollectionNew);
+            Collection<PositieEmployer> attachedPositieEmployerCollectionNew = new ArrayList<PositieEmployer>();
+            for (PositieEmployer positieEmployerCollectionNewPositieEmployerToAttach : positieEmployerCollectionNew) {
+                positieEmployerCollectionNewPositieEmployerToAttach = em.getReference(positieEmployerCollectionNewPositieEmployerToAttach.getClass(), positieEmployerCollectionNewPositieEmployerToAttach.getPositieEmployerPK());
+                attachedPositieEmployerCollectionNew.add(positieEmployerCollectionNewPositieEmployerToAttach);
+            }
+            positieEmployerCollectionNew = attachedPositieEmployerCollectionNew;
+            headquarterInfo.setPositieEmployerCollection(positieEmployerCollectionNew);
             headquarterInfo = em.merge(headquarterInfo);
             for (Address addressCollectionOldAddress : addressCollectionOld) {
                 if (!addressCollectionNew.contains(addressCollectionOldAddress)) {
@@ -140,6 +181,17 @@ public class HeadquarterInfoJpaController implements Serializable {
                     }
                 }
             }
+            for (PositieEmployer positieEmployerCollectionNewPositieEmployer : positieEmployerCollectionNew) {
+                if (!positieEmployerCollectionOld.contains(positieEmployerCollectionNewPositieEmployer)) {
+                    HeadquarterInfo oldHeadquarteridOfPositieEmployerCollectionNewPositieEmployer = positieEmployerCollectionNewPositieEmployer.getHeadquarterid();
+                    positieEmployerCollectionNewPositieEmployer.setHeadquarterid(headquarterInfo);
+                    positieEmployerCollectionNewPositieEmployer = em.merge(positieEmployerCollectionNewPositieEmployer);
+                    if (oldHeadquarteridOfPositieEmployerCollectionNewPositieEmployer != null && !oldHeadquarteridOfPositieEmployerCollectionNewPositieEmployer.equals(headquarterInfo)) {
+                        oldHeadquarteridOfPositieEmployerCollectionNewPositieEmployer.getPositieEmployerCollection().remove(positieEmployerCollectionNewPositieEmployer);
+                        oldHeadquarteridOfPositieEmployerCollectionNewPositieEmployer = em.merge(oldHeadquarteridOfPositieEmployerCollectionNewPositieEmployer);
+                    }
+                }
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -157,7 +209,7 @@ public class HeadquarterInfoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -168,6 +220,17 @@ public class HeadquarterInfoJpaController implements Serializable {
                 headquarterInfo.getHeadquarterid();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The headquarterInfo with id " + id + " no longer exists.", enfe);
+            }
+            List<String> illegalOrphanMessages = null;
+            Collection<PositieEmployer> positieEmployerCollectionOrphanCheck = headquarterInfo.getPositieEmployerCollection();
+            for (PositieEmployer positieEmployerCollectionOrphanCheckPositieEmployer : positieEmployerCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This HeadquarterInfo (" + headquarterInfo + ") cannot be destroyed since the PositieEmployer " + positieEmployerCollectionOrphanCheckPositieEmployer + " in its positieEmployerCollection field has a non-nullable headquarterid field.");
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             Collection<Address> addressCollection = headquarterInfo.getAddressCollection();
             for (Address addressCollectionAddress : addressCollection) {

@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
 @Table(name = "employee", catalog = "dev2", schema = "")
@@ -29,8 +29,6 @@ import javax.persistence.Table;
     @NamedQuery(name = "Employee.findByEmployeename", query = "SELECT e FROM Employee e WHERE e.employeename = :employeename"),
     @NamedQuery(name = "Employee.findBySurname", query = "SELECT e FROM Employee e WHERE e.surname = :surname")})
 public class Employee implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<PositieEmployer> positieEmployerCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -44,6 +42,8 @@ public class Employee implements Serializable {
     private String surname;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Collection<Degree> degreeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private Collection<PositieEmployer> positieEmployerCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Collection<WorkingAddress> workingAddressCollection;
 
@@ -92,6 +92,14 @@ public class Employee implements Serializable {
         this.degreeCollection = degreeCollection;
     }
 
+    public Collection<PositieEmployer> getPositieEmployerCollection() {
+        return positieEmployerCollection;
+    }
+
+    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
+        this.positieEmployerCollection = positieEmployerCollection;
+    }
+
     public Collection<WorkingAddress> getWorkingAddressCollection() {
         return workingAddressCollection;
     }
@@ -123,14 +131,6 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Model.Employee[ bsn=" + bsn + " ]";
-    }
-
-    public Collection<PositieEmployer> getPositieEmployerCollection() {
-        return positieEmployerCollection;
-    }
-
-    public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
-        this.positieEmployerCollection = positieEmployerCollection;
     }
     
 }

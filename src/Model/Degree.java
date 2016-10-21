@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 @Entity
 @Table(name = "degree", catalog = "dev2", schema = "")
@@ -35,12 +35,12 @@ public class Degree implements Serializable {
     @Basic(optional = false)
     @Column(name = "Course_name", nullable = false, length = 255)
     private String coursename;
-    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Employee employee;
     @JoinColumn(name = "School_id", referencedColumnName = "School_id", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private School school;
+    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Employee employee;
 
     public Degree() {
     }
@@ -74,20 +74,20 @@ public class Degree implements Serializable {
         this.coursename = coursename;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     public School getSchool() {
         return school;
     }
 
     public void setSchool(School school) {
         this.school = school;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override

@@ -17,6 +17,7 @@ import Model.Degree;
 import Model.Employee;
 import java.util.ArrayList;
 import java.util.Collection;
+import Model.PositieEmployer;
 import Model.WorkingAddress;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -24,7 +25,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class EmployeeJpaController implements Serializable {
 
@@ -41,6 +42,9 @@ public class EmployeeJpaController implements Serializable {
         if (employee.getDegreeCollection() == null) {
             employee.setDegreeCollection(new ArrayList<Degree>());
         }
+        if (employee.getPositieEmployerCollection() == null) {
+            employee.setPositieEmployerCollection(new ArrayList<PositieEmployer>());
+        }
         if (employee.getWorkingAddressCollection() == null) {
             employee.setWorkingAddressCollection(new ArrayList<WorkingAddress>());
         }
@@ -54,6 +58,12 @@ public class EmployeeJpaController implements Serializable {
                 attachedDegreeCollection.add(degreeCollectionDegreeToAttach);
             }
             employee.setDegreeCollection(attachedDegreeCollection);
+            Collection<PositieEmployer> attachedPositieEmployerCollection = new ArrayList<PositieEmployer>();
+            for (PositieEmployer positieEmployerCollectionPositieEmployerToAttach : employee.getPositieEmployerCollection()) {
+                positieEmployerCollectionPositieEmployerToAttach = em.getReference(positieEmployerCollectionPositieEmployerToAttach.getClass(), positieEmployerCollectionPositieEmployerToAttach.getPositieEmployerPK());
+                attachedPositieEmployerCollection.add(positieEmployerCollectionPositieEmployerToAttach);
+            }
+            employee.setPositieEmployerCollection(attachedPositieEmployerCollection);
             Collection<WorkingAddress> attachedWorkingAddressCollection = new ArrayList<WorkingAddress>();
             for (WorkingAddress workingAddressCollectionWorkingAddressToAttach : employee.getWorkingAddressCollection()) {
                 workingAddressCollectionWorkingAddressToAttach = em.getReference(workingAddressCollectionWorkingAddressToAttach.getClass(), workingAddressCollectionWorkingAddressToAttach.getWorkingAddressPK());
@@ -68,6 +78,15 @@ public class EmployeeJpaController implements Serializable {
                 if (oldEmployeeOfDegreeCollectionDegree != null) {
                     oldEmployeeOfDegreeCollectionDegree.getDegreeCollection().remove(degreeCollectionDegree);
                     oldEmployeeOfDegreeCollectionDegree = em.merge(oldEmployeeOfDegreeCollectionDegree);
+                }
+            }
+            for (PositieEmployer positieEmployerCollectionPositieEmployer : employee.getPositieEmployerCollection()) {
+                Employee oldEmployeeOfPositieEmployerCollectionPositieEmployer = positieEmployerCollectionPositieEmployer.getEmployee();
+                positieEmployerCollectionPositieEmployer.setEmployee(employee);
+                positieEmployerCollectionPositieEmployer = em.merge(positieEmployerCollectionPositieEmployer);
+                if (oldEmployeeOfPositieEmployerCollectionPositieEmployer != null) {
+                    oldEmployeeOfPositieEmployerCollectionPositieEmployer.getPositieEmployerCollection().remove(positieEmployerCollectionPositieEmployer);
+                    oldEmployeeOfPositieEmployerCollectionPositieEmployer = em.merge(oldEmployeeOfPositieEmployerCollectionPositieEmployer);
                 }
             }
             for (WorkingAddress workingAddressCollectionWorkingAddress : employee.getWorkingAddressCollection()) {
@@ -100,6 +119,8 @@ public class EmployeeJpaController implements Serializable {
             Employee persistentEmployee = em.find(Employee.class, employee.getBsn());
             Collection<Degree> degreeCollectionOld = persistentEmployee.getDegreeCollection();
             Collection<Degree> degreeCollectionNew = employee.getDegreeCollection();
+            Collection<PositieEmployer> positieEmployerCollectionOld = persistentEmployee.getPositieEmployerCollection();
+            Collection<PositieEmployer> positieEmployerCollectionNew = employee.getPositieEmployerCollection();
             Collection<WorkingAddress> workingAddressCollectionOld = persistentEmployee.getWorkingAddressCollection();
             Collection<WorkingAddress> workingAddressCollectionNew = employee.getWorkingAddressCollection();
             List<String> illegalOrphanMessages = null;
@@ -109,6 +130,14 @@ public class EmployeeJpaController implements Serializable {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
                     illegalOrphanMessages.add("You must retain Degree " + degreeCollectionOldDegree + " since its employee field is not nullable.");
+                }
+            }
+            for (PositieEmployer positieEmployerCollectionOldPositieEmployer : positieEmployerCollectionOld) {
+                if (!positieEmployerCollectionNew.contains(positieEmployerCollectionOldPositieEmployer)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain PositieEmployer " + positieEmployerCollectionOldPositieEmployer + " since its employee field is not nullable.");
                 }
             }
             for (WorkingAddress workingAddressCollectionOldWorkingAddress : workingAddressCollectionOld) {
@@ -129,6 +158,13 @@ public class EmployeeJpaController implements Serializable {
             }
             degreeCollectionNew = attachedDegreeCollectionNew;
             employee.setDegreeCollection(degreeCollectionNew);
+            Collection<PositieEmployer> attachedPositieEmployerCollectionNew = new ArrayList<PositieEmployer>();
+            for (PositieEmployer positieEmployerCollectionNewPositieEmployerToAttach : positieEmployerCollectionNew) {
+                positieEmployerCollectionNewPositieEmployerToAttach = em.getReference(positieEmployerCollectionNewPositieEmployerToAttach.getClass(), positieEmployerCollectionNewPositieEmployerToAttach.getPositieEmployerPK());
+                attachedPositieEmployerCollectionNew.add(positieEmployerCollectionNewPositieEmployerToAttach);
+            }
+            positieEmployerCollectionNew = attachedPositieEmployerCollectionNew;
+            employee.setPositieEmployerCollection(positieEmployerCollectionNew);
             Collection<WorkingAddress> attachedWorkingAddressCollectionNew = new ArrayList<WorkingAddress>();
             for (WorkingAddress workingAddressCollectionNewWorkingAddressToAttach : workingAddressCollectionNew) {
                 workingAddressCollectionNewWorkingAddressToAttach = em.getReference(workingAddressCollectionNewWorkingAddressToAttach.getClass(), workingAddressCollectionNewWorkingAddressToAttach.getWorkingAddressPK());
@@ -145,6 +181,17 @@ public class EmployeeJpaController implements Serializable {
                     if (oldEmployeeOfDegreeCollectionNewDegree != null && !oldEmployeeOfDegreeCollectionNewDegree.equals(employee)) {
                         oldEmployeeOfDegreeCollectionNewDegree.getDegreeCollection().remove(degreeCollectionNewDegree);
                         oldEmployeeOfDegreeCollectionNewDegree = em.merge(oldEmployeeOfDegreeCollectionNewDegree);
+                    }
+                }
+            }
+            for (PositieEmployer positieEmployerCollectionNewPositieEmployer : positieEmployerCollectionNew) {
+                if (!positieEmployerCollectionOld.contains(positieEmployerCollectionNewPositieEmployer)) {
+                    Employee oldEmployeeOfPositieEmployerCollectionNewPositieEmployer = positieEmployerCollectionNewPositieEmployer.getEmployee();
+                    positieEmployerCollectionNewPositieEmployer.setEmployee(employee);
+                    positieEmployerCollectionNewPositieEmployer = em.merge(positieEmployerCollectionNewPositieEmployer);
+                    if (oldEmployeeOfPositieEmployerCollectionNewPositieEmployer != null && !oldEmployeeOfPositieEmployerCollectionNewPositieEmployer.equals(employee)) {
+                        oldEmployeeOfPositieEmployerCollectionNewPositieEmployer.getPositieEmployerCollection().remove(positieEmployerCollectionNewPositieEmployer);
+                        oldEmployeeOfPositieEmployerCollectionNewPositieEmployer = em.merge(oldEmployeeOfPositieEmployerCollectionNewPositieEmployer);
                     }
                 }
             }
@@ -195,6 +242,13 @@ public class EmployeeJpaController implements Serializable {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
                 illegalOrphanMessages.add("This Employee (" + employee + ") cannot be destroyed since the Degree " + degreeCollectionOrphanCheckDegree + " in its degreeCollection field has a non-nullable employee field.");
+            }
+            Collection<PositieEmployer> positieEmployerCollectionOrphanCheck = employee.getPositieEmployerCollection();
+            for (PositieEmployer positieEmployerCollectionOrphanCheckPositieEmployer : positieEmployerCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Employee (" + employee + ") cannot be destroyed since the PositieEmployer " + positieEmployerCollectionOrphanCheckPositieEmployer + " in its positieEmployerCollection field has a non-nullable employee field.");
             }
             Collection<WorkingAddress> workingAddressCollectionOrphanCheck = employee.getWorkingAddressCollection();
             for (WorkingAddress workingAddressCollectionOrphanCheckWorkingAddress : workingAddressCollectionOrphanCheck) {

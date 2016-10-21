@@ -12,10 +12,10 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import Model.Employee;
-import Model.PositieDescription;
-import Model.Project;
 import Model.HeadquarterInfo;
+import Model.Project;
+import Model.PositieDescription;
+import Model.Employee;
 import Model.PositieEmployer;
 import Model.PositieEmployerPK;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class PositieEmployerJpaController implements Serializable {
 
@@ -41,48 +41,48 @@ public class PositieEmployerJpaController implements Serializable {
         if (positieEmployer.getPositieEmployerPK() == null) {
             positieEmployer.setPositieEmployerPK(new PositieEmployerPK());
         }
-        positieEmployer.getPositieEmployerPK().setBsn(positieEmployer.getEmployee().getBsn());
         positieEmployer.getPositieEmployerPK().setPositieid(positieEmployer.getPositieDescription().getPositieid());
+        positieEmployer.getPositieEmployerPK().setBsn(positieEmployer.getEmployee().getBsn());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Employee employee = positieEmployer.getEmployee();
-            if (employee != null) {
-                employee = em.getReference(employee.getClass(), employee.getBsn());
-                positieEmployer.setEmployee(employee);
-            }
-            PositieDescription positieDescription = positieEmployer.getPositieDescription();
-            if (positieDescription != null) {
-                positieDescription = em.getReference(positieDescription.getClass(), positieDescription.getPositieid());
-                positieEmployer.setPositieDescription(positieDescription);
+            HeadquarterInfo headquarterid = positieEmployer.getHeadquarterid();
+            if (headquarterid != null) {
+                headquarterid = em.getReference(headquarterid.getClass(), headquarterid.getHeadquarterid());
+                positieEmployer.setHeadquarterid(headquarterid);
             }
             Project projectid = positieEmployer.getProjectid();
             if (projectid != null) {
                 projectid = em.getReference(projectid.getClass(), projectid.getProjectid());
                 positieEmployer.setProjectid(projectid);
             }
-            HeadquarterInfo headquarterid = positieEmployer.getHeadquarterid();
-            if (headquarterid != null) {
-                headquarterid = em.getReference(headquarterid.getClass(), headquarterid.getHeadquarterid());
-                positieEmployer.setHeadquarterid(headquarterid);
+            PositieDescription positieDescription = positieEmployer.getPositieDescription();
+            if (positieDescription != null) {
+                positieDescription = em.getReference(positieDescription.getClass(), positieDescription.getPositieid());
+                positieEmployer.setPositieDescription(positieDescription);
+            }
+            Employee employee = positieEmployer.getEmployee();
+            if (employee != null) {
+                employee = em.getReference(employee.getClass(), employee.getBsn());
+                positieEmployer.setEmployee(employee);
             }
             em.persist(positieEmployer);
-            if (employee != null) {
-                employee.getPositieEmployerCollection().add(positieEmployer);
-                employee = em.merge(employee);
-            }
-            if (positieDescription != null) {
-                positieDescription.getPositieEmployerCollection().add(positieEmployer);
-                positieDescription = em.merge(positieDescription);
+            if (headquarterid != null) {
+                headquarterid.getPositieEmployerCollection().add(positieEmployer);
+                headquarterid = em.merge(headquarterid);
             }
             if (projectid != null) {
                 projectid.getPositieEmployerCollection().add(positieEmployer);
                 projectid = em.merge(projectid);
             }
-            if (headquarterid != null) {
-                headquarterid.getPositieEmployerCollection().add(positieEmployer);
-                headquarterid = em.merge(headquarterid);
+            if (positieDescription != null) {
+                positieDescription.getPositieEmployerCollection().add(positieEmployer);
+                positieDescription = em.merge(positieDescription);
+            }
+            if (employee != null) {
+                employee.getPositieEmployerCollection().add(positieEmployer);
+                employee = em.merge(employee);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -98,53 +98,45 @@ public class PositieEmployerJpaController implements Serializable {
     }
 
     public void edit(PositieEmployer positieEmployer) throws NonexistentEntityException, Exception {
-        positieEmployer.getPositieEmployerPK().setBsn(positieEmployer.getEmployee().getBsn());
         positieEmployer.getPositieEmployerPK().setPositieid(positieEmployer.getPositieDescription().getPositieid());
+        positieEmployer.getPositieEmployerPK().setBsn(positieEmployer.getEmployee().getBsn());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             PositieEmployer persistentPositieEmployer = em.find(PositieEmployer.class, positieEmployer.getPositieEmployerPK());
-            Employee employeeOld = persistentPositieEmployer.getEmployee();
-            Employee employeeNew = positieEmployer.getEmployee();
-            PositieDescription positieDescriptionOld = persistentPositieEmployer.getPositieDescription();
-            PositieDescription positieDescriptionNew = positieEmployer.getPositieDescription();
-            Project projectidOld = persistentPositieEmployer.getProjectid();
-            Project projectidNew = positieEmployer.getProjectid();
             HeadquarterInfo headquarteridOld = persistentPositieEmployer.getHeadquarterid();
             HeadquarterInfo headquarteridNew = positieEmployer.getHeadquarterid();
-            if (employeeNew != null) {
-                employeeNew = em.getReference(employeeNew.getClass(), employeeNew.getBsn());
-                positieEmployer.setEmployee(employeeNew);
-            }
-            if (positieDescriptionNew != null) {
-                positieDescriptionNew = em.getReference(positieDescriptionNew.getClass(), positieDescriptionNew.getPositieid());
-                positieEmployer.setPositieDescription(positieDescriptionNew);
+            Project projectidOld = persistentPositieEmployer.getProjectid();
+            Project projectidNew = positieEmployer.getProjectid();
+            PositieDescription positieDescriptionOld = persistentPositieEmployer.getPositieDescription();
+            PositieDescription positieDescriptionNew = positieEmployer.getPositieDescription();
+            Employee employeeOld = persistentPositieEmployer.getEmployee();
+            Employee employeeNew = positieEmployer.getEmployee();
+            if (headquarteridNew != null) {
+                headquarteridNew = em.getReference(headquarteridNew.getClass(), headquarteridNew.getHeadquarterid());
+                positieEmployer.setHeadquarterid(headquarteridNew);
             }
             if (projectidNew != null) {
                 projectidNew = em.getReference(projectidNew.getClass(), projectidNew.getProjectid());
                 positieEmployer.setProjectid(projectidNew);
             }
-            if (headquarteridNew != null) {
-                headquarteridNew = em.getReference(headquarteridNew.getClass(), headquarteridNew.getHeadquarterid());
-                positieEmployer.setHeadquarterid(headquarteridNew);
+            if (positieDescriptionNew != null) {
+                positieDescriptionNew = em.getReference(positieDescriptionNew.getClass(), positieDescriptionNew.getPositieid());
+                positieEmployer.setPositieDescription(positieDescriptionNew);
+            }
+            if (employeeNew != null) {
+                employeeNew = em.getReference(employeeNew.getClass(), employeeNew.getBsn());
+                positieEmployer.setEmployee(employeeNew);
             }
             positieEmployer = em.merge(positieEmployer);
-            if (employeeOld != null && !employeeOld.equals(employeeNew)) {
-                employeeOld.getPositieEmployerCollection().remove(positieEmployer);
-                employeeOld = em.merge(employeeOld);
+            if (headquarteridOld != null && !headquarteridOld.equals(headquarteridNew)) {
+                headquarteridOld.getPositieEmployerCollection().remove(positieEmployer);
+                headquarteridOld = em.merge(headquarteridOld);
             }
-            if (employeeNew != null && !employeeNew.equals(employeeOld)) {
-                employeeNew.getPositieEmployerCollection().add(positieEmployer);
-                employeeNew = em.merge(employeeNew);
-            }
-            if (positieDescriptionOld != null && !positieDescriptionOld.equals(positieDescriptionNew)) {
-                positieDescriptionOld.getPositieEmployerCollection().remove(positieEmployer);
-                positieDescriptionOld = em.merge(positieDescriptionOld);
-            }
-            if (positieDescriptionNew != null && !positieDescriptionNew.equals(positieDescriptionOld)) {
-                positieDescriptionNew.getPositieEmployerCollection().add(positieEmployer);
-                positieDescriptionNew = em.merge(positieDescriptionNew);
+            if (headquarteridNew != null && !headquarteridNew.equals(headquarteridOld)) {
+                headquarteridNew.getPositieEmployerCollection().add(positieEmployer);
+                headquarteridNew = em.merge(headquarteridNew);
             }
             if (projectidOld != null && !projectidOld.equals(projectidNew)) {
                 projectidOld.getPositieEmployerCollection().remove(positieEmployer);
@@ -154,13 +146,21 @@ public class PositieEmployerJpaController implements Serializable {
                 projectidNew.getPositieEmployerCollection().add(positieEmployer);
                 projectidNew = em.merge(projectidNew);
             }
-            if (headquarteridOld != null && !headquarteridOld.equals(headquarteridNew)) {
-                headquarteridOld.getPositieEmployerCollection().remove(positieEmployer);
-                headquarteridOld = em.merge(headquarteridOld);
+            if (positieDescriptionOld != null && !positieDescriptionOld.equals(positieDescriptionNew)) {
+                positieDescriptionOld.getPositieEmployerCollection().remove(positieEmployer);
+                positieDescriptionOld = em.merge(positieDescriptionOld);
             }
-            if (headquarteridNew != null && !headquarteridNew.equals(headquarteridOld)) {
-                headquarteridNew.getPositieEmployerCollection().add(positieEmployer);
-                headquarteridNew = em.merge(headquarteridNew);
+            if (positieDescriptionNew != null && !positieDescriptionNew.equals(positieDescriptionOld)) {
+                positieDescriptionNew.getPositieEmployerCollection().add(positieEmployer);
+                positieDescriptionNew = em.merge(positieDescriptionNew);
+            }
+            if (employeeOld != null && !employeeOld.equals(employeeNew)) {
+                employeeOld.getPositieEmployerCollection().remove(positieEmployer);
+                employeeOld = em.merge(employeeOld);
+            }
+            if (employeeNew != null && !employeeNew.equals(employeeOld)) {
+                employeeNew.getPositieEmployerCollection().add(positieEmployer);
+                employeeNew = em.merge(employeeNew);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -191,25 +191,25 @@ public class PositieEmployerJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The positieEmployer with id " + id + " no longer exists.", enfe);
             }
-            Employee employee = positieEmployer.getEmployee();
-            if (employee != null) {
-                employee.getPositieEmployerCollection().remove(positieEmployer);
-                employee = em.merge(employee);
-            }
-            PositieDescription positieDescription = positieEmployer.getPositieDescription();
-            if (positieDescription != null) {
-                positieDescription.getPositieEmployerCollection().remove(positieEmployer);
-                positieDescription = em.merge(positieDescription);
+            HeadquarterInfo headquarterid = positieEmployer.getHeadquarterid();
+            if (headquarterid != null) {
+                headquarterid.getPositieEmployerCollection().remove(positieEmployer);
+                headquarterid = em.merge(headquarterid);
             }
             Project projectid = positieEmployer.getProjectid();
             if (projectid != null) {
                 projectid.getPositieEmployerCollection().remove(positieEmployer);
                 projectid = em.merge(projectid);
             }
-            HeadquarterInfo headquarterid = positieEmployer.getHeadquarterid();
-            if (headquarterid != null) {
-                headquarterid.getPositieEmployerCollection().remove(positieEmployer);
-                headquarterid = em.merge(headquarterid);
+            PositieDescription positieDescription = positieEmployer.getPositieDescription();
+            if (positieDescription != null) {
+                positieDescription.getPositieEmployerCollection().remove(positieEmployer);
+                positieDescription = em.merge(positieDescription);
+            }
+            Employee employee = positieEmployer.getEmployee();
+            if (employee != null) {
+                employee.getPositieEmployerCollection().remove(positieEmployer);
+                employee = em.merge(employee);
             }
             em.remove(positieEmployer);
             em.getTransaction().commit();

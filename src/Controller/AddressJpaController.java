@@ -25,7 +25,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class AddressJpaController implements Serializable {
 

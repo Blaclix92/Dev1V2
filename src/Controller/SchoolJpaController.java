@@ -23,7 +23,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class SchoolJpaController implements Serializable {
 

@@ -12,8 +12,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import Model.Employee;
 import Model.Address;
+import Model.Employee;
 import Model.WorkingAddress;
 import Model.WorkingAddressPK;
 import java.util.List;
@@ -22,7 +22,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class WorkingAddressJpaController implements Serializable {
 
@@ -39,31 +39,31 @@ public class WorkingAddressJpaController implements Serializable {
         if (workingAddress.getWorkingAddressPK() == null) {
             workingAddress.setWorkingAddressPK(new WorkingAddressPK());
         }
-        workingAddress.getWorkingAddressPK().setBsn(workingAddress.getEmployee().getBsn());
         workingAddress.getWorkingAddressPK().setCountry(workingAddress.getAddress().getAddressPK().getCountry());
+        workingAddress.getWorkingAddressPK().setBsn(workingAddress.getEmployee().getBsn());
         workingAddress.getWorkingAddressPK().setPostalcode(workingAddress.getAddress().getAddressPK().getPostalcode());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Employee employee = workingAddress.getEmployee();
-            if (employee != null) {
-                employee = em.getReference(employee.getClass(), employee.getBsn());
-                workingAddress.setEmployee(employee);
-            }
             Address address = workingAddress.getAddress();
             if (address != null) {
                 address = em.getReference(address.getClass(), address.getAddressPK());
                 workingAddress.setAddress(address);
             }
-            em.persist(workingAddress);
+            Employee employee = workingAddress.getEmployee();
             if (employee != null) {
-                employee.getWorkingAddressCollection().add(workingAddress);
-                employee = em.merge(employee);
+                employee = em.getReference(employee.getClass(), employee.getBsn());
+                workingAddress.setEmployee(employee);
             }
+            em.persist(workingAddress);
             if (address != null) {
                 address.getWorkingAddressCollection().add(workingAddress);
                 address = em.merge(address);
+            }
+            if (employee != null) {
+                employee.getWorkingAddressCollection().add(workingAddress);
+                employee = em.merge(employee);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -79,35 +79,27 @@ public class WorkingAddressJpaController implements Serializable {
     }
 
     public void edit(WorkingAddress workingAddress) throws NonexistentEntityException, Exception {
-        workingAddress.getWorkingAddressPK().setBsn(workingAddress.getEmployee().getBsn());
         workingAddress.getWorkingAddressPK().setCountry(workingAddress.getAddress().getAddressPK().getCountry());
+        workingAddress.getWorkingAddressPK().setBsn(workingAddress.getEmployee().getBsn());
         workingAddress.getWorkingAddressPK().setPostalcode(workingAddress.getAddress().getAddressPK().getPostalcode());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             WorkingAddress persistentWorkingAddress = em.find(WorkingAddress.class, workingAddress.getWorkingAddressPK());
-            Employee employeeOld = persistentWorkingAddress.getEmployee();
-            Employee employeeNew = workingAddress.getEmployee();
             Address addressOld = persistentWorkingAddress.getAddress();
             Address addressNew = workingAddress.getAddress();
-            if (employeeNew != null) {
-                employeeNew = em.getReference(employeeNew.getClass(), employeeNew.getBsn());
-                workingAddress.setEmployee(employeeNew);
-            }
+            Employee employeeOld = persistentWorkingAddress.getEmployee();
+            Employee employeeNew = workingAddress.getEmployee();
             if (addressNew != null) {
                 addressNew = em.getReference(addressNew.getClass(), addressNew.getAddressPK());
                 workingAddress.setAddress(addressNew);
             }
+            if (employeeNew != null) {
+                employeeNew = em.getReference(employeeNew.getClass(), employeeNew.getBsn());
+                workingAddress.setEmployee(employeeNew);
+            }
             workingAddress = em.merge(workingAddress);
-            if (employeeOld != null && !employeeOld.equals(employeeNew)) {
-                employeeOld.getWorkingAddressCollection().remove(workingAddress);
-                employeeOld = em.merge(employeeOld);
-            }
-            if (employeeNew != null && !employeeNew.equals(employeeOld)) {
-                employeeNew.getWorkingAddressCollection().add(workingAddress);
-                employeeNew = em.merge(employeeNew);
-            }
             if (addressOld != null && !addressOld.equals(addressNew)) {
                 addressOld.getWorkingAddressCollection().remove(workingAddress);
                 addressOld = em.merge(addressOld);
@@ -115,6 +107,14 @@ public class WorkingAddressJpaController implements Serializable {
             if (addressNew != null && !addressNew.equals(addressOld)) {
                 addressNew.getWorkingAddressCollection().add(workingAddress);
                 addressNew = em.merge(addressNew);
+            }
+            if (employeeOld != null && !employeeOld.equals(employeeNew)) {
+                employeeOld.getWorkingAddressCollection().remove(workingAddress);
+                employeeOld = em.merge(employeeOld);
+            }
+            if (employeeNew != null && !employeeNew.equals(employeeOld)) {
+                employeeNew.getWorkingAddressCollection().add(workingAddress);
+                employeeNew = em.merge(employeeNew);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -145,15 +145,15 @@ public class WorkingAddressJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The workingAddress with id " + id + " no longer exists.", enfe);
             }
-            Employee employee = workingAddress.getEmployee();
-            if (employee != null) {
-                employee.getWorkingAddressCollection().remove(workingAddress);
-                employee = em.merge(employee);
-            }
             Address address = workingAddress.getAddress();
             if (address != null) {
                 address.getWorkingAddressCollection().remove(workingAddress);
                 address = em.merge(address);
+            }
+            Employee employee = workingAddress.getEmployee();
+            if (employee != null) {
+                employee.getWorkingAddressCollection().remove(workingAddress);
+                employee = em.merge(employee);
             }
             em.remove(workingAddress);
             em.getTransaction().commit();

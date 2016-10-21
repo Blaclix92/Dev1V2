@@ -28,6 +28,7 @@ import Model.Project;
 import Model.School;
 import Model.WorkingAddress;
 import Model.WorkingAddressPK;
+import java.util.ArrayList;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.JFrame;
@@ -103,11 +104,15 @@ public class Test1 {
         
         //Employee Side
         //Project Side
+        ArrayList<Address> a = new ArrayList<>();
+        a.add(address);
         HeadquarterInfo headquarterinfo = new HeadquarterInfo();
         headquarterinfo.setHeadquarterid(5);
         headquarterinfo.setBuildingname("ZPS");
         headquarterinfo.setRoomamount(350);
         headquarterinfo.setMonthrent(85.75);
+        headquarterinfo.setAddressCollection(a);
+        
         
         Project project = new Project();
         project.setProjectid(6);

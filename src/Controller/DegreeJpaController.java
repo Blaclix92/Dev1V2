@@ -14,15 +14,15 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import Model.Employee;
 import Model.School;
+import Model.Employee;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Donovan
+ * @author Benny
  */
 public class DegreeJpaController implements Serializable {
 
@@ -39,30 +39,30 @@ public class DegreeJpaController implements Serializable {
         if (degree.getDegreePK() == null) {
             degree.setDegreePK(new DegreePK());
         }
-        degree.getDegreePK().setSchoolid(degree.getSchool().getSchoolid());
         degree.getDegreePK().setBsn(degree.getEmployee().getBsn());
+        degree.getDegreePK().setSchoolid(degree.getSchool().getSchoolid());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Employee employee = degree.getEmployee();
-            if (employee != null) {
-                employee = em.getReference(employee.getClass(), employee.getBsn());
-                degree.setEmployee(employee);
-            }
             School school = degree.getSchool();
             if (school != null) {
                 school = em.getReference(school.getClass(), school.getSchoolid());
                 degree.setSchool(school);
             }
-            em.persist(degree);
+            Employee employee = degree.getEmployee();
             if (employee != null) {
-                employee.getDegreeCollection().add(degree);
-                employee = em.merge(employee);
+                employee = em.getReference(employee.getClass(), employee.getBsn());
+                degree.setEmployee(employee);
             }
+            em.persist(degree);
             if (school != null) {
                 school.getDegreeCollection().add(degree);
                 school = em.merge(school);
+            }
+            if (employee != null) {
+                employee.getDegreeCollection().add(degree);
+                employee = em.merge(employee);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -78,34 +78,26 @@ public class DegreeJpaController implements Serializable {
     }
 
     public void edit(Degree degree) throws NonexistentEntityException, Exception {
-        degree.getDegreePK().setSchoolid(degree.getSchool().getSchoolid());
         degree.getDegreePK().setBsn(degree.getEmployee().getBsn());
+        degree.getDegreePK().setSchoolid(degree.getSchool().getSchoolid());
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             Degree persistentDegree = em.find(Degree.class, degree.getDegreePK());
-            Employee employeeOld = persistentDegree.getEmployee();
-            Employee employeeNew = degree.getEmployee();
             School schoolOld = persistentDegree.getSchool();
             School schoolNew = degree.getSchool();
-            if (employeeNew != null) {
-                employeeNew = em.getReference(employeeNew.getClass(), employeeNew.getBsn());
-                degree.setEmployee(employeeNew);
-            }
+            Employee employeeOld = persistentDegree.getEmployee();
+            Employee employeeNew = degree.getEmployee();
             if (schoolNew != null) {
                 schoolNew = em.getReference(schoolNew.getClass(), schoolNew.getSchoolid());
                 degree.setSchool(schoolNew);
             }
+            if (employeeNew != null) {
+                employeeNew = em.getReference(employeeNew.getClass(), employeeNew.getBsn());
+                degree.setEmployee(employeeNew);
+            }
             degree = em.merge(degree);
-            if (employeeOld != null && !employeeOld.equals(employeeNew)) {
-                employeeOld.getDegreeCollection().remove(degree);
-                employeeOld = em.merge(employeeOld);
-            }
-            if (employeeNew != null && !employeeNew.equals(employeeOld)) {
-                employeeNew.getDegreeCollection().add(degree);
-                employeeNew = em.merge(employeeNew);
-            }
             if (schoolOld != null && !schoolOld.equals(schoolNew)) {
                 schoolOld.getDegreeCollection().remove(degree);
                 schoolOld = em.merge(schoolOld);
@@ -113,6 +105,14 @@ public class DegreeJpaController implements Serializable {
             if (schoolNew != null && !schoolNew.equals(schoolOld)) {
                 schoolNew.getDegreeCollection().add(degree);
                 schoolNew = em.merge(schoolNew);
+            }
+            if (employeeOld != null && !employeeOld.equals(employeeNew)) {
+                employeeOld.getDegreeCollection().remove(degree);
+                employeeOld = em.merge(employeeOld);
+            }
+            if (employeeNew != null && !employeeNew.equals(employeeOld)) {
+                employeeNew.getDegreeCollection().add(degree);
+                employeeNew = em.merge(employeeNew);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -143,15 +143,15 @@ public class DegreeJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The degree with id " + id + " no longer exists.", enfe);
             }
-            Employee employee = degree.getEmployee();
-            if (employee != null) {
-                employee.getDegreeCollection().remove(degree);
-                employee = em.merge(employee);
-            }
             School school = degree.getSchool();
             if (school != null) {
                 school.getDegreeCollection().remove(degree);
                 school = em.merge(school);
+            }
+            Employee employee = degree.getEmployee();
+            if (employee != null) {
+                employee.getDegreeCollection().remove(degree);
+                employee = em.merge(employee);
             }
             em.remove(degree);
             em.getTransaction().commit();
