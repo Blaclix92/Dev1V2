@@ -11,21 +11,20 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "school")
-@XmlRootElement
+@Table(name = "school", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "School.findAll", query = "SELECT s FROM School s"),
     @NamedQuery(name = "School.findBySchoolid", query = "SELECT s FROM School s WHERE s.schoolid = :schoolid"),
@@ -34,14 +33,15 @@ import javax.xml.bind.annotation.XmlTransient;
 public class School implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "School_id")
+    @Column(name = "School_id", nullable = false)
     private Integer schoolid;
     @Basic(optional = false)
-    @Column(name = "School_name")
+    @Column(name = "School_name", nullable = false, length = 255)
     private String schoolname;
     @Basic(optional = false)
-    @Column(name = "School_level")
+    @Column(name = "School_level", nullable = false, length = 255)
     private String schoollevel;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "school")
     private Collection<Degree> degreeCollection;
@@ -83,7 +83,6 @@ public class School implements Serializable {
         this.schoollevel = schoollevel;
     }
 
-    @XmlTransient
     public Collection<Degree> getDegreeCollection() {
         return degreeCollection;
     }

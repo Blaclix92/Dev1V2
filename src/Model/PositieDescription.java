@@ -11,21 +11,20 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "positie_description")
-@XmlRootElement
+@Table(name = "positie_description", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "PositieDescription.findAll", query = "SELECT p FROM PositieDescription p"),
     @NamedQuery(name = "PositieDescription.findByPositieid", query = "SELECT p FROM PositieDescription p WHERE p.positieid = :positieid"),
@@ -36,13 +35,14 @@ import javax.xml.bind.annotation.XmlTransient;
 public class PositieDescription implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "Positie_id")
+    @Column(name = "Positie_id", nullable = false)
     private Integer positieid;
     @Basic(optional = false)
-    @Column(name = "Positie_name")
+    @Column(name = "Positie_name", nullable = false, length = 255)
     private String positiename;
-    @Column(name = "Positie_description")
+    @Column(name = "Positie_description", length = 255)
     private String positiedescription;
     @Column(name = "Hour_fee")
     private Integer hourfee;
@@ -103,7 +103,6 @@ public class PositieDescription implements Serializable {
         this.amountshours = amountshours;
     }
 
-    @XmlTransient
     public Collection<PositieEmployer> getPositieEmployerCollection() {
         return positieEmployerCollection;
     }

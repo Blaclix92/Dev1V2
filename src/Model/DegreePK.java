@@ -17,13 +17,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class DegreePK implements Serializable {
     @Basic(optional = false)
-    @Column(name = "Degree_id")
+    @Column(name = "Degree_id", nullable = false)
     private int degreeid;
     @Basic(optional = false)
-    @Column(name = "Bsn")
+    @Column(name = "Bsn", nullable = false)
     private int bsn;
     @Basic(optional = false)
-    @Column(name = "School_id")
+    @Column(name = "School_id", nullable = false)
     private int schoolid;
 
     public DegreePK() {

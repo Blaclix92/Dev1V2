@@ -11,21 +11,17 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "address")
-@XmlRootElement
+@Table(name = "address", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a"),
     @NamedQuery(name = "Address.findByCountry", query = "SELECT a FROM Address a WHERE a.addressPK.country = :country"),
@@ -38,15 +34,15 @@ public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected AddressPK addressPK;
-    @Column(name = "City")
+    @Column(name = "City", length = 255)
     private String city;
-    @Column(name = "Street_name")
+    @Column(name = "Street_name", length = 255)
     private String streetname;
     @Column(name = "Building_number")
     private Integer buildingnumber;
     @Column(name = "Building_letter")
     private Character buildingletter;
-    @ManyToMany(mappedBy = "addressCollection")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "address")
     private Collection<HeadquarterInfo> headquarterInfoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "address")
     private Collection<WorkingAddress> workingAddressCollection;
@@ -102,7 +98,6 @@ public class Address implements Serializable {
         this.buildingletter = buildingletter;
     }
 
-    @XmlTransient
     public Collection<HeadquarterInfo> getHeadquarterInfoCollection() {
         return headquarterInfoCollection;
     }
@@ -111,7 +106,6 @@ public class Address implements Serializable {
         this.headquarterInfoCollection = headquarterInfoCollection;
     }
 
-    @XmlTransient
     public Collection<WorkingAddress> getWorkingAddressCollection() {
         return workingAddressCollection;
     }

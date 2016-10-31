@@ -10,6 +10,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,16 +19,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "project")
-@XmlRootElement
+@Table(name = "project", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Project.findAll", query = "SELECT p FROM Project p"),
     @NamedQuery(name = "Project.findByProjectid", query = "SELECT p FROM Project p WHERE p.projectid = :projectid"),
@@ -37,17 +36,18 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Project implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "Project_id")
+    @Column(name = "Project_id", nullable = false)
     private Integer projectid;
-    @Column(name = "Project_name")
+    @Column(name = "Project_name", length = 255)
     private String projectname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "Budget")
+    @Column(name = "Budget", precision = 22)
     private Double budget;
     @Column(name = "Allocated_hour")
     private Integer allocatedhour;
-    @Column(name = "Company_name")
+    @Column(name = "Company_name", length = 255)
     private String companyname;
     @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id")
     @ManyToOne
@@ -110,7 +110,6 @@ public class Project implements Serializable {
         this.headquarterid = headquarterid;
     }
 
-    @XmlTransient
     public Collection<PositieEmployer> getPositieEmployerCollection() {
         return positieEmployerCollection;
     }

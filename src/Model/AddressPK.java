@@ -17,10 +17,10 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class AddressPK implements Serializable {
     @Basic(optional = false)
-    @Column(name = "Country")
+    @Column(name = "Country", nullable = false, length = 255)
     private String country;
     @Basic(optional = false)
-    @Column(name = "Postalcode")
+    @Column(name = "Postalcode", nullable = false, length = 255)
     private String postalcode;
 
     public AddressPK() {

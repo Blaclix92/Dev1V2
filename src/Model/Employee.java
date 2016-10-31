@@ -16,16 +16,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "employee")
-@XmlRootElement
+@Table(name = "employee", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e"),
     @NamedQuery(name = "Employee.findByBsn", query = "SELECT e FROM Employee e WHERE e.bsn = :bsn"),
@@ -35,13 +32,13 @@ public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "Bsn")
+    @Column(name = "Bsn", nullable = false)
     private Integer bsn;
     @Basic(optional = false)
-    @Column(name = "Employee_name")
+    @Column(name = "Employee_name", nullable = false, length = 255)
     private String employeename;
     @Basic(optional = false)
-    @Column(name = "Surname")
+    @Column(name = "Surname", nullable = false, length = 255)
     private String surname;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Collection<Degree> degreeCollection;
@@ -87,7 +84,6 @@ public class Employee implements Serializable {
         this.surname = surname;
     }
 
-    @XmlTransient
     public Collection<Degree> getDegreeCollection() {
         return degreeCollection;
     }
@@ -96,7 +92,6 @@ public class Employee implements Serializable {
         this.degreeCollection = degreeCollection;
     }
 
-    @XmlTransient
     public Collection<PositieEmployer> getPositieEmployerCollection() {
         return positieEmployerCollection;
     }
@@ -105,7 +100,6 @@ public class Employee implements Serializable {
         this.positieEmployerCollection = positieEmployerCollection;
     }
 
-    @XmlTransient
     public Collection<WorkingAddress> getWorkingAddressCollection() {
         return workingAddressCollection;
     }

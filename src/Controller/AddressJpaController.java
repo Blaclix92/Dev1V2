@@ -66,8 +66,13 @@ public class AddressJpaController implements Serializable {
             address.setWorkingAddressCollection(attachedWorkingAddressCollection);
             em.persist(address);
             for (HeadquarterInfo headquarterInfoCollectionHeadquarterInfo : address.getHeadquarterInfoCollection()) {
-                headquarterInfoCollectionHeadquarterInfo.getAddressCollection().add(address);
+                Address oldAddressOfHeadquarterInfoCollectionHeadquarterInfo = headquarterInfoCollectionHeadquarterInfo.getAddress();
+                headquarterInfoCollectionHeadquarterInfo.setAddress(address);
                 headquarterInfoCollectionHeadquarterInfo = em.merge(headquarterInfoCollectionHeadquarterInfo);
+                if (oldAddressOfHeadquarterInfoCollectionHeadquarterInfo != null) {
+                    oldAddressOfHeadquarterInfoCollectionHeadquarterInfo.getHeadquarterInfoCollection().remove(headquarterInfoCollectionHeadquarterInfo);
+                    oldAddressOfHeadquarterInfoCollectionHeadquarterInfo = em.merge(oldAddressOfHeadquarterInfoCollectionHeadquarterInfo);
+                }
             }
             for (WorkingAddress workingAddressCollectionWorkingAddress : address.getWorkingAddressCollection()) {
                 Address oldAddressOfWorkingAddressCollectionWorkingAddress = workingAddressCollectionWorkingAddress.getAddress();
@@ -102,6 +107,14 @@ public class AddressJpaController implements Serializable {
             Collection<WorkingAddress> workingAddressCollectionOld = persistentAddress.getWorkingAddressCollection();
             Collection<WorkingAddress> workingAddressCollectionNew = address.getWorkingAddressCollection();
             List<String> illegalOrphanMessages = null;
+            for (HeadquarterInfo headquarterInfoCollectionOldHeadquarterInfo : headquarterInfoCollectionOld) {
+                if (!headquarterInfoCollectionNew.contains(headquarterInfoCollectionOldHeadquarterInfo)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain HeadquarterInfo " + headquarterInfoCollectionOldHeadquarterInfo + " since its address field is not nullable.");
+                }
+            }
             for (WorkingAddress workingAddressCollectionOldWorkingAddress : workingAddressCollectionOld) {
                 if (!workingAddressCollectionNew.contains(workingAddressCollectionOldWorkingAddress)) {
                     if (illegalOrphanMessages == null) {
@@ -128,16 +141,15 @@ public class AddressJpaController implements Serializable {
             workingAddressCollectionNew = attachedWorkingAddressCollectionNew;
             address.setWorkingAddressCollection(workingAddressCollectionNew);
             address = em.merge(address);
-            for (HeadquarterInfo headquarterInfoCollectionOldHeadquarterInfo : headquarterInfoCollectionOld) {
-                if (!headquarterInfoCollectionNew.contains(headquarterInfoCollectionOldHeadquarterInfo)) {
-                    headquarterInfoCollectionOldHeadquarterInfo.getAddressCollection().remove(address);
-                    headquarterInfoCollectionOldHeadquarterInfo = em.merge(headquarterInfoCollectionOldHeadquarterInfo);
-                }
-            }
             for (HeadquarterInfo headquarterInfoCollectionNewHeadquarterInfo : headquarterInfoCollectionNew) {
                 if (!headquarterInfoCollectionOld.contains(headquarterInfoCollectionNewHeadquarterInfo)) {
-                    headquarterInfoCollectionNewHeadquarterInfo.getAddressCollection().add(address);
+                    Address oldAddressOfHeadquarterInfoCollectionNewHeadquarterInfo = headquarterInfoCollectionNewHeadquarterInfo.getAddress();
+                    headquarterInfoCollectionNewHeadquarterInfo.setAddress(address);
                     headquarterInfoCollectionNewHeadquarterInfo = em.merge(headquarterInfoCollectionNewHeadquarterInfo);
+                    if (oldAddressOfHeadquarterInfoCollectionNewHeadquarterInfo != null && !oldAddressOfHeadquarterInfoCollectionNewHeadquarterInfo.equals(address)) {
+                        oldAddressOfHeadquarterInfoCollectionNewHeadquarterInfo.getHeadquarterInfoCollection().remove(headquarterInfoCollectionNewHeadquarterInfo);
+                        oldAddressOfHeadquarterInfoCollectionNewHeadquarterInfo = em.merge(oldAddressOfHeadquarterInfoCollectionNewHeadquarterInfo);
+                    }
                 }
             }
             for (WorkingAddress workingAddressCollectionNewWorkingAddress : workingAddressCollectionNew) {
@@ -181,6 +193,13 @@ public class AddressJpaController implements Serializable {
                 throw new NonexistentEntityException("The address with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
+            Collection<HeadquarterInfo> headquarterInfoCollectionOrphanCheck = address.getHeadquarterInfoCollection();
+            for (HeadquarterInfo headquarterInfoCollectionOrphanCheckHeadquarterInfo : headquarterInfoCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Address (" + address + ") cannot be destroyed since the HeadquarterInfo " + headquarterInfoCollectionOrphanCheckHeadquarterInfo + " in its headquarterInfoCollection field has a non-nullable address field.");
+            }
             Collection<WorkingAddress> workingAddressCollectionOrphanCheck = address.getWorkingAddressCollection();
             for (WorkingAddress workingAddressCollectionOrphanCheckWorkingAddress : workingAddressCollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
@@ -190,11 +209,6 @@ public class AddressJpaController implements Serializable {
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
-            }
-            Collection<HeadquarterInfo> headquarterInfoCollection = address.getHeadquarterInfoCollection();
-            for (HeadquarterInfo headquarterInfoCollectionHeadquarterInfo : headquarterInfoCollection) {
-                headquarterInfoCollectionHeadquarterInfo.getAddressCollection().remove(address);
-                headquarterInfoCollectionHeadquarterInfo = em.merge(headquarterInfoCollectionHeadquarterInfo);
             }
             em.remove(address);
             em.getTransaction().commit();

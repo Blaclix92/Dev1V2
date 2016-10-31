@@ -15,15 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "degree")
-@XmlRootElement
+@Table(name = "degree", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Degree.findAll", query = "SELECT d FROM Degree d"),
     @NamedQuery(name = "Degree.findByDegreeid", query = "SELECT d FROM Degree d WHERE d.degreePK.degreeid = :degreeid"),
@@ -35,12 +33,12 @@ public class Degree implements Serializable {
     @EmbeddedId
     protected DegreePK degreePK;
     @Basic(optional = false)
-    @Column(name = "Course_name")
+    @Column(name = "Course_name", nullable = false, length = 255)
     private String coursename;
-    @JoinColumn(name = "School_id", referencedColumnName = "School_id", insertable = false, updatable = false)
+    @JoinColumn(name = "School_id", referencedColumnName = "School_id", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private School school;
-    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", insertable = false, updatable = false)
+    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Employee employee;
 

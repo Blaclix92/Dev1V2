@@ -18,15 +18,13 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "working_address")
-@XmlRootElement
+@Table(name = "working_address", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "WorkingAddress.findAll", query = "SELECT w FROM WorkingAddress w"),
     @NamedQuery(name = "WorkingAddress.findByBsn", query = "SELECT w FROM WorkingAddress w WHERE w.workingAddressPK.bsn = :bsn"),
@@ -45,11 +43,11 @@ public class WorkingAddress implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date enddate;
     @JoinColumns({
-        @JoinColumn(name = "Country", referencedColumnName = "Country", insertable = false, updatable = false),
-        @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode", insertable = false, updatable = false)})
+        @JoinColumn(name = "Country", referencedColumnName = "Country", nullable = false, insertable = false, updatable = false),
+        @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode", nullable = false, insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Address address;
-    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", insertable = false, updatable = false)
+    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Employee employee;
 

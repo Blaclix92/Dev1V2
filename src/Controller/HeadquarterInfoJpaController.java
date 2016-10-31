@@ -7,7 +7,6 @@ package Controller;
 
 import Controller.exceptions.IllegalOrphanException;
 import Controller.exceptions.NonexistentEntityException;
-import Controller.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -15,9 +14,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import Model.Address;
 import Model.HeadquarterInfo;
+import Model.Project;
 import java.util.ArrayList;
 import java.util.Collection;
-import Model.Project;
 import Model.PositieEmployer;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -38,10 +37,7 @@ public class HeadquarterInfoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(HeadquarterInfo headquarterInfo) throws PreexistingEntityException, Exception {
-        if (headquarterInfo.getAddressCollection() == null) {
-            headquarterInfo.setAddressCollection(new ArrayList<Address>());
-        }
+    public void create(HeadquarterInfo headquarterInfo) {
         if (headquarterInfo.getProjectCollection() == null) {
             headquarterInfo.setProjectCollection(new ArrayList<Project>());
         }
@@ -52,12 +48,11 @@ public class HeadquarterInfoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Collection<Address> attachedAddressCollection = new ArrayList<Address>();
-            for (Address addressCollectionAddressToAttach : headquarterInfo.getAddressCollection()) {
-                addressCollectionAddressToAttach = em.getReference(addressCollectionAddressToAttach.getClass(), addressCollectionAddressToAttach.getAddressPK());
-                attachedAddressCollection.add(addressCollectionAddressToAttach);
+            Address address = headquarterInfo.getAddress();
+            if (address != null) {
+                address = em.getReference(address.getClass(), address.getAddressPK());
+                headquarterInfo.setAddress(address);
             }
-            headquarterInfo.setAddressCollection(attachedAddressCollection);
             Collection<Project> attachedProjectCollection = new ArrayList<Project>();
             for (Project projectCollectionProjectToAttach : headquarterInfo.getProjectCollection()) {
                 projectCollectionProjectToAttach = em.getReference(projectCollectionProjectToAttach.getClass(), projectCollectionProjectToAttach.getProjectid());
@@ -71,9 +66,9 @@ public class HeadquarterInfoJpaController implements Serializable {
             }
             headquarterInfo.setPositieEmployerCollection(attachedPositieEmployerCollection);
             em.persist(headquarterInfo);
-            for (Address addressCollectionAddress : headquarterInfo.getAddressCollection()) {
-                addressCollectionAddress.getHeadquarterInfoCollection().add(headquarterInfo);
-                addressCollectionAddress = em.merge(addressCollectionAddress);
+            if (address != null) {
+                address.getHeadquarterInfoCollection().add(headquarterInfo);
+                address = em.merge(address);
             }
             for (Project projectCollectionProject : headquarterInfo.getProjectCollection()) {
                 HeadquarterInfo oldHeadquarteridOfProjectCollectionProject = projectCollectionProject.getHeadquarterid();
@@ -94,11 +89,6 @@ public class HeadquarterInfoJpaController implements Serializable {
                 }
             }
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findHeadquarterInfo(headquarterInfo.getHeadquarterid()) != null) {
-                throw new PreexistingEntityException("HeadquarterInfo " + headquarterInfo + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -112,8 +102,8 @@ public class HeadquarterInfoJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             HeadquarterInfo persistentHeadquarterInfo = em.find(HeadquarterInfo.class, headquarterInfo.getHeadquarterid());
-            Collection<Address> addressCollectionOld = persistentHeadquarterInfo.getAddressCollection();
-            Collection<Address> addressCollectionNew = headquarterInfo.getAddressCollection();
+            Address addressOld = persistentHeadquarterInfo.getAddress();
+            Address addressNew = headquarterInfo.getAddress();
             Collection<Project> projectCollectionOld = persistentHeadquarterInfo.getProjectCollection();
             Collection<Project> projectCollectionNew = headquarterInfo.getProjectCollection();
             Collection<PositieEmployer> positieEmployerCollectionOld = persistentHeadquarterInfo.getPositieEmployerCollection();
@@ -130,13 +120,10 @@ public class HeadquarterInfoJpaController implements Serializable {
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            Collection<Address> attachedAddressCollectionNew = new ArrayList<Address>();
-            for (Address addressCollectionNewAddressToAttach : addressCollectionNew) {
-                addressCollectionNewAddressToAttach = em.getReference(addressCollectionNewAddressToAttach.getClass(), addressCollectionNewAddressToAttach.getAddressPK());
-                attachedAddressCollectionNew.add(addressCollectionNewAddressToAttach);
+            if (addressNew != null) {
+                addressNew = em.getReference(addressNew.getClass(), addressNew.getAddressPK());
+                headquarterInfo.setAddress(addressNew);
             }
-            addressCollectionNew = attachedAddressCollectionNew;
-            headquarterInfo.setAddressCollection(addressCollectionNew);
             Collection<Project> attachedProjectCollectionNew = new ArrayList<Project>();
             for (Project projectCollectionNewProjectToAttach : projectCollectionNew) {
                 projectCollectionNewProjectToAttach = em.getReference(projectCollectionNewProjectToAttach.getClass(), projectCollectionNewProjectToAttach.getProjectid());
@@ -152,17 +139,13 @@ public class HeadquarterInfoJpaController implements Serializable {
             positieEmployerCollectionNew = attachedPositieEmployerCollectionNew;
             headquarterInfo.setPositieEmployerCollection(positieEmployerCollectionNew);
             headquarterInfo = em.merge(headquarterInfo);
-            for (Address addressCollectionOldAddress : addressCollectionOld) {
-                if (!addressCollectionNew.contains(addressCollectionOldAddress)) {
-                    addressCollectionOldAddress.getHeadquarterInfoCollection().remove(headquarterInfo);
-                    addressCollectionOldAddress = em.merge(addressCollectionOldAddress);
-                }
+            if (addressOld != null && !addressOld.equals(addressNew)) {
+                addressOld.getHeadquarterInfoCollection().remove(headquarterInfo);
+                addressOld = em.merge(addressOld);
             }
-            for (Address addressCollectionNewAddress : addressCollectionNew) {
-                if (!addressCollectionOld.contains(addressCollectionNewAddress)) {
-                    addressCollectionNewAddress.getHeadquarterInfoCollection().add(headquarterInfo);
-                    addressCollectionNewAddress = em.merge(addressCollectionNewAddress);
-                }
+            if (addressNew != null && !addressNew.equals(addressOld)) {
+                addressNew.getHeadquarterInfoCollection().add(headquarterInfo);
+                addressNew = em.merge(addressNew);
             }
             for (Project projectCollectionOldProject : projectCollectionOld) {
                 if (!projectCollectionNew.contains(projectCollectionOldProject)) {
@@ -232,10 +215,10 @@ public class HeadquarterInfoJpaController implements Serializable {
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            Collection<Address> addressCollection = headquarterInfo.getAddressCollection();
-            for (Address addressCollectionAddress : addressCollection) {
-                addressCollectionAddress.getHeadquarterInfoCollection().remove(headquarterInfo);
-                addressCollectionAddress = em.merge(addressCollectionAddress);
+            Address address = headquarterInfo.getAddress();
+            if (address != null) {
+                address.getHeadquarterInfoCollection().remove(headquarterInfo);
+                address = em.merge(address);
             }
             Collection<Project> projectCollection = headquarterInfo.getProjectCollection();
             for (Project projectCollectionProject : projectCollection) {

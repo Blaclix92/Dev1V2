@@ -7,7 +7,6 @@ package Controller;
 
 import Controller.exceptions.IllegalOrphanException;
 import Controller.exceptions.NonexistentEntityException;
-import Controller.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -36,7 +35,7 @@ public class SchoolJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(School school) throws PreexistingEntityException, Exception {
+    public void create(School school) {
         if (school.getDegreeCollection() == null) {
             school.setDegreeCollection(new ArrayList<Degree>());
         }
@@ -61,11 +60,6 @@ public class SchoolJpaController implements Serializable {
                 }
             }
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findSchool(school.getSchoolid()) != null) {
-                throw new PreexistingEntityException("School " + school + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();

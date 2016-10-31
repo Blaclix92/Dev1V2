@@ -13,15 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "positie_employer")
-@XmlRootElement
+@Table(name = "positie_employer", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "PositieEmployer.findAll", query = "SELECT p FROM PositieEmployer p"),
     @NamedQuery(name = "PositieEmployer.findByPositieid", query = "SELECT p FROM PositieEmployer p WHERE p.positieEmployerPK.positieid = :positieid"),
@@ -30,16 +28,16 @@ public class PositieEmployer implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected PositieEmployerPK positieEmployerPK;
-    @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id")
+    @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id", nullable = false)
     @ManyToOne(optional = false)
     private HeadquarterInfo headquarterid;
     @JoinColumn(name = "Project_id", referencedColumnName = "Project_id")
     @ManyToOne
     private Project projectid;
-    @JoinColumn(name = "Positie_id", referencedColumnName = "Positie_id", insertable = false, updatable = false)
+    @JoinColumn(name = "Positie_id", referencedColumnName = "Positie_id", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private PositieDescription positieDescription;
-    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", insertable = false, updatable = false)
+    @JoinColumn(name = "Bsn", referencedColumnName = "Bsn", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Employee employee;
 

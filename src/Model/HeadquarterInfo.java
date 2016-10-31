@@ -11,24 +11,23 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Benny
  */
 @Entity
-@Table(name = "headquarter_info")
-@XmlRootElement
+@Table(name = "headquarter_info", catalog = "dev2", schema = "")
 @NamedQueries({
     @NamedQuery(name = "HeadquarterInfo.findAll", query = "SELECT h FROM HeadquarterInfo h"),
     @NamedQuery(name = "HeadquarterInfo.findByHeadquarterid", query = "SELECT h FROM HeadquarterInfo h WHERE h.headquarterid = :headquarterid"),
@@ -38,27 +37,27 @@ import javax.xml.bind.annotation.XmlTransient;
 public class HeadquarterInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "Headquarter_id")
+    @Column(name = "Headquarter_id", nullable = false)
     private Integer headquarterid;
     @Basic(optional = false)
-    @Column(name = "Building_name")
+    @Column(name = "Building_name", nullable = false, length = 255)
     private String buildingname;
     @Column(name = "Room_amount")
     private Integer roomamount;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "Month_rent")
+    @Column(name = "Month_rent", precision = 22)
     private Double monthrent;
-    @JoinTable(name = "headquarter_location", joinColumns = {
-        @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id")}, inverseJoinColumns = {
-        @JoinColumn(name = "Country", referencedColumnName = "Country"),
-        @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode")})
-    @ManyToMany
-    private Collection<Address> addressCollection;
     @OneToMany(mappedBy = "headquarterid")
     private Collection<Project> projectCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "headquarterid")
     private Collection<PositieEmployer> positieEmployerCollection;
+    @JoinColumns({
+        @JoinColumn(name = "Country", referencedColumnName = "Country", nullable = false),
+        @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode")})
+    @ManyToOne(optional = false)
+    private Address address;
 
     public HeadquarterInfo() {
     }
@@ -104,16 +103,6 @@ public class HeadquarterInfo implements Serializable {
         this.monthrent = monthrent;
     }
 
-    @XmlTransient
-    public Collection<Address> getAddressCollection() {
-        return addressCollection;
-    }
-
-    public void setAddressCollection(Collection<Address> addressCollection) {
-        this.addressCollection = addressCollection;
-    }
-
-    @XmlTransient
     public Collection<Project> getProjectCollection() {
         return projectCollection;
     }
@@ -122,13 +111,20 @@ public class HeadquarterInfo implements Serializable {
         this.projectCollection = projectCollection;
     }
 
-    @XmlTransient
     public Collection<PositieEmployer> getPositieEmployerCollection() {
         return positieEmployerCollection;
     }
 
     public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
         this.positieEmployerCollection = positieEmployerCollection;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
