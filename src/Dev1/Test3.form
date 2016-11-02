@@ -2835,7 +2835,7 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="EmployeeModifyCrInstitution_BackButton" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="EmployeeModifyCrInstitution_NextButton" min="-2" max="-2" attributes="0"/>
+                                              <Component id="EmployeeModifyCrInstitution_SaveButton" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -2860,7 +2860,7 @@
                                       <EmptySpace pref="332" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="EmployeeModifyCrInstitution_BackButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="EmployeeModifyCrInstitution_NextButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="EmployeeModifyCrInstitution_SaveButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -2917,7 +2917,7 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeModifyCrInstitution_BackButtonActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="EmployeeModifyCrInstitution_NextButton">
+                            <Component class="javax.swing.JButton" name="EmployeeModifyCrInstitution_SaveButton">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="36" style="0"/>
@@ -2925,7 +2925,7 @@
                                 <Property name="text" type="java.lang.String" value="SAVE"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeModifyCrInstitution_NextButtonActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeModifyCrInstitution_SaveButtonActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -3246,7 +3246,7 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="EmployeeModifyCreateProject_BackButton" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="EmployeeModifyCreateProject_NextButton" min="-2" max="-2" attributes="0"/>
+                                              <Component id="EmployeeModifyCreateProject_SaveButton" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -3281,7 +3281,7 @@
                                       <EmptySpace pref="188" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="EmployeeModifyCreateProject_BackButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="EmployeeModifyCreateProject_NextButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="EmployeeModifyCreateProject_SaveButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -3368,7 +3368,7 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeModifyCreateProject_BackButtonActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="EmployeeModifyCreateProject_NextButton">
+                            <Component class="javax.swing.JButton" name="EmployeeModifyCreateProject_SaveButton">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="36" style="0"/>
@@ -3376,7 +3376,7 @@
                                 <Property name="text" type="java.lang.String" value="SAVE"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeModifyCreateProject_NextButtonActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeModifyCreateProject_SaveButtonActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -3443,6 +3443,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProjectComboBoxActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="ProjectGoToPageButton">
                       <Properties>

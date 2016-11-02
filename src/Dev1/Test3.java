@@ -306,7 +306,7 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeModifyCrInstitution_InstituteNameTextfield = new javax.swing.JTextField();
         EmployeeModifyCrInstitution_InstituteLevelTextfield = new javax.swing.JTextField();
         EmployeeModifyCrInstitution_BackButton = new javax.swing.JButton();
-        EmployeeModifyCrInstitution_NextButton = new javax.swing.JButton();
+        EmployeeModifyCrInstitution_SaveButton = new javax.swing.JButton();
         EmployeeModifyCreateJobPositionPanel = new javax.swing.JPanel();
         jLabel76 = new javax.swing.JLabel();
         jLabel77 = new javax.swing.JLabel();
@@ -336,7 +336,7 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeModifyCrProject_AllocatedHoursTextfield = new javax.swing.JTextField();
         EmployeeModifyCrProject_CompanyNameTextfield = new javax.swing.JTextField();
         EmployeeModifyCreateProject_BackButton = new javax.swing.JButton();
-        EmployeeModifyCreateProject_NextButton = new javax.swing.JButton();
+        EmployeeModifyCreateProject_SaveButton = new javax.swing.JButton();
         ProjectPanel = new javax.swing.JPanel();
         ProjectOptionPanel = new javax.swing.JPanel();
         ProjectComboBox = new javax.swing.JComboBox();
@@ -2066,11 +2066,11 @@ public class Test3 extends javax.swing.JFrame {
             }
         });
 
-        EmployeeModifyCrInstitution_NextButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        EmployeeModifyCrInstitution_NextButton.setText("SAVE");
-        EmployeeModifyCrInstitution_NextButton.addActionListener(new java.awt.event.ActionListener() {
+        EmployeeModifyCrInstitution_SaveButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        EmployeeModifyCrInstitution_SaveButton.setText("SAVE");
+        EmployeeModifyCrInstitution_SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmployeeModifyCrInstitution_NextButtonActionPerformed(evt);
+                EmployeeModifyCrInstitution_SaveButtonActionPerformed(evt);
             }
         });
 
@@ -2098,7 +2098,7 @@ public class Test3 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(EmployeeModifyCrInstitution_BackButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EmployeeModifyCrInstitution_NextButton)))
+                        .addComponent(EmployeeModifyCrInstitution_SaveButton)))
                 .addContainerGap())
         );
         EmployeeModifyCreateInstitutionPanelLayout.setVerticalGroup(
@@ -2117,7 +2117,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeModifyCrInstitution_BackButton)
-                    .addComponent(EmployeeModifyCrInstitution_NextButton))
+                    .addComponent(EmployeeModifyCrInstitution_SaveButton))
                 .addContainerGap())
         );
 
@@ -2320,11 +2320,11 @@ public class Test3 extends javax.swing.JFrame {
             }
         });
 
-        EmployeeModifyCreateProject_NextButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        EmployeeModifyCreateProject_NextButton.setText("SAVE");
-        EmployeeModifyCreateProject_NextButton.addActionListener(new java.awt.event.ActionListener() {
+        EmployeeModifyCreateProject_SaveButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        EmployeeModifyCreateProject_SaveButton.setText("SAVE");
+        EmployeeModifyCreateProject_SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmployeeModifyCreateProject_NextButtonActionPerformed(evt);
+                EmployeeModifyCreateProject_SaveButtonActionPerformed(evt);
             }
         });
 
@@ -2356,7 +2356,7 @@ public class Test3 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(EmployeeModifyCreateProject_BackButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EmployeeModifyCreateProject_NextButton)))
+                        .addComponent(EmployeeModifyCreateProject_SaveButton)))
                 .addContainerGap())
         );
         EmployeeModifyCreateProjectPanelLayout.setVerticalGroup(
@@ -2383,7 +2383,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeModifyCreateProject_BackButton)
-                    .addComponent(EmployeeModifyCreateProject_NextButton))
+                    .addComponent(EmployeeModifyCreateProject_SaveButton))
                 .addContainerGap())
         );
 
@@ -2399,6 +2399,11 @@ public class Test3 extends javax.swing.JFrame {
 
         ProjectComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ProjectComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ProjectComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProjectComboBoxActionPerformed(evt);
+            }
+        });
 
         ProjectGoToPageButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ProjectGoToPageButton.setText("Go To Page");
@@ -3418,19 +3423,19 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeGoToPageButtonActionPerformed
 
     private void EmployeeAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
-        // TODO add your handling code here:
+       employeeAddPageController("address");
     }//GEN-LAST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
 
     private void EmployeeAddAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddAddress_OtherButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("crCountry");
     }//GEN-LAST:event_EmployeeAddAddress_OtherButtonActionPerformed
 
     private void EmployeAddAddress_BacktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_BacktButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("basicInfo");
     }//GEN-LAST:event_EmployeAddAddress_BacktButtonActionPerformed
 
     private void EmployeAddAddress_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_NextButtonActionPerformed
-        // TODO add your handling code here:
+     employeeAddPageController("degree");
     }//GEN-LAST:event_EmployeAddAddress_NextButtonActionPerformed
 
     private void EmployeeAddDegree_InstitutionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddDegree_InstitutionComboBoxActionPerformed
@@ -3446,23 +3451,23 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeAddDegree_RemoveButtonActionPerformed
 
     private void EmployeAddDegree_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_NextButtonActionPerformed
-        // TODO add your handling code here:
+        employeeAddPageController("jobPosition");
     }//GEN-LAST:event_EmployeAddDegree_NextButtonActionPerformed
 
     private void EmployeAddAddress_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_BackButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("address");
     }//GEN-LAST:event_EmployeAddAddress_BackButtonActionPerformed
 
     private void EmployeAddDegree_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_OtherButtonActionPerformed
-        // TODO add your handling code here:
+    employeeAddPageController("crInstitution");
     }//GEN-LAST:event_EmployeAddDegree_OtherButtonActionPerformed
 
     private void EmployeeAddJobPosition_OtherPositionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_OtherPositionButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("crJobPosition");
     }//GEN-LAST:event_EmployeeAddJobPosition_OtherPositionButtonActionPerformed
 
     private void EmployeeAddJobPosition_OtherProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_OtherProjectButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("crProject");
     }//GEN-LAST:event_EmployeeAddJobPosition_OtherProjectButtonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -3474,43 +3479,43 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void EmployeAddJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddJobPosition_BackButtonActionPerformed
-        // TODO add your handling code here:
+     employeeAddPageController("degree");
     }//GEN-LAST:event_EmployeAddJobPosition_BackButtonActionPerformed
 
     private void EmployeAddJobPosition_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddJobPosition_SaveButtonActionPerformed
-        // TODO add your handling code here:
+     employeeAddPageController("basicInfo");
     }//GEN-LAST:event_EmployeAddJobPosition_SaveButtonActionPerformed
 
     private void EmployeeAddCreateInstitute_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateInstitute_BackButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("degree");
     }//GEN-LAST:event_EmployeeAddCreateInstitute_BackButtonActionPerformed
 
     private void EmployeeAddCreateInstitute_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("degree");
     }//GEN-LAST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
 
     private void EmployeeAddCreateJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPosition_BackButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("jobPosition");
     }//GEN-LAST:event_EmployeeAddCreateJobPosition_BackButtonActionPerformed
 
     private void EmployeeAddCreateJobPostion_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
-        // TODO add your handling code here:
+     employeeAddPageController("jobPosition");
     }//GEN-LAST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
 
     private void EmployeeAddCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("address");
     }//GEN-LAST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
 
     private void EmployeeAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
-        // TODO add your handling code here:
+        employeeAddPageController("address");
     }//GEN-LAST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
 
     private void EmployeeAddCreateProject_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateProject_BackButtonActionPerformed
-        // TODO add your handling code here:
+        employeeAddPageController("jobPosition");
     }//GEN-LAST:event_EmployeeAddCreateProject_BackButtonActionPerformed
 
     private void EmployeeAddCreateProject_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateProject_SaveButtonActionPerformed
-        // TODO add your handling code here:
+      employeeAddPageController("jobPosition");
     }//GEN-LAST:event_EmployeeAddCreateProject_SaveButtonActionPerformed
 
     private void EmployeeDelete_EmployeeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeDelete_EmployeeComboBoxActionPerformed
@@ -3530,23 +3535,24 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyBasic_EmployeeComboBoxActionPerformed
 
     private void EmployeeModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
-
+/*
     private void EmployeeModifyAddress_StreetTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_StreetTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmployeeModifyAddress_StreetTextFieldActionPerformed
-
+*/
+    
     private void EmployeeModifyAddress_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_NextButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyAddress_NextButtonActionPerformed
 
     private void EmployeeModifyAddress_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_BackButtonActionPerformed
-        // TODO add your handling code here:
+     employeeModifyPageController("basicInfo");
     }//GEN-LAST:event_EmployeeModifyAddress_BackButtonActionPerformed
 
     private void EmployeeModifyAddress_otherCountryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_otherCountryButtonActionPerformed
-        // TODO add your handling code here:
+   employeeModifyPageController("crCountry");
     }//GEN-LAST:event_EmployeeModifyAddress_otherCountryButtonActionPerformed
 
     private void EmployeeModifyAddress_AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_AddButtonActionPerformed
@@ -3562,160 +3568,164 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyAddress_ShowButtonActionPerformed
 
     private void EmployeeModifyDegree_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_BackButtonActionPerformed
-        // TODO add your handling code here:
+    employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyDegree_BackButtonActionPerformed
 
     private void EmployeeModifyDegree_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_NextButtonActionPerformed
-        // TODO add your handling code here:
+  employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeModifyDegree_NextButtonActionPerformed
 
     private void EmployeeModifyDegree_otherInstitutionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_otherInstitutionButtonActionPerformed
-        // TODO add your handling code here:
+      employeeModifyPageController("crInstitution");
     }//GEN-LAST:event_EmployeeModifyDegree_otherInstitutionButtonActionPerformed
 
     private void EmployeeModifyJobPosition_otherPositionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_otherPositionButtonActionPerformed
-        // TODO add your handling code here:
+   employeeModifyPageController("crJobPosition");   
     }//GEN-LAST:event_EmployeeModifyJobPosition_otherPositionButtonActionPerformed
 
     private void EmployeeModifyJobPosition_otherProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_otherProjectButtonActionPerformed
-        // TODO add your handling code here:
+         employeeModifyPageController("crProject");
     }//GEN-LAST:event_EmployeeModifyJobPosition_otherProjectButtonActionPerformed
 
     private void EmployeeModifyJobPosition_backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_backButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyJobPosition_backButtonActionPerformed
 
     private void EmployeeModifyJobPosition_saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_saveButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("basicInfo");
     }//GEN-LAST:event_EmployeeModifyJobPosition_saveButtonActionPerformed
 
     private void EmployeeModifyCrInstitution_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCrInstitution_BackButtonActionPerformed
-        // TODO add your handling code here:
+           employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyCrInstitution_BackButtonActionPerformed
 
-    private void EmployeeModifyCrInstitution_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCrInstitution_NextButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmployeeModifyCrInstitution_NextButtonActionPerformed
+    private void EmployeeModifyCrInstitution_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCrInstitution_SaveButtonActionPerformed
+      employeeModifyPageController("degree");
+    }//GEN-LAST:event_EmployeeModifyCrInstitution_SaveButtonActionPerformed
 
     private void EmployeeCrJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeCrJobPosition_BackButtonActionPerformed
-        // TODO add your handling code here:
+         employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeCrJobPosition_BackButtonActionPerformed
 
     private void EmployeeCrJobPosition_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeCrJobPosition_SaveButtonActionPerformed
-        // TODO add your handling code here:
+        employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeCrJobPosition_SaveButtonActionPerformed
 
     private void EmployeeModifyCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateCountry_BackButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyCreateCountry_BackButtonActionPerformed
 
     private void EmployeeModifyCreateCountry_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateCountry_NextButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyCreateCountry_NextButtonActionPerformed
 
     private void EmployeeModifyCreateProject_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateProject_BackButtonActionPerformed
-        // TODO add your handling code here:
+       employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeModifyCreateProject_BackButtonActionPerformed
 
-    private void EmployeeModifyCreateProject_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateProject_NextButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmployeeModifyCreateProject_NextButtonActionPerformed
+    private void EmployeeModifyCreateProject_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateProject_SaveButtonActionPerformed
+       employeeModifyPageController("jobPosition");
+    }//GEN-LAST:event_EmployeeModifyCreateProject_SaveButtonActionPerformed
 
     private void ProjectGoToPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectGoToPageButtonActionPerformed
-        // TODO add your handling code here:
+        goToProjectPage(checkProjectComboBox());
     }//GEN-LAST:event_ProjectGoToPageButtonActionPerformed
 
     private void ProjectAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddBasicInfo_NextButtonActionPerformed
-        // TODO add your handling code here:
+       projectAddPageController("headquarter");
     }//GEN-LAST:event_ProjectAddBasicInfo_NextButtonActionPerformed
 
     private void ProjectAddHeadquarter_SelectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_SelectComboBoxActionPerformed
-        // TODO add your handling code here:
+       projectAddPageController("headquarter");
     }//GEN-LAST:event_ProjectAddHeadquarter_SelectComboBoxActionPerformed
 
     private void ProjectAddHeadquarter_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_OtherButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("crheadquarter");
     }//GEN-LAST:event_ProjectAddHeadquarter_OtherButtonActionPerformed
 
     private void ProjectAddHeadquarter_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_SaveButtonActionPerformed
-        // TODO add your handling code here:
+         projectAddPageController("basicInfo");
     }//GEN-LAST:event_ProjectAddHeadquarter_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("basicInfo");
     }//GEN-LAST:event_ProjectAddHeadquarter_BackButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("crheadquarter");
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_BackButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
-        // TODO add your handling code here:
+      projectAddPageController("basicInfo");
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_OtherButtonActionPerformed
-        // TODO add your handling code here:
+         projectAddPageController("crCountry");
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_OtherButtonActionPerformed
 
     private void ProjectAddCreatedHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreatedHeadquarter_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("headquarter");
     }//GEN-LAST:event_ProjectAddCreatedHeadquarter_BackButtonActionPerformed
 
     private void ProjectAddCreateHeadquarter_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateHeadquarter_NextButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("headquarterAddress");
     }//GEN-LAST:event_ProjectAddCreateHeadquarter_NextButtonActionPerformed
 
     private void ProjectAddCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateCountry_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("headquarterAddress");
     }//GEN-LAST:event_ProjectAddCreateCountry_BackButtonActionPerformed
 
     private void ProjectAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateCountry_SaveButtonActionPerformed
-        // TODO add your handling code here:
+        projectAddPageController("headquarterAddress");
     }//GEN-LAST:event_ProjectAddCreateCountry_SaveButtonActionPerformed
 
     private void ProjectModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyBasicInfo_NextButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("headquarter");
     }//GEN-LAST:event_ProjectModifyBasicInfo_NextButtonActionPerformed
 
     private void ProjectModifyHeadquarter_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_SaveButtonActionPerformed
-        // TODO add your handling code here:
+         projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyHeadquarter_SaveButtonActionPerformed
 
     private void ProjectModifyHeadquarter_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_OtherButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("headquarterAddress");
     }//GEN-LAST:event_ProjectModifyHeadquarter_OtherButtonActionPerformed
 
     private void ProjectModifyHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyHeadquarter_BackButtonActionPerformed
 
     private void ProjectModifyCreateHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyCreateHeadquarter_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyCreateHeadquarter_BackButtonActionPerformed
 
     private void ProjectModifyCreateHeadquarter_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyCreateHeadquarter_NextButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("crCountry");
     }//GEN-LAST:event_ProjectModifyCreateHeadquarter_NextButtonActionPerformed
 
     private void ProjectModifyHeadquarterAddress_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterAddress_SaveButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyHeadquarterAddress_SaveButtonActionPerformed
 
     private void ProjectModifyHeadquarterAddress_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterAddress_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("headquarter");
     }//GEN-LAST:event_ProjectModifyHeadquarterAddress_BackButtonActionPerformed
 
     private void ProjectModifyHeadquarterAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterAddress_OtherButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("crCountry");
     }//GEN-LAST:event_ProjectModifyHeadquarterAddress_OtherButtonActionPerformed
 
     private void ProjectModifyCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyCreateCountry_BackButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("headquarterAddress");
     }//GEN-LAST:event_ProjectModifyCreateCountry_BackButtonActionPerformed
 
     private void ProjectModifyCreateCountry_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyCreateCountry_NextButtonActionPerformed
-        // TODO add your handling code here:
+        projectModifyPageController("headquarterAddress");
     }//GEN-LAST:event_ProjectModifyCreateCountry_NextButtonActionPerformed
+
+    private void ProjectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProjectComboBoxActionPerformed
 
  private void createDisplayMainCardLayout() {
         DisplayMainCardLayoutPanel.getLayout().addLayoutComponent("employee_panel", EmployeePanel);
@@ -4702,7 +4712,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JButton EmployeeModifyCrInstitution_BackButton;
     private javax.swing.JTextField EmployeeModifyCrInstitution_InstituteLevelTextfield;
     private javax.swing.JTextField EmployeeModifyCrInstitution_InstituteNameTextfield;
-    private javax.swing.JButton EmployeeModifyCrInstitution_NextButton;
+    private javax.swing.JButton EmployeeModifyCrInstitution_SaveButton;
     private javax.swing.JTextField EmployeeModifyCrJobPosition_AmountHoursTextfield;
     private javax.swing.JTextField EmployeeModifyCrJobPosition_DescriptionTextfield;
     private javax.swing.JTextField EmployeeModifyCrJobPosition_HourFeeTextfield;
@@ -4718,7 +4728,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel EmployeeModifyCreateJobPositionPanel;
     private javax.swing.JPanel EmployeeModifyCreateProjectPanel;
     private javax.swing.JButton EmployeeModifyCreateProject_BackButton;
-    private javax.swing.JButton EmployeeModifyCreateProject_NextButton;
+    private javax.swing.JButton EmployeeModifyCreateProject_SaveButton;
     private javax.swing.JPanel EmployeeModifyDegreePanel;
     private javax.swing.JButton EmployeeModifyDegree_AddToListButton;
     private javax.swing.JButton EmployeeModifyDegree_BackButton;
