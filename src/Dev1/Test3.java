@@ -89,6 +89,24 @@ public class Test3 extends javax.swing.JFrame {
      */
     public Test3() {
         initComponents();
+             createDisplayMainCardLayout();
+        createEmployeeMainCardLayout();
+        createEmployeeAddMainCardLayout();
+        createEmployeeModifyMainCardLayout();
+        createProjectMainCardLayout();
+        createProjectAddMainCardLayout();
+        createProjectModifyMainCardLayout();
+        setEmployeeComboBox();
+        setProjectComboBox();
+        showDegreeList();
+        employeeAddPositionComboboxModel();
+        employeeAddCountryComboboxModel();
+        employeeAddInstituteComboboxModel();
+        employeeAddProjectComboboxModel();
+        fillEmployeeDeleteComboBox();
+        fillEmployeeModifyBasicComboBox();
+        employeeModifyCountryComboboxModel();
+        fillSelectHeadquarterBasicComboBox();
     }
 
     /**
@@ -118,9 +136,9 @@ public class Test3 extends javax.swing.JFrame {
         jLabel81 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        EmployeeAddBasic_BsnTextField = new javax.swing.JTextField();
-        EmployeeAddBasic_NameTextField = new javax.swing.JTextField();
-        EmployeeAddBasic_SurnameTextField = new javax.swing.JTextField();
+        EmployeeAddBasic_BsnTextfield = new javax.swing.JTextField();
+        EmployeeAddBasic_NameTextfield = new javax.swing.JTextField();
+        EmployeeAddBasic_SurnameTextfield = new javax.swing.JTextField();
         EmployeeAddBasicInfo_NextButton = new javax.swing.JButton();
         EmployeeAddAddressPanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -130,10 +148,10 @@ public class Test3 extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         EmployeeAddAddres_CountryComboBox = new javax.swing.JComboBox();
-        EmployeeAddAddres_PostalcodeTextField = new javax.swing.JTextField();
-        EmployeeAddAddres_CityTextField = new javax.swing.JTextField();
-        EmployeeAddAddres_StreetTextField = new javax.swing.JTextField();
-        EmployeeAddAddres_NumberTextField = new javax.swing.JTextField();
+        EmployeeAddAddres_PostalcodeTextfield = new javax.swing.JTextField();
+        EmployeeAddAddres_CityTextfield = new javax.swing.JTextField();
+        EmployeeAddAddres_StreetTextfield = new javax.swing.JTextField();
+        EmployeeAddAddres_NumberTextfield = new javax.swing.JTextField();
         EmployeeAddAddress_OtherButton = new javax.swing.JButton();
         EmployeAddAddress_BacktButton = new javax.swing.JButton();
         EmployeAddAddress_NextButton = new javax.swing.JButton();
@@ -142,7 +160,7 @@ public class Test3 extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         EmployeeAddDegree_InstitutionComboBox = new javax.swing.JComboBox();
         jLabel28 = new javax.swing.JLabel();
-        EmployeeAddDegree_CourseNameTextField = new javax.swing.JTextField();
+        EmployeeAddDegree_CourseNameTextfield = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         EmployeeAddDegree_DegreeList1 = new javax.swing.JList();
         jLabel29 = new javax.swing.JLabel();
@@ -170,8 +188,8 @@ public class Test3 extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        EmployeeAddCrInstitue_InsituteNameTextField = new javax.swing.JTextField();
-        EmployeeAddCrInstitue_InstituteLevelTextField = new javax.swing.JTextField();
+        EmployeeAddCrInstitue_InsituteNameTextfield = new javax.swing.JTextField();
+        EmployeeAddCrInstitue_InstituteLevelTextfield = new javax.swing.JTextField();
         EmployeeAddCreateInstitute_BackButton = new javax.swing.JButton();
         EmployeeAddCreateInstitute_SaveButton = new javax.swing.JButton();
         EmployeeAddCreateJobPositionPanel = new javax.swing.JPanel();
@@ -179,17 +197,17 @@ public class Test3 extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        EmployeeAddCrJobPosition_PositionNameTextField = new javax.swing.JTextField();
-        EmployeeAddCrJobPosition_DescriptionTextField = new javax.swing.JTextField();
-        EmployeeAddCrJobPosition_HourFeeTextField = new javax.swing.JTextField();
-        EmployeeAddCrJobPosition_AmountOfHoursTextField = new javax.swing.JTextField();
+        jLabel100 = new javax.swing.JLabel();
+        EmployeeAddCrJobPosition_PositionNameTextfield = new javax.swing.JTextField();
+        EmployeeAddCrJobPosition_DescriptionTextfield = new javax.swing.JTextField();
+        EmployeeAddCrJobPosition_HourFeeTextfield = new javax.swing.JTextField();
+        EmployeeAddCrJobPosition_AmountOfHoursTextfield = new javax.swing.JTextField();
         EmployeeAddCreateJobPosition_BackButton = new javax.swing.JButton();
         EmployeeAddCreateJobPostion_SaveButton = new javax.swing.JButton();
         EmployeeAddCreateCountryPanel = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        EmployeeAddCrCountry_CountryNameTextField = new javax.swing.JTextField();
+        EmployeeAddCrCountry_CountryNameTextfield = new javax.swing.JTextField();
         EmployeeAddCreateCountry_BackButton = new javax.swing.JButton();
         EmployeeAddCreateCountry_SaveButton = new javax.swing.JButton();
         EmployeeAddCreateProjectPanel = new javax.swing.JPanel();
@@ -198,10 +216,10 @@ public class Test3 extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        EmployeeAddCrProject_ProjectNameTextField = new javax.swing.JTextField();
-        EmployeeAddCrProject_BudgetTextField = new javax.swing.JTextField();
-        EmployeeAddCrProject_AllocatedHoursTextField = new javax.swing.JTextField();
-        EmployeeAddCrProject_CompanyNameTextField = new javax.swing.JTextField();
+        EmployeeAddCrProject_ProjectNameTextfield = new javax.swing.JTextField();
+        EmployeeAddCrProject_BudgetTextfield = new javax.swing.JTextField();
+        EmployeeAddCrProject_AllocatedHoursTextfield = new javax.swing.JTextField();
+        EmployeeAddCrProject_CompanyNameTextfield = new javax.swing.JTextField();
         EmployeeAddCreateProject_BackButton = new javax.swing.JButton();
         EmployeeAddCreateProject_SaveButton = new javax.swing.JButton();
         EmployeeDeletePanel = new javax.swing.JPanel();
@@ -222,20 +240,20 @@ public class Test3 extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         EmployeeModifyBasic_EmployeeComboBox = new javax.swing.JComboBox();
         jLabel56 = new javax.swing.JLabel();
-        EmployeeModifyBasic_BsnTextField = new javax.swing.JTextField();
+        EmployeeModifyBasic_BsnTextfield = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
-        EmployeeModifyBasic_NameTextField = new javax.swing.JTextField();
+        EmployeeModifyBasic_NameTextfield = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
-        EmployeeModifyBasic_SurnameTextField = new javax.swing.JTextField();
+        EmployeeModifyBasic_SurnameTextfield = new javax.swing.JTextField();
         EmployeeModifyBasicInfo_NextButton = new javax.swing.JButton();
         EmployeeModifyAddressPanel = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         EmployeeModifyAddress_CountryComboBox = new javax.swing.JComboBox();
-        EmployeeModifyAddress_CityTextField = new javax.swing.JTextField();
-        EmployeeModifyAddress_StreetTextField = new javax.swing.JTextField();
-        EmployeeModifyAddress_NumberTextField = new javax.swing.JTextField();
+        EmployeeModifyAddress_CityTextfield = new javax.swing.JTextField();
+        EmployeeModifyAddress_StreetTextfield = new javax.swing.JTextField();
+        EmployeeModifyAddress_NumberTextfield = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         EmployeeModifyAddress_NextButton = new javax.swing.JButton();
@@ -248,13 +266,13 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeModifyAddress_RemoveButton = new javax.swing.JButton();
         EmployeeModifyAddress_ShowButton = new javax.swing.JButton();
         jLabel64 = new javax.swing.JLabel();
-        EmployeeModifyAddress_PostalCodeTextField = new javax.swing.JTextField();
+        EmployeeModifyAddress_PostalCodeTextfield = new javax.swing.JTextField();
         EmployeeModifyDegreePanel = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
         EmployeeModifyDegree_InstituteComboBox = new javax.swing.JComboBox();
         jLabel67 = new javax.swing.JLabel();
-        EmployeeModifyDegree_CourseNameTextField = new javax.swing.JTextField();
+        EmployeeModifyDegree_CourseNameTextfield = new javax.swing.JTextField();
         EmployeeModifyDegree_BackButton = new javax.swing.JButton();
         EmployeeModifyDegree_NextButton = new javax.swing.JButton();
         jLabel68 = new javax.swing.JLabel();
@@ -284,8 +302,8 @@ public class Test3 extends javax.swing.JFrame {
         jLabel73 = new javax.swing.JLabel();
         jLabel74 = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
-        EmployeeModifyCrInstitution_InstituteNameTextField = new javax.swing.JTextField();
-        EmployeeModifyCrInstitution_InstituteLevelTextField = new javax.swing.JTextField();
+        EmployeeModifyCrInstitution_InstituteNameTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrInstitution_InstituteLevelTextfield = new javax.swing.JTextField();
         EmployeeModifyCrInstitution_BackButton = new javax.swing.JButton();
         EmployeeModifyCrInstitution_NextButton = new javax.swing.JButton();
         EmployeeModifyCreateJobPositionPanel = new javax.swing.JPanel();
@@ -294,16 +312,16 @@ public class Test3 extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
-        EmployeeModifyCrJobPosition_ProjectNameTextField = new javax.swing.JTextField();
-        EmployeeModifyCrJobPosition_DescriptionTextField = new javax.swing.JTextField();
-        EmployeeModifyCrJobPosition_HourFeeTextField = new javax.swing.JTextField();
-        EmployeeModifyCrJobPosition_AmountHoursTextField = new javax.swing.JTextField();
+        EmployeeModifyCrJobPosition_ProjectNameTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrJobPosition_DescriptionTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrJobPosition_HourFeeTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrJobPosition_AmountHoursTextfield = new javax.swing.JTextField();
         EmployeeCrJobPosition_BackButton = new javax.swing.JButton();
         EmployeeCrJobPosition_SaveButton = new javax.swing.JButton();
         EmployeeModifyCreateCountryPanel = new javax.swing.JPanel();
-        jLabel81 = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
-        EmployeeModifyCrCountry_CountryTextField = new javax.swing.JTextField();
+        EmployeeModifyCrCountry_CountryTextfield = new javax.swing.JTextField();
         EmployeeModifyCreateCountry_BackButton = new javax.swing.JButton();
         EmployeeModifyCreateCountry_NextButton = new javax.swing.JButton();
         EmployeeModifyCreateProjectPanel = new javax.swing.JPanel();
@@ -312,10 +330,10 @@ public class Test3 extends javax.swing.JFrame {
         jLabel85 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
         jLabel87 = new javax.swing.JLabel();
-        EmployeeModifyCrProject_ProjectNameTextField = new javax.swing.JTextField();
-        EmployeeModifyCrProject_BudgetTextField = new javax.swing.JTextField();
-        EmployeeModifyCrProject_AllocatedHoursTextField = new javax.swing.JTextField();
-        EmployeeModifyCrProject_CompanyNameTextField = new javax.swing.JTextField();
+        EmployeeModifyCrProject_ProjectNameTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrProject_BudgetTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrProject_AllocatedHoursTextfield = new javax.swing.JTextField();
+        EmployeeModifyCrProject_CompanyNameTextfield = new javax.swing.JTextField();
         EmployeeModifyCreateProject_BackButton = new javax.swing.JButton();
         EmployeeModifyCreateProject_NextButton = new javax.swing.JButton();
         ProjectPanel = new javax.swing.JPanel();
@@ -330,10 +348,10 @@ public class Test3 extends javax.swing.JFrame {
         jLabel90 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
         jLabel92 = new javax.swing.JLabel();
-        ProjectAddBasic_ProjectNameTextField = new javax.swing.JTextField();
-        ProjectAddBasic_BudgetTextField = new javax.swing.JTextField();
-        ProjectAddBasic_AllocatedHoursTextField = new javax.swing.JTextField();
-        ProjectAddBasic_CompanyNameTextField = new javax.swing.JTextField();
+        ProjectAddBasic_ProjectNameTextfield = new javax.swing.JTextField();
+        ProjectAddBasic_BudgetTextfield = new javax.swing.JTextField();
+        ProjectAddBasic_AllocatedHoursTextfield = new javax.swing.JTextField();
+        ProjectAddBasic_CompanyNameTextfield = new javax.swing.JTextField();
         ProjectAddBasicInfo_NextButton = new javax.swing.JButton();
         ProjectAddHeadquarterPanel = new javax.swing.JPanel();
         jLabel93 = new javax.swing.JLabel();
@@ -348,29 +366,29 @@ public class Test3 extends javax.swing.JFrame {
         jLabel97 = new javax.swing.JLabel();
         jLabel98 = new javax.swing.JLabel();
         ProjectAddHeadquarterAdress_CountryComboBox = new javax.swing.JComboBox();
-        ProjectAddHeadquarterAdress_PostalcodeTextField = new javax.swing.JTextField();
-        ProjectAddHeadquarterAdress_CityTextField = new javax.swing.JTextField();
+        ProjectAddHeadquarterAdress_PostalcodeTextfield = new javax.swing.JTextField();
+        ProjectAddHeadquarterAdress_CityTextfield = new javax.swing.JTextField();
         jLabel99 = new javax.swing.JLabel();
         jLabel200 = new javax.swing.JLabel();
-        ProjectAddHeadquarterAdress_StreetNameTextField = new javax.swing.JTextField();
-        ProjectAddHeadquarterAdress_NumberTextField = new javax.swing.JTextField();
+        ProjectAddHeadquarterAdress_StreetNameTextfield = new javax.swing.JTextField();
+        ProjectAddHeadquarterAdress_NumberTextfield = new javax.swing.JTextField();
         ProjectAddHeadquarterAddress_BackButton = new javax.swing.JButton();
         ProjectAddHeadquarterAddress_SaveButton = new javax.swing.JButton();
         ProjectAddHeadquarterAddress_OtherButton = new javax.swing.JButton();
         ProjectAddCreateHeadquarterPanel = new javax.swing.JPanel();
         jLabel201 = new javax.swing.JLabel();
         jLabel202 = new javax.swing.JLabel();
-        ProjectAddCreateHeadquarter_BuildingNameTextField = new javax.swing.JTextField();
+        ProjectAddCreateHeadquarter_BuildingNameTextfield = new javax.swing.JTextField();
         jLabel203 = new javax.swing.JLabel();
         jLabel204 = new javax.swing.JLabel();
-        ProjectAddCreateHeadquarter_RoomAmountTextField = new javax.swing.JTextField();
-        ProjectAddCreateHeadquarter_MonthRentTextField = new javax.swing.JTextField();
+        ProjectAddCreateHeadquarter_RoomAmountTextfield = new javax.swing.JTextField();
+        ProjectAddCreateHeadquarter_MonthRentTextfield = new javax.swing.JTextField();
         ProjectAddCreatedHeadquarter_BackButton = new javax.swing.JButton();
         ProjectAddCreateHeadquarter_NextButton = new javax.swing.JButton();
         ProjectAddCreateCountryPanel = new javax.swing.JPanel();
         jLabel205 = new javax.swing.JLabel();
         jLabel206 = new javax.swing.JLabel();
-        ProjectAddCreateCountry_CountryTextField = new javax.swing.JTextField();
+        ProjectAddCreateCountry_CountryTextfield = new javax.swing.JTextField();
         ProjectAddCreateCountry_BackButton = new javax.swing.JButton();
         ProjectAddCreateCountry_SaveButton = new javax.swing.JButton();
         ProjectDeletePanel = new javax.swing.JPanel();
@@ -386,12 +404,12 @@ public class Test3 extends javax.swing.JFrame {
         ProjectModifyBasicInfo_NextButton = new javax.swing.JButton();
         jLabel211 = new javax.swing.JLabel();
         jLabel212 = new javax.swing.JLabel();
-        ProjectModifyBasic_ProjectNameTextField = new javax.swing.JTextField();
-        ProjectModifyBasic_AllocatedHoursTextField = new javax.swing.JTextField();
+        ProjectModifyBasic_ProjectNameTextfield = new javax.swing.JTextField();
+        ProjectModifyBasic_AllocatedHoursTextfield = new javax.swing.JTextField();
         jLabel213 = new javax.swing.JLabel();
-        ProjectModifyBasic_BudgetTextField = new javax.swing.JTextField();
+        ProjectModifyBasic_BudgetTextfield = new javax.swing.JTextField();
         jLabel214 = new javax.swing.JLabel();
-        ProjectModifyBasic_CompanyNameTextField = new javax.swing.JTextField();
+        ProjectModifyBasic_CompanyNameTextfield = new javax.swing.JTextField();
         ProjectModifyHeadquarterPanel = new javax.swing.JPanel();
         jLabel215 = new javax.swing.JLabel();
         jLabel216 = new javax.swing.JLabel();
@@ -404,9 +422,9 @@ public class Test3 extends javax.swing.JFrame {
         jLabel218 = new javax.swing.JLabel();
         jLabel219 = new javax.swing.JLabel();
         jLabel220 = new javax.swing.JLabel();
-        ProjectModifyCreateHeadquarter_BuildingNameTextField = new javax.swing.JTextField();
-        ProjectModifyCreateHeadquarter_RoomAmountTextField = new javax.swing.JTextField();
-        ProjectModifyCreateHeadquarter_MonthRentTextField = new javax.swing.JTextField();
+        ProjectModifyCreateHeadquarter_BuildingNameTextfield = new javax.swing.JTextField();
+        ProjectModifyCreateHeadquarter_RoomAmountTextfield = new javax.swing.JTextField();
+        ProjectModifyCreateHeadquarter_MonthRentTextfield = new javax.swing.JTextField();
         ProjectModifyCreateHeadquarter_BackButton = new javax.swing.JButton();
         ProjectModifyCreateHeadquarter_NextButton = new javax.swing.JButton();
         ProjectModifyHeadquarterAddressPanel = new javax.swing.JPanel();
@@ -417,17 +435,17 @@ public class Test3 extends javax.swing.JFrame {
         jLabel225 = new javax.swing.JLabel();
         jLabel226 = new javax.swing.JLabel();
         ProjectModifyHeadquarterAddress_CountryComboBox = new javax.swing.JComboBox();
-        ProjectModifyHeadquarterAddress_PostalcodeTextField = new javax.swing.JTextField();
-        ProjectModifyHeadquarterAddress_CityTextField = new javax.swing.JTextField();
-        ProjectModifyHeadquarterAddress_StreetNameTextField = new javax.swing.JTextField();
-        ProjectModifyHeadquarterAddress_NumberTextField = new javax.swing.JTextField();
+        ProjectModifyHeadquarterAddress_PostalcodeTextfield = new javax.swing.JTextField();
+        ProjectModifyHeadquarterAddress_CityTextfield = new javax.swing.JTextField();
+        ProjectModifyHeadquarterAddress_StreetNameTextfield = new javax.swing.JTextField();
+        ProjectModifyHeadquarterAddress_NumberTextfield = new javax.swing.JTextField();
         ProjectModifyHeadquarterAddress_SaveButton = new javax.swing.JButton();
         ProjectModifyHeadquarterAddress_BackButton = new javax.swing.JButton();
         ProjectModifyHeadquarterAddress_OtherButton = new javax.swing.JButton();
         ProjectModifyCreateCountryPanel = new javax.swing.JPanel();
         jLabel227 = new javax.swing.JLabel();
         jLabel228 = new javax.swing.JLabel();
-        ProjectModifyCreateCountry_CountryTextField = new javax.swing.JTextField();
+        ProjectModifyCreateCountry_CountryTextfield = new javax.swing.JTextField();
         ProjectModifyCreateCountry_BackButton = new javax.swing.JButton();
         ProjectModifyCreateCountry_NextButton = new javax.swing.JButton();
 
@@ -550,11 +568,11 @@ public class Test3 extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel19.setText("Surname :");
 
-        EmployeeAddBasic_BsnTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddBasic_BsnTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddBasic_NameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddBasic_NameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddBasic_SurnameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddBasic_SurnameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddBasicInfo_NextButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         EmployeeAddBasicInfo_NextButton.setText("NEXT");
@@ -580,9 +598,9 @@ public class Test3 extends javax.swing.JFrame {
                     .addComponent(jLabel19))
                 .addGap(90, 90, 90)
                 .addGroup(EmployeeAddBasicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EmployeeAddBasic_BsnTextField)
-                    .addComponent(EmployeeAddBasic_NameTextField)
-                    .addComponent(EmployeeAddBasic_SurnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddBasic_BsnTextfield)
+                    .addComponent(EmployeeAddBasic_NameTextfield)
+                    .addComponent(EmployeeAddBasic_SurnameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(329, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeAddBasicPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -597,15 +615,15 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addGroup(EmployeeAddBasicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel81)
-                    .addComponent(EmployeeAddBasic_BsnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddBasic_BsnTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(EmployeeAddBasicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(EmployeeAddBasic_NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddBasic_NameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(EmployeeAddBasicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(EmployeeAddBasic_SurnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddBasic_SurnameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                 .addComponent(EmployeeAddBasicInfo_NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -634,13 +652,13 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeAddAddres_CountryComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeAddAddres_CountryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        EmployeeAddAddres_PostalcodeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddAddres_PostalcodeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddAddres_CityTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddAddres_CityTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddAddres_StreetTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddAddres_StreetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddAddres_NumberTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddAddres_NumberTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddAddress_OtherButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeAddAddress_OtherButton.setText("Other");
@@ -690,10 +708,10 @@ public class Test3 extends javax.swing.JFrame {
                     .addGroup(EmployeeAddAddressPanelLayout.createSequentialGroup()
                         .addGroup(EmployeeAddAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(EmployeeAddAddres_CountryComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EmployeeAddAddres_PostalcodeTextField)
-                            .addComponent(EmployeeAddAddres_CityTextField)
-                            .addComponent(EmployeeAddAddres_StreetTextField)
-                            .addComponent(EmployeeAddAddres_NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EmployeeAddAddres_PostalcodeTextfield)
+                            .addComponent(EmployeeAddAddres_CityTextfield)
+                            .addComponent(EmployeeAddAddres_StreetTextfield)
+                            .addComponent(EmployeeAddAddres_NumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(68, 68, 68)
                         .addComponent(EmployeeAddAddress_OtherButton)))
                 .addGap(292, 292, 292))
@@ -711,19 +729,19 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(EmployeeAddAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(EmployeeAddAddres_PostalcodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddAddres_PostalcodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(EmployeeAddAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(EmployeeAddAddres_CityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddAddres_CityTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(EmployeeAddAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(EmployeeAddAddres_StreetTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddAddres_StreetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(EmployeeAddAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(EmployeeAddAddres_NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddAddres_NumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addGroup(EmployeeAddAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeAddAddress_BacktButton)
@@ -750,7 +768,7 @@ public class Test3 extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel28.setText("Course name :");
 
-        EmployeeAddDegree_CourseNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddDegree_CourseNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddDegree_DegreeList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeAddDegree_DegreeList1.setModel(new javax.swing.AbstractListModel() {
@@ -838,7 +856,7 @@ public class Test3 extends javax.swing.JFrame {
                                             .addComponent(jLabel27))
                                         .addGap(70, 70, 70)
                                         .addGroup(EmployeeAddDegreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(EmployeeAddDegree_CourseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(EmployeeAddDegree_CourseNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(EmployeeAddDegree_InstitutionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
                                 .addComponent(EmployeAddDegree_OtherButton)))
@@ -858,7 +876,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(EmployeeAddDegreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(EmployeeAddDegree_CourseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddDegree_CourseNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(EmployeAddDegree_AddButton)
                 .addGap(11, 11, 11)
@@ -1032,9 +1050,9 @@ public class Test3 extends javax.swing.JFrame {
         jLabel36.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel36.setText("Institute level :");
 
-        EmployeeAddCrInstitue_InsituteNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrInstitue_InsituteNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrInstitue_InstituteLevelTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrInstitue_InstituteLevelTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddCreateInstitute_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeAddCreateInstitute_BackButton.setText("BACK");
@@ -1068,8 +1086,8 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel35))
                         .addGap(60, 60, 60)
                         .addGroup(EmployeeAddCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmployeeAddCrInstitue_InsituteNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                            .addComponent(EmployeeAddCrInstitue_InstituteLevelTextField))))
+                            .addComponent(EmployeeAddCrInstitue_InsituteNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addComponent(EmployeeAddCrInstitue_InstituteLevelTextfield))))
                 .addContainerGap(310, Short.MAX_VALUE))
             .addGroup(EmployeeAddCreateInstitutionPanelLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
@@ -1086,11 +1104,11 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(EmployeeAddCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
-                    .addComponent(EmployeeAddCrInstitue_InsituteNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrInstitue_InsituteNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(EmployeeAddCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(EmployeeAddCrInstitue_InstituteLevelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrInstitue_InstituteLevelTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
                 .addGroup(EmployeeAddCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeAddCreateInstitute_BackButton)
@@ -1112,16 +1130,16 @@ public class Test3 extends javax.swing.JFrame {
         jLabel40.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel40.setText("Hour fee :");
 
-        jLabel41.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel41.setText("Amount of hours :");
+        jLabel100.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel100.setText("Amount of hours :");
 
-        EmployeeAddCrJobPosition_PositionNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrJobPosition_PositionNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrJobPosition_DescriptionTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrJobPosition_DescriptionTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrJobPosition_HourFeeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrJobPosition_HourFeeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrJobPosition_AmountOfHoursTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrJobPosition_AmountOfHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddCreateJobPosition_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeAddCreateJobPosition_BackButton.setText("BACK");
@@ -1149,15 +1167,15 @@ public class Test3 extends javax.swing.JFrame {
                     .addComponent(jLabel40)
                     .addComponent(jLabel39)
                     .addComponent(jLabel38)
-                    .addComponent(jLabel41))
+                    .addComponent(jLabel100))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(EmployeeAddCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel37)
                     .addGroup(EmployeeAddCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(EmployeeAddCrJobPosition_AmountOfHoursTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                        .addComponent(EmployeeAddCrJobPosition_HourFeeTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(EmployeeAddCrJobPosition_DescriptionTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(EmployeeAddCrJobPosition_PositionNameTextField, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(EmployeeAddCrJobPosition_AmountOfHoursTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                        .addComponent(EmployeeAddCrJobPosition_HourFeeTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(EmployeeAddCrJobPosition_DescriptionTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(EmployeeAddCrJobPosition_PositionNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(387, 387, 387))
             .addGroup(EmployeeAddCreateJobPositionPanelLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
@@ -1175,19 +1193,19 @@ public class Test3 extends javax.swing.JFrame {
                         .addComponent(jLabel37)
                         .addGap(40, 40, 40)
                         .addComponent(jLabel38))
-                    .addComponent(EmployeeAddCrJobPosition_PositionNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrJobPosition_PositionNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(EmployeeAddCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(EmployeeAddCrJobPosition_DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrJobPosition_DescriptionTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(EmployeeAddCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(EmployeeAddCrJobPosition_HourFeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrJobPosition_HourFeeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(EmployeeAddCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41)
-                    .addComponent(EmployeeAddCrJobPosition_AmountOfHoursTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel100)
+                    .addComponent(EmployeeAddCrJobPosition_AmountOfHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addGroup(EmployeeAddCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeAddCreateJobPosition_BackButton)
@@ -1197,13 +1215,13 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeAddMainCardLayoutPanel.add(EmployeeAddCreateJobPositionPanel, "card7");
 
-        jLabel42.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel42.setText("Create Country");
+        jLabel101.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel101.setText("Create Country");
 
         jLabel43.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel43.setText("Country name :");
 
-        EmployeeAddCrCountry_CountryNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrCountry_CountryNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddCreateCountry_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeAddCreateCountry_BackButton.setText("BACK");
@@ -1230,8 +1248,8 @@ public class Test3 extends javax.swing.JFrame {
                 .addComponent(jLabel43)
                 .addGap(82, 82, 82)
                 .addGroup(EmployeeAddCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel42)
-                    .addComponent(EmployeeAddCrCountry_CountryNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel101)
+                    .addComponent(EmployeeAddCrCountry_CountryNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(351, Short.MAX_VALUE))
             .addGroup(EmployeeAddCreateCountryPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
@@ -1244,11 +1262,11 @@ public class Test3 extends javax.swing.JFrame {
             EmployeeAddCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EmployeeAddCreateCountryPanelLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jLabel42)
+                .addComponent(jLabel101)
                 .addGap(58, 58, 58)
                 .addGroup(EmployeeAddCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43)
-                    .addComponent(EmployeeAddCrCountry_CountryNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrCountry_CountryNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
                 .addGroup(EmployeeAddCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeAddCreateCountry_BackButton)
@@ -1273,13 +1291,13 @@ public class Test3 extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel48.setText("Company name :");
 
-        EmployeeAddCrProject_ProjectNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrProject_ProjectNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrProject_BudgetTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrProject_BudgetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrProject_AllocatedHoursTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrProject_AllocatedHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeAddCrProject_CompanyNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddCrProject_CompanyNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddCreateProject_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeAddCreateProject_BackButton.setText("BACK");
@@ -1312,10 +1330,10 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel48))
                         .addGap(44, 44, 44)
                         .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmployeeAddCrProject_ProjectNameTextField)
-                            .addComponent(EmployeeAddCrProject_BudgetTextField)
-                            .addComponent(EmployeeAddCrProject_AllocatedHoursTextField)
-                            .addComponent(EmployeeAddCrProject_CompanyNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)))
+                            .addComponent(EmployeeAddCrProject_ProjectNameTextfield)
+                            .addComponent(EmployeeAddCrProject_BudgetTextfield)
+                            .addComponent(EmployeeAddCrProject_AllocatedHoursTextfield)
+                            .addComponent(EmployeeAddCrProject_CompanyNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)))
                     .addGroup(EmployeeAddCreateProjectPanelLayout.createSequentialGroup()
                         .addGap(429, 429, 429)
                         .addComponent(jLabel44)))
@@ -1335,19 +1353,19 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
-                    .addComponent(EmployeeAddCrProject_ProjectNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrProject_ProjectNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel46)
-                    .addComponent(EmployeeAddCrProject_BudgetTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrProject_BudgetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
-                    .addComponent(EmployeeAddCrProject_AllocatedHoursTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrProject_AllocatedHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel48)
-                    .addComponent(EmployeeAddCrProject_CompanyNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeAddCrProject_CompanyNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeAddCreateProject_BackButton)
@@ -1488,17 +1506,17 @@ public class Test3 extends javax.swing.JFrame {
         jLabel56.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel56.setText("Bsn :");
 
-        EmployeeModifyBasic_BsnTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyBasic_BsnTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel57.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel57.setText("Name :");
 
-        EmployeeModifyBasic_NameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyBasic_NameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel58.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel58.setText("Surname :");
 
-        EmployeeModifyBasic_SurnameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyBasic_SurnameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeModifyBasicInfo_NextButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeModifyBasicInfo_NextButton.setText("NEXT");
@@ -1528,13 +1546,13 @@ public class Test3 extends javax.swing.JFrame {
                                     .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(47, 47, 47)
                                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(EmployeeModifyBasic_NameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                                    .addComponent(EmployeeModifyBasic_NameTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(EmployeeModifyBasic_EmployeeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(EmployeeModifyBasic_BsnTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
-                                    .addComponent(EmployeeModifyBasic_SurnameTextField)))
+                                            .addComponent(EmployeeModifyBasic_BsnTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
+                                    .addComponent(EmployeeModifyBasic_SurnameTextfield)))
                             .addGroup(EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
                                 .addGap(442, 442, 442)
                                 .addComponent(jLabel54)))
@@ -1553,15 +1571,15 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56)
-                    .addComponent(EmployeeModifyBasic_BsnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyBasic_BsnTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel57)
-                    .addComponent(EmployeeModifyBasic_NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyBasic_NameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58)
-                    .addComponent(EmployeeModifyBasic_SurnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyBasic_SurnameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
                 .addComponent(EmployeeModifyBasicInfo_NextButton)
                 .addContainerGap())
@@ -1578,16 +1596,11 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeModifyAddress_CountryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        EmployeeModifyAddress_CityTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyAddress_CityTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyAddress_StreetTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        EmployeeModifyAddress_StreetTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmployeeModifyAddress_StreetTextFieldActionPerformed(evt);
-            }
-        });
+        EmployeeModifyAddress_StreetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyAddress_NumberTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyAddress_NumberTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel62.setText("Street Name:");
 
@@ -1678,10 +1691,10 @@ public class Test3 extends javax.swing.JFrame {
                         .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(EmployeeModifyAddress_CountryComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EmployeeModifyAddress_CityTextField)
-                            .addComponent(EmployeeModifyAddress_StreetTextField)
-                            .addComponent(EmployeeModifyAddress_NumberTextField)
-                            .addComponent(EmployeeModifyAddress_PostalCodeTextField))
+                            .addComponent(EmployeeModifyAddress_CityTextfield)
+                            .addComponent(EmployeeModifyAddress_StreetTextfield)
+                            .addComponent(EmployeeModifyAddress_NumberTextfield)
+                            .addComponent(EmployeeModifyAddress_PostalCodeTextfield))
                         .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(EmployeeModifyAddressPanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1716,19 +1729,19 @@ public class Test3 extends javax.swing.JFrame {
                                 .addComponent(EmployeeModifyAddress_CountryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(EmployeeModifyAddress_otherCountryButton))
                         .addGap(13, 13, 13)
-                        .addComponent(EmployeeModifyAddress_PostalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EmployeeModifyAddress_PostalCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel61))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmployeeModifyAddress_CityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmployeeModifyAddress_CityTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel64))
                 .addGap(12, 12, 12)
                 .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmployeeModifyAddress_StreetTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmployeeModifyAddress_StreetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel62))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmployeeModifyAddress_NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmployeeModifyAddress_NumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel63))
                 .addGap(21, 21, 21)
                 .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1762,7 +1775,7 @@ public class Test3 extends javax.swing.JFrame {
         jLabel67.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel67.setText("Course name: ");
 
-        EmployeeModifyDegree_CourseNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyDegree_CourseNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeModifyDegree_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeModifyDegree_BackButton.setText("BACK");
@@ -1832,7 +1845,7 @@ public class Test3 extends javax.swing.JFrame {
                                         .addGap(79, 79, 79)
                                         .addGroup(EmployeeModifyDegreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(EmployeeModifyDegree_InstituteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(EmployeeModifyDegree_CourseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(EmployeeModifyDegree_CourseNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(93, 93, 93)
                                         .addGroup(EmployeeModifyDegreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(EmployeeModifyDegree_otherInstitutionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
@@ -1865,7 +1878,7 @@ public class Test3 extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addGroup(EmployeeModifyDegreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel67)
-                            .addComponent(EmployeeModifyDegree_CourseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(EmployeeModifyDegree_CourseNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(EmployeeModifyDegreePanelLayout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(EmployeeModifyDegree_AddToListButton)))
@@ -2040,9 +2053,9 @@ public class Test3 extends javax.swing.JFrame {
         jLabel75.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel75.setText("Institution level:");
 
-        EmployeeModifyCrInstitution_InstituteNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrInstitution_InstituteNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrInstitution_InstituteLevelTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrInstitution_InstituteLevelTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeModifyCrInstitution_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeModifyCrInstitution_BackButton.setText("BACK");
@@ -2077,8 +2090,8 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel74))
                         .addGap(44, 44, 44)
                         .addGroup(EmployeeModifyCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmployeeModifyCrInstitution_InstituteNameTextField)
-                            .addComponent(EmployeeModifyCrInstitution_InstituteLevelTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addComponent(EmployeeModifyCrInstitution_InstituteNameTextfield)
+                            .addComponent(EmployeeModifyCrInstitution_InstituteLevelTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(EmployeeModifyCreateInstitutionPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -2095,11 +2108,11 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(EmployeeModifyCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel74)
-                    .addComponent(EmployeeModifyCrInstitution_InstituteNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrInstitution_InstituteNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(EmployeeModifyCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
-                    .addComponent(EmployeeModifyCrInstitution_InstituteLevelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrInstitution_InstituteLevelTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeModifyCrInstitution_BackButton)
@@ -2124,13 +2137,13 @@ public class Test3 extends javax.swing.JFrame {
         jLabel80.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel80.setText("Amount of hours:");
 
-        EmployeeModifyCrJobPosition_ProjectNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrJobPosition_ProjectNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrJobPosition_DescriptionTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrJobPosition_DescriptionTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrJobPosition_HourFeeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrJobPosition_HourFeeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrJobPosition_AmountHoursTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrJobPosition_AmountHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeCrJobPosition_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeCrJobPosition_BackButton.setText("BACK");
@@ -2163,10 +2176,10 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel80))
                         .addGap(48, 48, 48)
                         .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmployeeModifyCrJobPosition_ProjectNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                            .addComponent(EmployeeModifyCrJobPosition_DescriptionTextField)
-                            .addComponent(EmployeeModifyCrJobPosition_HourFeeTextField)
-                            .addComponent(EmployeeModifyCrJobPosition_AmountHoursTextField))
+                            .addComponent(EmployeeModifyCrJobPosition_ProjectNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                            .addComponent(EmployeeModifyCrJobPosition_DescriptionTextfield)
+                            .addComponent(EmployeeModifyCrJobPosition_HourFeeTextfield)
+                            .addComponent(EmployeeModifyCrJobPosition_AmountHoursTextfield))
                         .addGap(0, 203, Short.MAX_VALUE))
                     .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -2189,18 +2202,18 @@ public class Test3 extends javax.swing.JFrame {
                     .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createSequentialGroup()
                         .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel77)
-                            .addComponent(EmployeeModifyCrJobPosition_ProjectNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EmployeeModifyCrJobPosition_ProjectNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(42, 42, 42)
                         .addComponent(jLabel78))
-                    .addComponent(EmployeeModifyCrJobPosition_DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrJobPosition_DescriptionTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel79)
-                    .addComponent(EmployeeModifyCrJobPosition_HourFeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrJobPosition_HourFeeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel80)
-                    .addComponent(EmployeeModifyCrJobPosition_AmountHoursTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrJobPosition_AmountHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyCreateJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeCrJobPosition_BackButton)
@@ -2210,13 +2223,13 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeModifyMainCardLayoutPanel.add(EmployeeModifyCreateJobPositionPanel, "card7");
 
-        jLabel81.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel81.setText("Create Country");
+        jLabel102.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel102.setText("Create Country");
 
         jLabel82.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel82.setText("Country :");
 
-        EmployeeModifyCrCountry_CountryTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrCountry_CountryTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeModifyCreateCountry_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeModifyCreateCountry_BackButton.setText("BACK");
@@ -2249,23 +2262,23 @@ public class Test3 extends javax.swing.JFrame {
                         .addGap(280, 280, 280)
                         .addComponent(jLabel82)
                         .addGap(69, 69, 69)
-                        .addComponent(EmployeeModifyCrCountry_CountryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EmployeeModifyCrCountry_CountryTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 336, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeModifyCreateCountryPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel81)
+                .addComponent(jLabel102)
                 .addGap(416, 416, 416))
         );
         EmployeeModifyCreateCountryPanelLayout.setVerticalGroup(
             EmployeeModifyCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EmployeeModifyCreateCountryPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel81)
+                .addComponent(jLabel102)
                 .addGap(48, 48, 48)
                 .addGroup(EmployeeModifyCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel82)
-                    .addComponent(EmployeeModifyCrCountry_CountryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrCountry_CountryTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeModifyCreateCountry_BackButton)
@@ -2290,13 +2303,13 @@ public class Test3 extends javax.swing.JFrame {
         jLabel87.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel87.setText("Company name:");
 
-        EmployeeModifyCrProject_ProjectNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrProject_ProjectNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrProject_BudgetTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrProject_BudgetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrProject_AllocatedHoursTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrProject_AllocatedHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        EmployeeModifyCrProject_CompanyNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyCrProject_CompanyNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeModifyCreateProject_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeModifyCreateProject_BackButton.setText("BACK");
@@ -2333,10 +2346,10 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel87))
                         .addGap(58, 58, 58)
                         .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmployeeModifyCrProject_ProjectNameTextField)
-                            .addComponent(EmployeeModifyCrProject_BudgetTextField)
-                            .addComponent(EmployeeModifyCrProject_AllocatedHoursTextField)
-                            .addComponent(EmployeeModifyCrProject_CompanyNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                            .addComponent(EmployeeModifyCrProject_ProjectNameTextfield)
+                            .addComponent(EmployeeModifyCrProject_BudgetTextfield)
+                            .addComponent(EmployeeModifyCrProject_AllocatedHoursTextfield)
+                            .addComponent(EmployeeModifyCrProject_CompanyNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(EmployeeModifyCreateProjectPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -2353,19 +2366,19 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel84)
-                    .addComponent(EmployeeModifyCrProject_ProjectNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrProject_ProjectNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel85)
-                    .addComponent(EmployeeModifyCrProject_BudgetTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrProject_BudgetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel86)
-                    .addComponent(EmployeeModifyCrProject_AllocatedHoursTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrProject_AllocatedHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel87)
-                    .addComponent(EmployeeModifyCrProject_CompanyNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyCrProject_CompanyNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeModifyCreateProject_BackButton)
@@ -2436,13 +2449,13 @@ public class Test3 extends javax.swing.JFrame {
         jLabel92.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel92.setText("Project Add Basic Info");
 
-        ProjectAddBasic_ProjectNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddBasic_ProjectNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectAddBasic_BudgetTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddBasic_BudgetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectAddBasic_AllocatedHoursTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddBasic_AllocatedHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectAddBasic_CompanyNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddBasic_CompanyNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectAddBasicInfo_NextButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectAddBasicInfo_NextButton.setText("NEXT");
@@ -2466,10 +2479,10 @@ public class Test3 extends javax.swing.JFrame {
                         .addComponent(jLabel88)))
                 .addGap(65, 65, 65)
                 .addGroup(ProjectAddBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ProjectAddBasic_ProjectNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                    .addComponent(ProjectAddBasic_CompanyNameTextField)
-                    .addComponent(ProjectAddBasic_AllocatedHoursTextField)
-                    .addComponent(ProjectAddBasic_BudgetTextField))
+                    .addComponent(ProjectAddBasic_ProjectNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(ProjectAddBasic_CompanyNameTextfield)
+                    .addComponent(ProjectAddBasic_AllocatedHoursTextfield)
+                    .addComponent(ProjectAddBasic_BudgetTextfield))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectAddBasicInfoPanelLayout.createSequentialGroup()
                 .addContainerGap(308, Short.MAX_VALUE)
@@ -2489,19 +2502,19 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(120, 120, 120)
                 .addGroup(ProjectAddBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel88)
-                    .addComponent(ProjectAddBasic_ProjectNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddBasic_ProjectNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(ProjectAddBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel89)
-                    .addComponent(ProjectAddBasic_BudgetTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddBasic_BudgetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(ProjectAddBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel90)
-                    .addComponent(ProjectAddBasic_AllocatedHoursTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddBasic_AllocatedHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(ProjectAddBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel91)
-                    .addComponent(ProjectAddBasic_CompanyNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddBasic_CompanyNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(ProjectAddBasicInfo_NextButton)
                 .addContainerGap())
@@ -2605,9 +2618,9 @@ public class Test3 extends javax.swing.JFrame {
 
         ProjectAddHeadquarterAdress_CountryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        ProjectAddHeadquarterAdress_PostalcodeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddHeadquarterAdress_PostalcodeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectAddHeadquarterAdress_CityTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddHeadquarterAdress_CityTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel99.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel99.setText("Street Name :");
@@ -2615,9 +2628,9 @@ public class Test3 extends javax.swing.JFrame {
         jLabel200.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel200.setText("Number :");
 
-        ProjectAddHeadquarterAdress_StreetNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddHeadquarterAdress_StreetNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectAddHeadquarterAdress_NumberTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddHeadquarterAdress_NumberTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectAddHeadquarterAddress_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectAddHeadquarterAddress_BackButton.setText("BACK");
@@ -2663,11 +2676,11 @@ public class Test3 extends javax.swing.JFrame {
                                     .addComponent(jLabel200))
                                 .addGap(36, 36, 36)
                                 .addGroup(ProjectAddHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ProjectAddHeadquarterAdress_StreetNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ProjectAddHeadquarterAdress_CityTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ProjectAddHeadquarterAdress_PostalcodeTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ProjectAddHeadquarterAdress_StreetNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ProjectAddHeadquarterAdress_CityTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ProjectAddHeadquarterAdress_PostalcodeTextfield, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ProjectAddHeadquarterAdress_CountryComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 200, Short.MAX_VALUE)
-                                    .addComponent(ProjectAddHeadquarterAdress_NumberTextField))
+                                    .addComponent(ProjectAddHeadquarterAdress_NumberTextfield))
                                 .addGap(79, 79, 79)
                                 .addComponent(ProjectAddHeadquarterAddress_OtherButton)))
                         .addGap(0, 199, Short.MAX_VALUE))
@@ -2692,19 +2705,19 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(ProjectAddHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel97)
-                    .addComponent(ProjectAddHeadquarterAdress_PostalcodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddHeadquarterAdress_PostalcodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(ProjectAddHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel98)
-                    .addComponent(ProjectAddHeadquarterAdress_CityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddHeadquarterAdress_CityTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ProjectAddHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel99)
-                    .addComponent(ProjectAddHeadquarterAdress_StreetNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddHeadquarterAdress_StreetNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ProjectAddHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel200)
-                    .addComponent(ProjectAddHeadquarterAdress_NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddHeadquarterAdress_NumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 232, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectAddHeadquarterAddressPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2722,7 +2735,7 @@ public class Test3 extends javax.swing.JFrame {
         jLabel202.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel202.setText("Building name :");
 
-        ProjectAddCreateHeadquarter_BuildingNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddCreateHeadquarter_BuildingNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel203.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel203.setText("Room amount :");
@@ -2730,9 +2743,9 @@ public class Test3 extends javax.swing.JFrame {
         jLabel204.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel204.setText("Month rent :");
 
-        ProjectAddCreateHeadquarter_RoomAmountTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddCreateHeadquarter_RoomAmountTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectAddCreateHeadquarter_MonthRentTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddCreateHeadquarter_MonthRentTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectAddCreatedHeadquarter_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectAddCreatedHeadquarter_BackButton.setText("BACK");
@@ -2768,9 +2781,9 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel202))
                         .addGap(46, 46, 46)
                         .addGroup(ProjectAddCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ProjectAddCreateHeadquarter_BuildingNameTextField)
-                            .addComponent(ProjectAddCreateHeadquarter_RoomAmountTextField)
-                            .addComponent(ProjectAddCreateHeadquarter_MonthRentTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
+                            .addComponent(ProjectAddCreateHeadquarter_BuildingNameTextfield)
+                            .addComponent(ProjectAddCreateHeadquarter_RoomAmountTextfield)
+                            .addComponent(ProjectAddCreateHeadquarter_MonthRentTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(ProjectAddCreateHeadquarterPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -2787,15 +2800,15 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(ProjectAddCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel202)
-                    .addComponent(ProjectAddCreateHeadquarter_BuildingNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddCreateHeadquarter_BuildingNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(ProjectAddCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel203)
-                    .addComponent(ProjectAddCreateHeadquarter_RoomAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddCreateHeadquarter_RoomAmountTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(ProjectAddCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel204)
-                    .addComponent(ProjectAddCreateHeadquarter_MonthRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddCreateHeadquarter_MonthRentTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
                 .addGroup(ProjectAddCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ProjectAddCreatedHeadquarter_BackButton)
@@ -2811,7 +2824,7 @@ public class Test3 extends javax.swing.JFrame {
         jLabel206.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel206.setText("Country :");
 
-        ProjectAddCreateCountry_CountryTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectAddCreateCountry_CountryTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectAddCreateCountry_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectAddCreateCountry_BackButton.setText("BACK");
@@ -2844,7 +2857,7 @@ public class Test3 extends javax.swing.JFrame {
                         .addGap(374, 374, 374)
                         .addComponent(jLabel206)
                         .addGap(35, 35, 35)
-                        .addComponent(ProjectAddCreateCountry_CountryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ProjectAddCreateCountry_CountryTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 315, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectAddCreateCountryPanelLayout.createSequentialGroup()
@@ -2860,7 +2873,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(85, 85, 85)
                 .addGroup(ProjectAddCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel206)
-                    .addComponent(ProjectAddCreateCountry_CountryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectAddCreateCountry_CountryTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
                 .addGroup(ProjectAddCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ProjectAddCreateCountry_BackButton)
@@ -2945,19 +2958,19 @@ public class Test3 extends javax.swing.JFrame {
         jLabel212.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel212.setText("Allocated Hours :");
 
-        ProjectModifyBasic_ProjectNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyBasic_ProjectNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectModifyBasic_AllocatedHoursTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyBasic_AllocatedHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel213.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel213.setText("Budget :");
 
-        ProjectModifyBasic_BudgetTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyBasic_BudgetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel214.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel214.setText("Company Name :");
 
-        ProjectModifyBasic_CompanyNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyBasic_CompanyNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout ProjectModifyBasicInfoPanelLayout = new javax.swing.GroupLayout(ProjectModifyBasicInfoPanel);
         ProjectModifyBasicInfoPanel.setLayout(ProjectModifyBasicInfoPanelLayout);
@@ -2971,8 +2984,8 @@ public class Test3 extends javax.swing.JFrame {
                         .addGap(164, 164, 164)
                         .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ProjectModifyBasic_SelectProjectComboBox, 0, 231, Short.MAX_VALUE)
-                            .addComponent(ProjectModifyBasic_ProjectNameTextField)
-                            .addComponent(ProjectModifyBasic_BudgetTextField)))
+                            .addComponent(ProjectModifyBasic_ProjectNameTextfield)
+                            .addComponent(ProjectModifyBasic_BudgetTextfield)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectModifyBasicInfoPanelLayout.createSequentialGroup()
                         .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel211)
@@ -2982,8 +2995,8 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel214))
                         .addGap(18, 29, Short.MAX_VALUE)
                         .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ProjectModifyBasic_AllocatedHoursTextField)
-                            .addComponent(ProjectModifyBasic_CompanyNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))))
+                            .addComponent(ProjectModifyBasic_AllocatedHoursTextfield)
+                            .addComponent(ProjectModifyBasic_CompanyNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))))
                 .addContainerGap(280, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectModifyBasicInfoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3002,22 +3015,22 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel211)
-                    .addComponent(ProjectModifyBasic_ProjectNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyBasic_ProjectNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProjectModifyBasicInfoPanelLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel213))
                     .addGroup(ProjectModifyBasicInfoPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(ProjectModifyBasic_BudgetTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ProjectModifyBasic_BudgetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel212)
-                    .addComponent(ProjectModifyBasic_AllocatedHoursTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyBasic_AllocatedHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ProjectModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel214)
-                    .addComponent(ProjectModifyBasic_CompanyNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyBasic_CompanyNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addComponent(ProjectModifyBasicInfo_NextButton)
                 .addContainerGap())
@@ -3113,11 +3126,11 @@ public class Test3 extends javax.swing.JFrame {
         jLabel220.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel220.setText("Month rent :");
 
-        ProjectModifyCreateHeadquarter_BuildingNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyCreateHeadquarter_BuildingNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectModifyCreateHeadquarter_RoomAmountTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyCreateHeadquarter_RoomAmountTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectModifyCreateHeadquarter_MonthRentTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyCreateHeadquarter_MonthRentTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectModifyCreateHeadquarter_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectModifyCreateHeadquarter_BackButton.setText("BACK");
@@ -3153,9 +3166,9 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(jLabel220))
                         .addGap(39, 39, 39)
                         .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ProjectModifyCreateHeadquarter_BuildingNameTextField)
-                            .addComponent(ProjectModifyCreateHeadquarter_RoomAmountTextField)
-                            .addComponent(ProjectModifyCreateHeadquarter_MonthRentTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+                            .addComponent(ProjectModifyCreateHeadquarter_BuildingNameTextfield)
+                            .addComponent(ProjectModifyCreateHeadquarter_RoomAmountTextfield)
+                            .addComponent(ProjectModifyCreateHeadquarter_MonthRentTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -3172,15 +3185,15 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(89, 89, 89)
                 .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel218)
-                    .addComponent(ProjectModifyCreateHeadquarter_BuildingNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyCreateHeadquarter_BuildingNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel219)
-                    .addComponent(ProjectModifyCreateHeadquarter_RoomAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyCreateHeadquarter_RoomAmountTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel220)
-                    .addComponent(ProjectModifyCreateHeadquarter_MonthRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyCreateHeadquarter_MonthRentTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ProjectModifyCreateHeadquarter_BackButton)
@@ -3210,13 +3223,13 @@ public class Test3 extends javax.swing.JFrame {
 
         ProjectModifyHeadquarterAddress_CountryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        ProjectModifyHeadquarterAddress_PostalcodeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyHeadquarterAddress_PostalcodeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectModifyHeadquarterAddress_CityTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyHeadquarterAddress_CityTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectModifyHeadquarterAddress_StreetNameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyHeadquarterAddress_StreetNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        ProjectModifyHeadquarterAddress_NumberTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyHeadquarterAddress_NumberTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectModifyHeadquarterAddress_SaveButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectModifyHeadquarterAddress_SaveButton.setText("SAVE");
@@ -3260,11 +3273,11 @@ public class Test3 extends javax.swing.JFrame {
                                     .addComponent(jLabel226))
                                 .addGap(37, 37, 37)
                                 .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ProjectModifyHeadquarterAddress_NumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ProjectModifyHeadquarterAddress_StreetNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ProjectModifyHeadquarterAddress_CityTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ProjectModifyHeadquarterAddress_NumberTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ProjectModifyHeadquarterAddress_StreetNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ProjectModifyHeadquarterAddress_CityTextfield, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ProjectModifyHeadquarterAddress_CountryComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 133, Short.MAX_VALUE)
-                                    .addComponent(ProjectModifyHeadquarterAddress_PostalcodeTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(ProjectModifyHeadquarterAddress_PostalcodeTextfield, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(69, 69, 69)
                                 .addComponent(ProjectModifyHeadquarterAddress_OtherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createSequentialGroup()
@@ -3291,18 +3304,18 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel223)
-                    .addComponent(ProjectModifyHeadquarterAddress_PostalcodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyHeadquarterAddress_PostalcodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel224)
-                    .addComponent(ProjectModifyHeadquarterAddress_CityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyHeadquarterAddress_CityTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel225)
-                    .addComponent(ProjectModifyHeadquarterAddress_StreetNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyHeadquarterAddress_StreetNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProjectModifyHeadquarterAddress_NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProjectModifyHeadquarterAddress_NumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel226))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(ProjectModifyHeadquarterAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3318,7 +3331,7 @@ public class Test3 extends javax.swing.JFrame {
 
         jLabel228.setText("Country :");
 
-        ProjectModifyCreateCountry_CountryTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyCreateCountry_CountryTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         ProjectModifyCreateCountry_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ProjectModifyCreateCountry_BackButton.setText("BACK");
@@ -3356,7 +3369,7 @@ public class Test3 extends javax.swing.JFrame {
                                 .addGap(329, 329, 329)
                                 .addComponent(jLabel228)
                                 .addGap(18, 18, 18)
-                                .addComponent(ProjectModifyCreateCountry_CountryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ProjectModifyCreateCountry_CountryTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 375, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -3368,7 +3381,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addGroup(ProjectModifyCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel228)
-                    .addComponent(ProjectModifyCreateCountry_CountryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ProjectModifyCreateCountry_CountryTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
                 .addGroup(ProjectModifyCreateCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ProjectModifyCreateCountry_BackButton)
@@ -3392,15 +3405,15 @@ public class Test3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeButtonActionPerformed
-        // TODO add your handling code here:
+        displayPageController("Employee");
     }//GEN-LAST:event_EmployeeButtonActionPerformed
 
     private void ProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectButtonActionPerformed
-        // TODO add your handling code here:
+      displayPageController("Project");
     }//GEN-LAST:event_ProjectButtonActionPerformed
 
     private void EmployeeGoToPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeGoToPageButtonActionPerformed
-        // TODO add your handling code here:
+      goToEmployeePage(checkEmployeeComboBox());
     }//GEN-LAST:event_EmployeeGoToPageButtonActionPerformed
 
     private void EmployeeAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
@@ -3915,9 +3928,9 @@ public class Test3 extends javax.swing.JFrame {
 
     private void createEmployee() {
         employee = new Employee();
-        int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextField.getText());
-        String name = EmployeeAddBasic_NameTextField.getText();
-        String surname = EmployeeAddBasic_SurnameTextField.getText();
+        int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextfield.getText());
+        String name = EmployeeAddBasic_NameTextfield.getText();
+        String surname = EmployeeAddBasic_SurnameTextfield.getText();
         employee.setBsn(bsn);
         employee.setEmployeename(name);
         employee.setSurname(surname);
@@ -3930,10 +3943,10 @@ public class Test3 extends javax.swing.JFrame {
         address = new Address();
         AddressPK addresspk = new AddressPK();
         String countryName = EmployeeAddAddres_CountryComboBox.getSelectedItem().toString();
-        String postalcode = EmployeeAddAddres_PostalcodeTextField.getText();
-        String cityName = EmployeeAddAddres_CityTextField.getText();
-        String street = EmployeeAddAddres_StreetTextField.getText();
-        int number = Integer.parseInt(EmployeeAddAddres_NumberTextField.getText());
+        String postalcode = EmployeeAddAddres_PostalcodeTextfield.getText();
+        String cityName = EmployeeAddAddres_CityTextfield.getText();
+        String street = EmployeeAddAddres_StreetTextfield.getText();
+        int number = Integer.parseInt(EmployeeAddAddres_NumberTextfield.getText());
 
         addresspk.setCountry(countryName);
         addresspk.setPostalcode(postalcode);
@@ -3966,8 +3979,8 @@ public class Test3 extends javax.swing.JFrame {
 
     private void employeeAddNewInstututeComboboxModel() throws Exception {
         School school = new School();
-        school.setSchoolname(EmployeeAddCrInstitue_InsituteNameTextField.getText());
-        school.setSchoollevel(EmployeeAddCrInstitue_InstituteLevelTextField.getText());
+        school.setSchoolname(EmployeeAddCrInstitue_InsituteNameTextfield.getText());
+        school.setSchoollevel(EmployeeAddCrInstitue_InstituteLevelTextfield.getText());
         sjc.create(school);
         employeeAddInstituteComboboxModel();
     }
@@ -3984,7 +3997,7 @@ public class Test3 extends javax.swing.JFrame {
             om.setDescription(degree.getCoursename() + " " + degree.getSchool().getSchoolname() + " " + degree.getSchool().getSchoollevel());
             dList.addElement(om);
         }
-        EmployeeAddDegree_DegreeList.setModel(dList);
+        EmployeeAddDegree_DegreeList1.setModel(dList);
     }
 
     private void addToDegreeList() {
@@ -3992,7 +4005,7 @@ public class Test3 extends javax.swing.JFrame {
         int schoolId = om.getId();
         School school = sjc.findSchool(schoolId);
 
-        String courseName = EmployeeAddDegree_CourseNameTextField.getText();
+        String courseName = EmployeeAddDegree_CourseNameTextfield.getText();
 
         DegreePK dpk = new DegreePK();
         dpk.setBsn(employee.getBsn());
@@ -4009,7 +4022,7 @@ public class Test3 extends javax.swing.JFrame {
     }
 
     private void removeFromDegreeList() {
-        ObjectModel om = (ObjectModel) EmployeeAddDegree_DegreeList.getSelectedValue();
+        ObjectModel om = (ObjectModel) EmployeeAddDegree_DegreeList1.getSelectedValue();
         DegreePK dpk = new DegreePK(om.getId(), om.getIdsec(), om.getIdthird());
 
         for (Degree degree : DegreeList) {
@@ -4037,7 +4050,7 @@ public class Test3 extends javax.swing.JFrame {
 
     private void employeeAddNewCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
-        countryList.add(EmployeeAddCrCountry_CountryNameTextField.getText());
+        countryList.add(EmployeeAddCrCountry_CountryNameTextfield.getText());
         ArrayList<String> countrylist = new ArrayList<String>(countryList);
         for (String countryName : countrylist) {
             countryListModel.addElement(countryName);
@@ -4071,10 +4084,10 @@ public class Test3 extends javax.swing.JFrame {
 
     private void employeeAddNewPositionComboboxModel() throws Exception {
         PositieDescription position = new PositieDescription();
-        position.setPositiename(EmployeeAddCrJobPosition_PositionNameTextField.getText());
-        position.setPositiedescription(EmployeeAddCrJobPosition_DescriptionTextField.getText());
-        position.setAmountshours(Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextField.getText()));
-        position.setHourfee(Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextField.getText()));
+        position.setPositiename(EmployeeAddCrJobPosition_PositionNameTextfield.getText());
+        position.setPositiedescription(EmployeeAddCrJobPosition_DescriptionTextfield.getText());
+        position.setAmountshours(Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextfield.getText()));
+        position.setHourfee(Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextfield.getText()));
 
         pdjc.create(position);
     }
@@ -4094,10 +4107,10 @@ public class Test3 extends javax.swing.JFrame {
 
     private void employeeAddNewProjectComboboxModel() throws Exception {
         Project project = new Project();
-        project.setProjectname(EmployeeAddCrProject_ProjectNameTextField.getText());
-        project.setBudget(Double.parseDouble(EmployeeAddCrProject_BudgetTextField.getText()));
-        project.setAllocatedhour(Integer.parseInt(EmployeeAddCrProject_AllocatedHoursTextField.getText()));
-        project.setCompanyname(EmployeeAddCrProject_CompanyNameTextField.getText());
+        project.setProjectname(EmployeeAddCrProject_ProjectNameTextfield.getText());
+        project.setBudget(Double.parseDouble(EmployeeAddCrProject_BudgetTextfield.getText()));
+        project.setAllocatedhour(Integer.parseInt(EmployeeAddCrProject_AllocatedHoursTextfield.getText()));
+        project.setCompanyname(EmployeeAddCrProject_CompanyNameTextfield.getText());
         pjc.create(project);
     }
 
@@ -4142,11 +4155,11 @@ public class Test3 extends javax.swing.JFrame {
             om.setDescription(positieD.getPositiename() + " " + project.getProjectname());
             epList.addElement(om);
         }
-        EmployeeAddJobPosition_ProjectList.setModel(epList);
+        EmployeeAddJobPosition_ProjectList1.setModel(epList);
     }
 
     private void removeFromEmployeeProjectList() {
-        ObjectModel om = (ObjectModel) EmployeeAddJobPosition_ProjectList.getSelectedValue();
+        ObjectModel om = (ObjectModel) EmployeeAddJobPosition_ProjectList1.getSelectedValue();
         PositieEmployerPK pePK = new PositieEmployerPK(om.getIdsec(), om.getId());
 
         for (PositieEmployer positieEmployer : PositionEmployerList) {
@@ -4229,9 +4242,9 @@ public class Test3 extends javax.swing.JFrame {
 
             ejc.destroy(bsn);
         } catch (IllegalOrphanException ex) {
-            Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
         clearLabels();
         fillEmployeeDeleteComboBox();
@@ -4337,26 +4350,26 @@ public class Test3 extends javax.swing.JFrame {
             employeeAddreesList.addElement(om);   
            
         }
-        EmployeeModifyAddress_AddressList.setModel(employeeAddreesList);
+        EmployeeModifyAddress_AddressList1.setModel(employeeAddreesList);
     }
     
     private void setEmployeeBasicInfo(){
-        EmployeeModifyBasic_BsnTextField.setText(employee.getBsn()+"");
-        EmployeeModifyBasic_NameTextField.setText(employee.getEmployeename());
-        EmployeeModifyBasic_SurnameTextField.setText(employee.getSurname());
+        EmployeeModifyBasic_BsnTextfield.setText(employee.getBsn()+"");
+        EmployeeModifyBasic_NameTextfield.setText(employee.getEmployeename());
+        EmployeeModifyBasic_SurnameTextfield.setText(employee.getSurname());
     }
     
     private void showAddress(){
-        ObjectModel om = (ObjectModel) EmployeeModifyAddress_AddressList.getSelectedValue();
+        ObjectModel om = (ObjectModel) EmployeeModifyAddress_AddressList1.getSelectedValue();
         AddressPK apk = new AddressPK();
         apk.setCountry(om.getIdFourth());
         apk.setPostalcode(om.getIdFifth());
         address = ajc.findAddress(apk);
         EmployeeModifyAddress_CountryComboBox.setSelectedItem(address.getAddressPK().getCountry().toString());
-        EmployeeModifyAddress_PostalCodeTextField.setText(address.getAddressPK().getPostalcode().toString());
-        EmployeeModifyAddress_CityTextField.setText(address.getCity());
-        EmployeeModifyAddress_StreetTextField.setText(address.getStreetname().toString());
-        EmployeeModifyAddress_NumberTextField.setText(address.getBuildingnumber().toString());
+        EmployeeModifyAddress_PostalCodeTextfield.setText(address.getAddressPK().getPostalcode().toString());
+        EmployeeModifyAddress_CityTextfield.setText(address.getCity());
+        EmployeeModifyAddress_StreetTextfield.setText(address.getStreetname().toString());
+        EmployeeModifyAddress_NumberTextfield.setText(address.getBuildingnumber().toString());
     }
     
     private void employeeModifyCountryComboboxModel() {
@@ -4371,18 +4384,18 @@ public class Test3 extends javax.swing.JFrame {
     }
 
     private void modifyEmployeeAddress(){
-        String city = EmployeeModifyAddress_CityTextField.getText();
-        String street = EmployeeModifyAddress_StreetTextField.getText();
-        int number = Integer.parseInt(EmployeeModifyAddress_NumberTextField.getText());
+        String city = EmployeeModifyAddress_CityTextfield.getText();
+        String street = EmployeeModifyAddress_StreetTextfield.getText();
+        int number = Integer.parseInt(EmployeeModifyAddress_NumberTextfield.getText());
         address.setCity(city);
         address.setStreetname(street);
         address.setBuildingnumber(number);
         try {
             ajc.edit(address);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -4392,10 +4405,10 @@ public class Test3 extends javax.swing.JFrame {
         address = new Address();
         AddressPK addresspk = new AddressPK();
         String countryName = EmployeeModifyAddress_CountryComboBox.getSelectedItem().toString();
-        String postalcode = EmployeeModifyAddress_PostalCodeTextField.getText();
-        String cityName = EmployeeModifyAddress_CityTextField.getText();
-        String street = EmployeeModifyAddress_StreetTextField.getText();
-        int number = Integer.parseInt(EmployeeModifyAddress_NumberTextField.getText());
+        String postalcode = EmployeeModifyAddress_PostalCodeTextfield.getText();
+        String cityName = EmployeeModifyAddress_CityTextfield.getText();
+        String street = EmployeeModifyAddress_StreetTextfield.getText();
+        int number = Integer.parseInt(EmployeeModifyAddress_NumberTextfield.getText());
 
         addresspk.setCountry(countryName);
         addresspk.setPostalcode(postalcode);
@@ -4434,10 +4447,10 @@ public class Test3 extends javax.swing.JFrame {
     private void createProject() {
         project = new Project();
           
-        String projectName = ProjectAddBasic_ProjectNameTextField.getText();
-        double budget = Double.parseDouble(ProjectAddBasic_BudgetTextField.getText());
-        int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextField.getText());
-        String CompanyName = ProjectAddBasic_CompanyNameTextField.getText();
+        String projectName = ProjectAddBasic_ProjectNameTextfield.getText();
+        double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
+        int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
+        String CompanyName = ProjectAddBasic_CompanyNameTextfield.getText();
         
         project.setProjectname(projectName);
         project.setBudget(budget);
@@ -4472,10 +4485,10 @@ public class Test3 extends javax.swing.JFrame {
         address = new Address();
         AddressPK addresspk = new AddressPK();
         String countryName = ProjectAddHeadquarterAdress_CountryComboBox.getSelectedItem().toString();
-        String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextField.getText();
-        String cityName = ProjectAddHeadquarterAdress_CityTextField.getText();
-        String street = ProjectAddHeadquarterAdress_StreetNameTextField.getText();
-        int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextField.getText());
+        String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextfield.getText();
+        String cityName = ProjectAddHeadquarterAdress_CityTextfield.getText();
+        String street = ProjectAddHeadquarterAdress_StreetNameTextfield.getText();
+        int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
 
         addresspk.setCountry(countryName);
         addresspk.setPostalcode(postalcode);
@@ -4486,7 +4499,7 @@ public class Test3 extends javax.swing.JFrame {
         address.setHeadquarterInfoCollection(HeadquarterList);
         
         addressList.add(address);
-        headquarterInfo.setAddressCollection(addressList);
+     //   headquarterInfo.setAddressCollection(addressList);
         
     }
     private void createHeadquarter(){
@@ -4507,17 +4520,17 @@ public class Test3 extends javax.swing.JFrame {
         addressList = new ArrayList<>();
         addressList.add(ad);
         Collection<Address> cal = addressList;
-        headquarterInfo.setAddressCollection(cal);
+     //   headquarterInfo.setAddressCollection(cal);
     }
     
     private void createProjectCountry(){
         address =  new Address();
         
-        String country = ProjectAddCreateCountry_CountryTextField.getText();
+        String country = ProjectAddCreateCountry_CountryTextfield.getText();
     }
     private void ultimateProjectSave() throws Exception {
       insertProject();
-      hijc.updatepersist(headquarterInfo);
+//      hijc.updatepersist(headquarterInfo);
       pjc.create(project);  
 //        for (HeadquarterInfo HeadquarterList : HeadquarterList) {
 //            hijc.create(HeadquarterList);
@@ -4559,7 +4572,7 @@ public class Test3 extends javax.swing.JFrame {
                     try {
                         pejc.destroy(pee.getPositieEmployerPK());
                     } catch (NonexistentEntityException ex) {
-                        Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
                     }
                }
             }
@@ -4570,9 +4583,9 @@ public class Test3 extends javax.swing.JFrame {
                       try {
                           hijc.destroy(head.getHeadquarterid());
                       } catch (IllegalOrphanException ex) {
-                          Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+                          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
                       } catch (NonexistentEntityException ex) {
-                          Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+                          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
                       }
                   }
                 }
@@ -4582,7 +4595,7 @@ public class Test3 extends javax.swing.JFrame {
         try {
             pjc.destroy(projectID);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(Test2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
@@ -4605,29 +4618,29 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JButton EmployeAddDegree_RemoveButton;
     private javax.swing.JButton EmployeAddJobPosition_BackButton;
     private javax.swing.JButton EmployeAddJobPosition_SaveButton;
-    private javax.swing.JTextField EmployeeAddAddres_CityTextField;
+    private javax.swing.JTextField EmployeeAddAddres_CityTextfield;
     private javax.swing.JComboBox EmployeeAddAddres_CountryComboBox;
-    private javax.swing.JTextField EmployeeAddAddres_NumberTextField;
-    private javax.swing.JTextField EmployeeAddAddres_PostalcodeTextField;
-    private javax.swing.JTextField EmployeeAddAddres_StreetTextField;
+    private javax.swing.JTextField EmployeeAddAddres_NumberTextfield;
+    private javax.swing.JTextField EmployeeAddAddres_PostalcodeTextfield;
+    private javax.swing.JTextField EmployeeAddAddres_StreetTextfield;
     private javax.swing.JPanel EmployeeAddAddressPanel;
     private javax.swing.JButton EmployeeAddAddress_OtherButton;
     private javax.swing.JButton EmployeeAddBasicInfo_NextButton;
     private javax.swing.JPanel EmployeeAddBasicPanel;
-    private javax.swing.JTextField EmployeeAddBasic_BsnTextField;
-    private javax.swing.JTextField EmployeeAddBasic_NameTextField;
-    private javax.swing.JTextField EmployeeAddBasic_SurnameTextField;
-    private javax.swing.JTextField EmployeeAddCrCountry_CountryNameTextField;
-    private javax.swing.JTextField EmployeeAddCrInstitue_InsituteNameTextField;
-    private javax.swing.JTextField EmployeeAddCrInstitue_InstituteLevelTextField;
-    private javax.swing.JTextField EmployeeAddCrJobPosition_AmountOfHoursTextField;
-    private javax.swing.JTextField EmployeeAddCrJobPosition_DescriptionTextField;
-    private javax.swing.JTextField EmployeeAddCrJobPosition_HourFeeTextField;
-    private javax.swing.JTextField EmployeeAddCrJobPosition_PositionNameTextField;
-    private javax.swing.JTextField EmployeeAddCrProject_AllocatedHoursTextField;
-    private javax.swing.JTextField EmployeeAddCrProject_BudgetTextField;
-    private javax.swing.JTextField EmployeeAddCrProject_CompanyNameTextField;
-    private javax.swing.JTextField EmployeeAddCrProject_ProjectNameTextField;
+    private javax.swing.JTextField EmployeeAddBasic_BsnTextfield;
+    private javax.swing.JTextField EmployeeAddBasic_NameTextfield;
+    private javax.swing.JTextField EmployeeAddBasic_SurnameTextfield;
+    private javax.swing.JTextField EmployeeAddCrCountry_CountryNameTextfield;
+    private javax.swing.JTextField EmployeeAddCrInstitue_InsituteNameTextfield;
+    private javax.swing.JTextField EmployeeAddCrInstitue_InstituteLevelTextfield;
+    private javax.swing.JTextField EmployeeAddCrJobPosition_AmountOfHoursTextfield;
+    private javax.swing.JTextField EmployeeAddCrJobPosition_DescriptionTextfield;
+    private javax.swing.JTextField EmployeeAddCrJobPosition_HourFeeTextfield;
+    private javax.swing.JTextField EmployeeAddCrJobPosition_PositionNameTextfield;
+    private javax.swing.JTextField EmployeeAddCrProject_AllocatedHoursTextfield;
+    private javax.swing.JTextField EmployeeAddCrProject_BudgetTextfield;
+    private javax.swing.JTextField EmployeeAddCrProject_CompanyNameTextfield;
+    private javax.swing.JTextField EmployeeAddCrProject_ProjectNameTextfield;
     private javax.swing.JPanel EmployeeAddCreateCountryPanel;
     private javax.swing.JButton EmployeeAddCreateCountry_BackButton;
     private javax.swing.JButton EmployeeAddCreateCountry_SaveButton;
@@ -4641,7 +4654,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JButton EmployeeAddCreateProject_BackButton;
     private javax.swing.JButton EmployeeAddCreateProject_SaveButton;
     private javax.swing.JPanel EmployeeAddDegreePanel;
-    private javax.swing.JTextField EmployeeAddDegree_CourseNameTextField;
+    private javax.swing.JTextField EmployeeAddDegree_CourseNameTextfield;
     private javax.swing.JList EmployeeAddDegree_DegreeList1;
     private javax.swing.JComboBox EmployeeAddDegree_InstitutionComboBox;
     private javax.swing.JPanel EmployeeAddJobPositionPanel;
@@ -4668,35 +4681,35 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JButton EmployeeModifyAddress_AddButton;
     private javax.swing.JList EmployeeModifyAddress_AddressList1;
     private javax.swing.JButton EmployeeModifyAddress_BackButton;
-    private javax.swing.JTextField EmployeeModifyAddress_CityTextField;
+    private javax.swing.JTextField EmployeeModifyAddress_CityTextfield;
     private javax.swing.JComboBox EmployeeModifyAddress_CountryComboBox;
     private javax.swing.JButton EmployeeModifyAddress_ModifyButton;
     private javax.swing.JButton EmployeeModifyAddress_NextButton;
-    private javax.swing.JTextField EmployeeModifyAddress_NumberTextField;
-    private javax.swing.JTextField EmployeeModifyAddress_PostalCodeTextField;
+    private javax.swing.JTextField EmployeeModifyAddress_NumberTextfield;
+    private javax.swing.JTextField EmployeeModifyAddress_PostalCodeTextfield;
     private javax.swing.JButton EmployeeModifyAddress_RemoveButton;
     private javax.swing.JButton EmployeeModifyAddress_ShowButton;
-    private javax.swing.JTextField EmployeeModifyAddress_StreetTextField;
+    private javax.swing.JTextField EmployeeModifyAddress_StreetTextfield;
     private javax.swing.JButton EmployeeModifyAddress_otherCountryButton;
     private javax.swing.JPanel EmployeeModifyBasicInfoPanel;
     private javax.swing.JButton EmployeeModifyBasicInfo_NextButton;
-    private javax.swing.JTextField EmployeeModifyBasic_BsnTextField;
+    private javax.swing.JTextField EmployeeModifyBasic_BsnTextfield;
     private javax.swing.JComboBox EmployeeModifyBasic_EmployeeComboBox;
-    private javax.swing.JTextField EmployeeModifyBasic_NameTextField;
-    private javax.swing.JTextField EmployeeModifyBasic_SurnameTextField;
-    private javax.swing.JTextField EmployeeModifyCrCountry_CountryTextField;
+    private javax.swing.JTextField EmployeeModifyBasic_NameTextfield;
+    private javax.swing.JTextField EmployeeModifyBasic_SurnameTextfield;
+    private javax.swing.JTextField EmployeeModifyCrCountry_CountryTextfield;
     private javax.swing.JButton EmployeeModifyCrInstitution_BackButton;
-    private javax.swing.JTextField EmployeeModifyCrInstitution_InstituteLevelTextField;
-    private javax.swing.JTextField EmployeeModifyCrInstitution_InstituteNameTextField;
+    private javax.swing.JTextField EmployeeModifyCrInstitution_InstituteLevelTextfield;
+    private javax.swing.JTextField EmployeeModifyCrInstitution_InstituteNameTextfield;
     private javax.swing.JButton EmployeeModifyCrInstitution_NextButton;
-    private javax.swing.JTextField EmployeeModifyCrJobPosition_AmountHoursTextField;
-    private javax.swing.JTextField EmployeeModifyCrJobPosition_DescriptionTextField;
-    private javax.swing.JTextField EmployeeModifyCrJobPosition_HourFeeTextField;
-    private javax.swing.JTextField EmployeeModifyCrJobPosition_ProjectNameTextField;
-    private javax.swing.JTextField EmployeeModifyCrProject_AllocatedHoursTextField;
-    private javax.swing.JTextField EmployeeModifyCrProject_BudgetTextField;
-    private javax.swing.JTextField EmployeeModifyCrProject_CompanyNameTextField;
-    private javax.swing.JTextField EmployeeModifyCrProject_ProjectNameTextField;
+    private javax.swing.JTextField EmployeeModifyCrJobPosition_AmountHoursTextfield;
+    private javax.swing.JTextField EmployeeModifyCrJobPosition_DescriptionTextfield;
+    private javax.swing.JTextField EmployeeModifyCrJobPosition_HourFeeTextfield;
+    private javax.swing.JTextField EmployeeModifyCrJobPosition_ProjectNameTextfield;
+    private javax.swing.JTextField EmployeeModifyCrProject_AllocatedHoursTextfield;
+    private javax.swing.JTextField EmployeeModifyCrProject_BudgetTextfield;
+    private javax.swing.JTextField EmployeeModifyCrProject_CompanyNameTextfield;
+    private javax.swing.JTextField EmployeeModifyCrProject_ProjectNameTextfield;
     private javax.swing.JPanel EmployeeModifyCreateCountryPanel;
     private javax.swing.JButton EmployeeModifyCreateCountry_BackButton;
     private javax.swing.JButton EmployeeModifyCreateCountry_NextButton;
@@ -4708,7 +4721,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel EmployeeModifyDegreePanel;
     private javax.swing.JButton EmployeeModifyDegree_AddToListButton;
     private javax.swing.JButton EmployeeModifyDegree_BackButton;
-    private javax.swing.JTextField EmployeeModifyDegree_CourseNameTextField;
+    private javax.swing.JTextField EmployeeModifyDegree_CourseNameTextfield;
     private javax.swing.JList EmployeeModifyDegree_DegreeList1;
     private javax.swing.JComboBox EmployeeModifyDegree_InstituteComboBox;
     private javax.swing.JButton EmployeeModifyDegree_NextButton;
@@ -4731,29 +4744,29 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel EmployeePanel;
     private javax.swing.JPanel ProjectAddBasicInfoPanel;
     private javax.swing.JButton ProjectAddBasicInfo_NextButton;
-    private javax.swing.JTextField ProjectAddBasic_AllocatedHoursTextField;
-    private javax.swing.JTextField ProjectAddBasic_BudgetTextField;
-    private javax.swing.JTextField ProjectAddBasic_CompanyNameTextField;
-    private javax.swing.JTextField ProjectAddBasic_ProjectNameTextField;
+    private javax.swing.JTextField ProjectAddBasic_AllocatedHoursTextfield;
+    private javax.swing.JTextField ProjectAddBasic_BudgetTextfield;
+    private javax.swing.JTextField ProjectAddBasic_CompanyNameTextfield;
+    private javax.swing.JTextField ProjectAddBasic_ProjectNameTextfield;
     private javax.swing.JPanel ProjectAddCreateCountryPanel;
     private javax.swing.JButton ProjectAddCreateCountry_BackButton;
-    private javax.swing.JTextField ProjectAddCreateCountry_CountryTextField;
+    private javax.swing.JTextField ProjectAddCreateCountry_CountryTextfield;
     private javax.swing.JButton ProjectAddCreateCountry_SaveButton;
     private javax.swing.JPanel ProjectAddCreateHeadquarterPanel;
-    private javax.swing.JTextField ProjectAddCreateHeadquarter_BuildingNameTextField;
-    private javax.swing.JTextField ProjectAddCreateHeadquarter_MonthRentTextField;
+    private javax.swing.JTextField ProjectAddCreateHeadquarter_BuildingNameTextfield;
+    private javax.swing.JTextField ProjectAddCreateHeadquarter_MonthRentTextfield;
     private javax.swing.JButton ProjectAddCreateHeadquarter_NextButton;
-    private javax.swing.JTextField ProjectAddCreateHeadquarter_RoomAmountTextField;
+    private javax.swing.JTextField ProjectAddCreateHeadquarter_RoomAmountTextfield;
     private javax.swing.JButton ProjectAddCreatedHeadquarter_BackButton;
     private javax.swing.JPanel ProjectAddHeadquarterAddressPanel;
     private javax.swing.JButton ProjectAddHeadquarterAddress_BackButton;
     private javax.swing.JButton ProjectAddHeadquarterAddress_OtherButton;
     private javax.swing.JButton ProjectAddHeadquarterAddress_SaveButton;
-    private javax.swing.JTextField ProjectAddHeadquarterAdress_CityTextField;
+    private javax.swing.JTextField ProjectAddHeadquarterAdress_CityTextfield;
     private javax.swing.JComboBox ProjectAddHeadquarterAdress_CountryComboBox;
-    private javax.swing.JTextField ProjectAddHeadquarterAdress_NumberTextField;
-    private javax.swing.JTextField ProjectAddHeadquarterAdress_PostalcodeTextField;
-    private javax.swing.JTextField ProjectAddHeadquarterAdress_StreetNameTextField;
+    private javax.swing.JTextField ProjectAddHeadquarterAdress_NumberTextfield;
+    private javax.swing.JTextField ProjectAddHeadquarterAdress_PostalcodeTextfield;
+    private javax.swing.JTextField ProjectAddHeadquarterAdress_StreetNameTextfield;
     private javax.swing.JPanel ProjectAddHeadquarterPanel;
     private javax.swing.JButton ProjectAddHeadquarter_BackButton;
     private javax.swing.JButton ProjectAddHeadquarter_OtherButton;
@@ -4768,30 +4781,30 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel ProjectMainCardLayoutPanel;
     private javax.swing.JPanel ProjectModifyBasicInfoPanel;
     private javax.swing.JButton ProjectModifyBasicInfo_NextButton;
-    private javax.swing.JTextField ProjectModifyBasic_AllocatedHoursTextField;
-    private javax.swing.JTextField ProjectModifyBasic_BudgetTextField;
-    private javax.swing.JTextField ProjectModifyBasic_CompanyNameTextField;
-    private javax.swing.JTextField ProjectModifyBasic_ProjectNameTextField;
+    private javax.swing.JTextField ProjectModifyBasic_AllocatedHoursTextfield;
+    private javax.swing.JTextField ProjectModifyBasic_BudgetTextfield;
+    private javax.swing.JTextField ProjectModifyBasic_CompanyNameTextfield;
+    private javax.swing.JTextField ProjectModifyBasic_ProjectNameTextfield;
     private javax.swing.JComboBox ProjectModifyBasic_SelectProjectComboBox;
     private javax.swing.JPanel ProjectModifyCreateCountryPanel;
     private javax.swing.JButton ProjectModifyCreateCountry_BackButton;
-    private javax.swing.JTextField ProjectModifyCreateCountry_CountryTextField;
+    private javax.swing.JTextField ProjectModifyCreateCountry_CountryTextfield;
     private javax.swing.JButton ProjectModifyCreateCountry_NextButton;
     private javax.swing.JPanel ProjectModifyCreateHeadquarterPanel;
     private javax.swing.JButton ProjectModifyCreateHeadquarter_BackButton;
-    private javax.swing.JTextField ProjectModifyCreateHeadquarter_BuildingNameTextField;
-    private javax.swing.JTextField ProjectModifyCreateHeadquarter_MonthRentTextField;
+    private javax.swing.JTextField ProjectModifyCreateHeadquarter_BuildingNameTextfield;
+    private javax.swing.JTextField ProjectModifyCreateHeadquarter_MonthRentTextfield;
     private javax.swing.JButton ProjectModifyCreateHeadquarter_NextButton;
-    private javax.swing.JTextField ProjectModifyCreateHeadquarter_RoomAmountTextField;
+    private javax.swing.JTextField ProjectModifyCreateHeadquarter_RoomAmountTextfield;
     private javax.swing.JPanel ProjectModifyHeadquarterAddressPanel;
     private javax.swing.JButton ProjectModifyHeadquarterAddress_BackButton;
-    private javax.swing.JTextField ProjectModifyHeadquarterAddress_CityTextField;
+    private javax.swing.JTextField ProjectModifyHeadquarterAddress_CityTextfield;
     private javax.swing.JComboBox ProjectModifyHeadquarterAddress_CountryComboBox;
-    private javax.swing.JTextField ProjectModifyHeadquarterAddress_NumberTextField;
+    private javax.swing.JTextField ProjectModifyHeadquarterAddress_NumberTextfield;
     private javax.swing.JButton ProjectModifyHeadquarterAddress_OtherButton;
-    private javax.swing.JTextField ProjectModifyHeadquarterAddress_PostalcodeTextField;
+    private javax.swing.JTextField ProjectModifyHeadquarterAddress_PostalcodeTextfield;
     private javax.swing.JButton ProjectModifyHeadquarterAddress_SaveButton;
-    private javax.swing.JTextField ProjectModifyHeadquarterAddress_StreetNameTextField;
+    private javax.swing.JTextField ProjectModifyHeadquarterAddress_StreetNameTextfield;
     private javax.swing.JPanel ProjectModifyHeadquarterPanel;
     private javax.swing.JButton ProjectModifyHeadquarter_BackButton;
     private javax.swing.JButton ProjectModifyHeadquarter_OtherButton;
@@ -4801,14 +4814,46 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel ProjectOptionPanel;
     private javax.swing.JPanel ProjectPanel;
     private javax.swing.JPanel WelkomPanel;
+    private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton37;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel200;
+    private javax.swing.JLabel jLabel201;
+    private javax.swing.JLabel jLabel202;
+    private javax.swing.JLabel jLabel203;
+    private javax.swing.JLabel jLabel204;
+    private javax.swing.JLabel jLabel205;
+    private javax.swing.JLabel jLabel206;
+    private javax.swing.JLabel jLabel207;
+    private javax.swing.JLabel jLabel208;
+    private javax.swing.JLabel jLabel209;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel210;
+    private javax.swing.JLabel jLabel211;
+    private javax.swing.JLabel jLabel212;
+    private javax.swing.JLabel jLabel213;
+    private javax.swing.JLabel jLabel214;
+    private javax.swing.JLabel jLabel215;
+    private javax.swing.JLabel jLabel216;
+    private javax.swing.JLabel jLabel217;
+    private javax.swing.JLabel jLabel218;
+    private javax.swing.JLabel jLabel219;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel220;
+    private javax.swing.JLabel jLabel221;
+    private javax.swing.JLabel jLabel222;
+    private javax.swing.JLabel jLabel223;
+    private javax.swing.JLabel jLabel224;
+    private javax.swing.JLabel jLabel225;
+    private javax.swing.JLabel jLabel226;
+    private javax.swing.JLabel jLabel227;
+    private javax.swing.JLabel jLabel228;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -4886,38 +4931,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    private javax.swing.JLabel jLabel200;
-    private javax.swing.JLabel jLabel201;
-    private javax.swing.JLabel jLabel202;
-    private javax.swing.JLabel jLabel203;
-    private javax.swing.JLabel jLabel204;
-    private javax.swing.JLabel jLabel205;
-    private javax.swing.JLabel jLabel206;
-    private javax.swing.JLabel jLabel207;
-    private javax.swing.JLabel jLabel208;
-    private javax.swing.JLabel jLabel209;
-    private javax.swing.JLabel jLabel210;
-    private javax.swing.JLabel jLabel211;
-    private javax.swing.JLabel jLabel212;
-    private javax.swing.JLabel jLabel213;
-    private javax.swing.JLabel jLabel214;
-    private javax.swing.JLabel jLabel215;
-    private javax.swing.JLabel jLabel216;
-    private javax.swing.JLabel jLabel217;
-    private javax.swing.JLabel jLabel218;
-    private javax.swing.JLabel jLabel219;
-    private javax.swing.JLabel jLabel220;
-    private javax.swing.JLabel jLabel221;
-    private javax.swing.JLabel jLabel222;
-    private javax.swing.JLabel jLabel223;
-    private javax.swing.JLabel jLabel224;
-    private javax.swing.JLabel jLabel225;
-    private javax.swing.JLabel jLabel226;
-    private javax.swing.JLabel jLabel227;
-    private javax.swing.JLabel jLabel228;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel81;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
