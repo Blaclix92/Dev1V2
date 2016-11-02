@@ -843,11 +843,11 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButton4" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                          <Component id="EmployeeAddJobPosition_AddToProjectListButton" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="EmployeeAddJobPosition_OtherProjectButton" alignment="0" max="32767" attributes="0"/>
                                               <Component id="EmployeeAddJobPosition_OtherPositionButton" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="EmployeeAddJobPosition_RemoveFromProjectListButton" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace pref="103" max="32767" attributes="0"/>
@@ -879,7 +879,7 @@
                                           <Component id="EmployeeAddJobPosition_OtherProjectButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="EmployeeAddJobPosition_AddToProjectListButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -889,7 +889,7 @@
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
-                                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                              <Component id="EmployeeAddJobPosition_RemoveFromProjectListButton" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace pref="62" max="32767" attributes="0"/>
@@ -1012,7 +1012,7 @@
                                 <Property name="text" type="java.lang.String" value="Position listed"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton4">
+                            <Component class="javax.swing.JButton" name="EmployeeAddJobPosition_AddToProjectListButton">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="18" style="0"/>
@@ -1020,10 +1020,10 @@
                                 <Property name="text" type="java.lang.String" value="Add To List"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeAddJobPosition_AddToProjectListButtonActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton5">
+                            <Component class="javax.swing.JButton" name="EmployeeAddJobPosition_RemoveFromProjectListButton">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="18" style="0"/>
@@ -1031,7 +1031,7 @@
                                 <Property name="text" type="java.lang.String" value="Remove From List"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="EmployeAddJobPosition_BackButton">

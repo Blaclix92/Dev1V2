@@ -181,8 +181,8 @@ public class Test3 extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         EmployeeAddJobPosition_ProjectList1 = new javax.swing.JList();
         jLabel33 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        EmployeeAddJobPosition_AddToProjectListButton = new javax.swing.JButton();
+        EmployeeAddJobPosition_RemoveFromProjectListButton = new javax.swing.JButton();
         EmployeAddJobPosition_BackButton = new javax.swing.JButton();
         EmployeAddJobPosition_SaveButton = new javax.swing.JButton();
         EmployeeAddCreateInstitutionPanel = new javax.swing.JPanel();
@@ -939,19 +939,19 @@ public class Test3 extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel33.setText("Position listed");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton4.setText("Add To List");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        EmployeeAddJobPosition_AddToProjectListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddJobPosition_AddToProjectListButton.setText("Add To List");
+        EmployeeAddJobPosition_AddToProjectListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                EmployeeAddJobPosition_AddToProjectListButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton5.setText("Remove From List");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        EmployeeAddJobPosition_RemoveFromProjectListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeAddJobPosition_RemoveFromProjectListButton.setText("Remove From List");
+        EmployeeAddJobPosition_RemoveFromProjectListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed(evt);
             }
         });
 
@@ -994,11 +994,11 @@ public class Test3 extends javax.swing.JFrame {
                     .addComponent(jLabel33))
                 .addGap(81, 81, 81)
                 .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmployeeAddJobPosition_AddToProjectListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(EmployeeAddJobPosition_OtherProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(EmployeeAddJobPosition_OtherPositionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5)))
+                        .addComponent(EmployeeAddJobPosition_RemoveFromProjectListButton)))
                 .addContainerGap(103, Short.MAX_VALUE))
             .addGroup(EmployeeAddJobPositionPanelLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
@@ -1023,7 +1023,7 @@ public class Test3 extends javax.swing.JFrame {
                     .addComponent(EmployeeAddJobPosition_ProjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmployeeAddJobPosition_OtherProjectButton))
                 .addGap(36, 36, 36)
-                .addComponent(jButton4)
+                .addComponent(EmployeeAddJobPosition_AddToProjectListButton)
                 .addGap(2, 2, 2)
                 .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EmployeeAddJobPositionPanelLayout.createSequentialGroup()
@@ -1032,7 +1032,7 @@ public class Test3 extends javax.swing.JFrame {
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(EmployeeAddJobPositionPanelLayout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addComponent(jButton5)))
+                        .addComponent(EmployeeAddJobPosition_RemoveFromProjectListButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeAddJobPosition_BackButton)
@@ -3423,7 +3423,16 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeGoToPageButtonActionPerformed
 
     private void EmployeeAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
-       employeeAddPageController("address");
+       
+        if(checkNewEmployeeTextFields()){
+             createEmployee();
+             employeeAddPageController("address");
+        }else{
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+            
+        }
+         
+        
     }//GEN-LAST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
 
     private void EmployeeAddAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddAddress_OtherButtonActionPerformed
@@ -3435,7 +3444,12 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeAddAddress_BacktButtonActionPerformed
 
     private void EmployeAddAddress_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_NextButtonActionPerformed
-     employeeAddPageController("degree");
+    if(checkNewAddressTextFields()){
+        employeeAddPageController("degree");
+    }
+    else{
+          JOptionPane.showMessageDialog(this, "Please fill all textfields");
+    }
     }//GEN-LAST:event_EmployeAddAddress_NextButtonActionPerformed
 
     private void EmployeeAddDegree_InstitutionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddDegree_InstitutionComboBoxActionPerformed
@@ -3443,11 +3457,11 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddDegree_InstitutionComboBoxActionPerformed
 
     private void EmployeAddDegree_AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_AddButtonActionPerformed
-        // TODO add your handling code here:
+      addToDegreeList();
     }//GEN-LAST:event_EmployeAddDegree_AddButtonActionPerformed
 
     private void EmployeAddDegree_RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_RemoveButtonActionPerformed
-        // TODO add your handling code here:
+      removeFromDegreeList();
     }//GEN-LAST:event_EmployeAddDegree_RemoveButtonActionPerformed
 
     private void EmployeAddDegree_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_NextButtonActionPerformed
@@ -3470,13 +3484,13 @@ public class Test3 extends javax.swing.JFrame {
       employeeAddPageController("crProject");
     }//GEN-LAST:event_EmployeeAddJobPosition_OtherProjectButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void EmployeeAddJobPosition_AddToProjectListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_AddToProjectListButtonActionPerformed
+     addToEmployeeProjectList();
+    }//GEN-LAST:event_EmployeeAddJobPosition_AddToProjectListButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed
+      removeFromEmployeeProjectList();
+    }//GEN-LAST:event_EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed
 
     private void EmployeAddJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddJobPosition_BackButtonActionPerformed
      employeeAddPageController("degree");
@@ -3491,7 +3505,12 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddCreateInstitute_BackButtonActionPerformed
 
     private void EmployeeAddCreateInstitute_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
-      employeeAddPageController("degree");
+        try {
+            employeeAddNewInstututeComboboxModel();
+            employeeAddPageController("degree");
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
 
     private void EmployeeAddCreateJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPosition_BackButtonActionPerformed
@@ -3499,7 +3518,12 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddCreateJobPosition_BackButtonActionPerformed
 
     private void EmployeeAddCreateJobPostion_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
-     employeeAddPageController("jobPosition");
+        try {
+            employeeAddNewPositionComboboxModel();
+            employeeAddPageController("jobPosition");
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
 
     private void EmployeeAddCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
@@ -3507,6 +3531,7 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
 
     private void EmployeeAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
+       employeeAddNewCountryComboboxModel();
         employeeAddPageController("address");
     }//GEN-LAST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
 
@@ -3946,6 +3971,24 @@ public class Test3 extends javax.swing.JFrame {
         employee.setEmployeename(name);
         employee.setSurname(surname);
     }
+    
+    private Boolean checkNewEmployeeTextFields(){
+        try{
+        int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextfield.getText());
+        String name = EmployeeAddBasic_NameTextfield.getText();
+        String surname = EmployeeAddBasic_SurnameTextfield.getText();
+       
+        if(name.isEmpty()|| surname.isEmpty() ){
+            return false;  
+        }
+        else {
+            return true;
+        }  
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Bsn contains only numbers");
+        }
+        return false;  
+    }
 
     private void createEmployeeAddress() throws Exception {
         workingAddressList = new ArrayList<>();
@@ -3973,7 +4016,28 @@ public class Test3 extends javax.swing.JFrame {
         workingAddress.setEmployee(employee);
         workingAddressList.add(workingAddress);
     }
-
+    
+    private Boolean checkNewAddressTextFields(){
+        try{
+       String countryName = EmployeeAddAddres_CountryComboBox.getSelectedItem().toString();
+        String postalcode = EmployeeAddAddres_PostalcodeTextfield.getText();
+        String cityName = EmployeeAddAddres_CityTextfield.getText();
+        String street = EmployeeAddAddres_StreetTextfield.getText();
+        int number = Integer.parseInt(EmployeeAddAddres_NumberTextfield.getText());
+        
+        if(countryName.isEmpty()|| postalcode.isEmpty() || cityName.isEmpty() || street.isEmpty()){
+            return false;  
+        }
+        else {
+            return true;
+        }  
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Address number must contain numbers only");
+        }
+        return false;  
+    }
+    
+    
     private void employeeAddInstituteComboboxModel() {
         DefaultComboBoxModel schoolListModel = new DefaultComboBoxModel();
         schoolList = new ArrayList<School>(sjc.findSchoolEntities());
@@ -4103,6 +4167,7 @@ public class Test3 extends javax.swing.JFrame {
         pdjc.create(position);
     }
 
+    
     private void employeeAddProjectComboboxModel() {
         DefaultComboBoxModel positionListModel = new DefaultComboBoxModel();
         projectList = new ArrayList<Project>(pjc.findProjectEntities());
@@ -4115,7 +4180,7 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddJobPosition_ProjectComboBox.setModel(positionListModel);
     }
-
+/*
     private void employeeAddNewProjectComboboxModel() throws Exception {
         Project project = new Project();
         project.setProjectname(EmployeeAddCrProject_ProjectNameTextfield.getText());
@@ -4124,7 +4189,7 @@ public class Test3 extends javax.swing.JFrame {
         project.setCompanyname(EmployeeAddCrProject_CompanyNameTextfield.getText());
         pjc.create(project);
     }
-
+*/
     private void addToEmployeeProjectList() {
         HeadquarterInfo headInfo = hijc.findHeadquarterInfo(2);
         ObjectModel omposition = (ObjectModel) EmployeeAddJobPosition_PositionComboBox.getSelectedItem();
@@ -4669,11 +4734,13 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JList EmployeeAddDegree_DegreeList1;
     private javax.swing.JComboBox EmployeeAddDegree_InstitutionComboBox;
     private javax.swing.JPanel EmployeeAddJobPositionPanel;
+    private javax.swing.JButton EmployeeAddJobPosition_AddToProjectListButton;
     private javax.swing.JButton EmployeeAddJobPosition_OtherPositionButton;
     private javax.swing.JButton EmployeeAddJobPosition_OtherProjectButton;
     private javax.swing.JComboBox EmployeeAddJobPosition_PositionComboBox;
     private javax.swing.JComboBox EmployeeAddJobPosition_ProjectComboBox;
     private javax.swing.JList EmployeeAddJobPosition_ProjectList1;
+    private javax.swing.JButton EmployeeAddJobPosition_RemoveFromProjectListButton;
     private javax.swing.JPanel EmployeeAddMainCardLayoutPanel;
     private javax.swing.JButton EmployeeButton;
     private javax.swing.JComboBox EmployeeComboBox;
@@ -4826,8 +4893,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel ProjectPanel;
     private javax.swing.JPanel WelkomPanel;
     private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
