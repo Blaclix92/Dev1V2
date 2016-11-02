@@ -39,9 +39,9 @@ public class WorkingAddressJpaController implements Serializable {
         if (workingAddress.getWorkingAddressPK() == null) {
             workingAddress.setWorkingAddressPK(new WorkingAddressPK());
         }
-        workingAddress.getWorkingAddressPK().setCountry(workingAddress.getAddress().getAddressPK().getCountry());
         workingAddress.getWorkingAddressPK().setBsn(workingAddress.getEmployee().getBsn());
         workingAddress.getWorkingAddressPK().setPostalcode(workingAddress.getAddress().getAddressPK().getPostalcode());
+        workingAddress.getWorkingAddressPK().setCountry(workingAddress.getAddress().getAddressPK().getCountry());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -79,9 +79,9 @@ public class WorkingAddressJpaController implements Serializable {
     }
 
     public void edit(WorkingAddress workingAddress) throws NonexistentEntityException, Exception {
-        workingAddress.getWorkingAddressPK().setCountry(workingAddress.getAddress().getAddressPK().getCountry());
         workingAddress.getWorkingAddressPK().setBsn(workingAddress.getEmployee().getBsn());
         workingAddress.getWorkingAddressPK().setPostalcode(workingAddress.getAddress().getAddressPK().getPostalcode());
+        workingAddress.getWorkingAddressPK().setCountry(workingAddress.getAddress().getAddressPK().getCountry());
         EntityManager em = null;
         try {
             em = getEntityManager();

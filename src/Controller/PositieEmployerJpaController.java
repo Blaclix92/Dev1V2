@@ -41,8 +41,8 @@ public class PositieEmployerJpaController implements Serializable {
         if (positieEmployer.getPositieEmployerPK() == null) {
             positieEmployer.setPositieEmployerPK(new PositieEmployerPK());
         }
-        positieEmployer.getPositieEmployerPK().setPositieid(positieEmployer.getPositieDescription().getPositieid());
         positieEmployer.getPositieEmployerPK().setBsn(positieEmployer.getEmployee().getBsn());
+        positieEmployer.getPositieEmployerPK().setPositieid(positieEmployer.getPositieDescription().getPositieid());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -98,8 +98,8 @@ public class PositieEmployerJpaController implements Serializable {
     }
 
     public void edit(PositieEmployer positieEmployer) throws NonexistentEntityException, Exception {
-        positieEmployer.getPositieEmployerPK().setPositieid(positieEmployer.getPositieDescription().getPositieid());
         positieEmployer.getPositieEmployerPK().setBsn(positieEmployer.getEmployee().getBsn());
+        positieEmployer.getPositieEmployerPK().setPositieid(positieEmployer.getPositieDescription().getPositieid());
         EntityManager em = null;
         try {
             em = getEntityManager();

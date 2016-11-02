@@ -89,7 +89,7 @@ public class WorkingAddressPK implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.WorkingAddressPK[ bsn=" + bsn + ", country=" + country + ", postalcode=" + postalcode + " ]";
+        return "Models.WorkingAddressPK[ bsn=" + bsn + ", country=" + country + ", postalcode=" + postalcode + " ]";
     }
     
 }

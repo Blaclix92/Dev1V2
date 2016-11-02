@@ -114,7 +114,7 @@ public class PositieEmployer implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.PositieEmployer[ positieEmployerPK=" + positieEmployerPK + " ]";
+        return "Models.PositieEmployer[ positieEmployerPK=" + positieEmployerPK + " ]";
     }
     
 }

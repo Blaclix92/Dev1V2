@@ -7,7 +7,6 @@ package Controller;
 
 import Controller.exceptions.IllegalOrphanException;
 import Controller.exceptions.NonexistentEntityException;
-import Controller.exceptions.PreexistingEntityException;
 import Model.PositieDescription;
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -36,7 +35,7 @@ public class PositieDescriptionJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(PositieDescription positieDescription) throws PreexistingEntityException, Exception {
+    public void create(PositieDescription positieDescription) {
         if (positieDescription.getPositieEmployerCollection() == null) {
             positieDescription.setPositieEmployerCollection(new ArrayList<PositieEmployer>());
         }
@@ -61,11 +60,6 @@ public class PositieDescriptionJpaController implements Serializable {
                 }
             }
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findPositieDescription(positieDescription.getPositieid()) != null) {
-                throw new PreexistingEntityException("PositieDescription " + positieDescription + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();

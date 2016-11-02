@@ -112,7 +112,7 @@ public class Degree implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Degree[ degreePK=" + degreePK + " ]";
+        return "Models.Degree[ degreePK=" + degreePK + " ]";
     }
     
 }

@@ -130,7 +130,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Employee[ bsn=" + bsn + " ]";
+        return "Models.Employee[ bsn=" + bsn + " ]";
     }
     
 }

@@ -6,7 +6,6 @@
 package Controller;
 
 import Controller.exceptions.NonexistentEntityException;
-import Controller.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -36,7 +35,7 @@ public class ProjectJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Project project) throws PreexistingEntityException, Exception {
+    public void create(Project project) {
         if (project.getPositieEmployerCollection() == null) {
             project.setPositieEmployerCollection(new ArrayList<PositieEmployer>());
         }
@@ -70,11 +69,6 @@ public class ProjectJpaController implements Serializable {
                 }
             }
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findProject(project.getProjectid()) != null) {
-                throw new PreexistingEntityException("Project " + project + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();

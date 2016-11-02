@@ -39,8 +39,8 @@ public class DegreeJpaController implements Serializable {
         if (degree.getDegreePK() == null) {
             degree.setDegreePK(new DegreePK());
         }
-        degree.getDegreePK().setBsn(degree.getEmployee().getBsn());
         degree.getDegreePK().setSchoolid(degree.getSchool().getSchoolid());
+        degree.getDegreePK().setBsn(degree.getEmployee().getBsn());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -78,8 +78,8 @@ public class DegreeJpaController implements Serializable {
     }
 
     public void edit(Degree degree) throws NonexistentEntityException, Exception {
-        degree.getDegreePK().setBsn(degree.getEmployee().getBsn());
         degree.getDegreePK().setSchoolid(degree.getSchool().getSchoolid());
+        degree.getDegreePK().setBsn(degree.getEmployee().getBsn());
         EntityManager em = null;
         try {
             em = getEntityManager();

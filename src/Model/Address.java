@@ -11,7 +11,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -43,7 +42,7 @@ public class Address implements Serializable {
     private Integer buildingnumber;
     @Column(name = "Building_letter")
     private Character buildingletter;
-    @ManyToMany(mappedBy = "addressCollection")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "address")
     private Collection<HeadquarterInfo> headquarterInfoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "address")
     private Collection<WorkingAddress> workingAddressCollection;
@@ -137,7 +136,7 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Address[ addressPK=" + addressPK + " ]";
+        return "Models.Address[ addressPK=" + addressPK + " ]";
     }
     
 }

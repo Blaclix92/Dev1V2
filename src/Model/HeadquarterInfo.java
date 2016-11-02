@@ -11,10 +11,12 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -35,6 +37,7 @@ import javax.persistence.Table;
 public class HeadquarterInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "Headquarter_id", nullable = false)
     private Integer headquarterid;
@@ -46,16 +49,15 @@ public class HeadquarterInfo implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "Month_rent", precision = 22)
     private Double monthrent;
-    @JoinTable(name = "headquarter_location", joinColumns = {
-        @JoinColumn(name = "Headquarter_id", referencedColumnName = "Headquarter_id", nullable = false)}, inverseJoinColumns = {
-        @JoinColumn(name = "Country", referencedColumnName = "Country", nullable = false),
-        @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode", nullable = false)})
-    @ManyToMany
-    private Collection<Address> addressCollection;
     @OneToMany(mappedBy = "headquarterid")
     private Collection<Project> projectCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "headquarterid")
     private Collection<PositieEmployer> positieEmployerCollection;
+    @JoinColumns({
+        @JoinColumn(name = "Country", referencedColumnName = "Country", nullable = false),
+        @JoinColumn(name = "Postalcode", referencedColumnName = "Postalcode")})
+    @ManyToOne(optional = false)
+    private Address address;
 
     public HeadquarterInfo() {
     }
@@ -101,14 +103,6 @@ public class HeadquarterInfo implements Serializable {
         this.monthrent = monthrent;
     }
 
-    public Collection<Address> getAddressCollection() {
-        return addressCollection;
-    }
-
-    public void setAddressCollection(Collection<Address> addressCollection) {
-        this.addressCollection = addressCollection;
-    }
-
     public Collection<Project> getProjectCollection() {
         return projectCollection;
     }
@@ -123,6 +117,14 @@ public class HeadquarterInfo implements Serializable {
 
     public void setPositieEmployerCollection(Collection<PositieEmployer> positieEmployerCollection) {
         this.positieEmployerCollection = positieEmployerCollection;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
@@ -147,7 +149,7 @@ public class HeadquarterInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.HeadquarterInfo[ headquarterid=" + headquarterid + " ]";
+        return "Models.HeadquarterInfo[ headquarterid=" + headquarterid + " ]";
     }
     
 }

@@ -124,7 +124,7 @@ public class WorkingAddress implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.WorkingAddress[ workingAddressPK=" + workingAddressPK + " ]";
+        return "Models.WorkingAddress[ workingAddressPK=" + workingAddressPK + " ]";
     }
     
 }

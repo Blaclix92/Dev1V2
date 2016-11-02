@@ -89,7 +89,7 @@ public class DegreePK implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.DegreePK[ degreeid=" + degreeid + ", bsn=" + bsn + ", schoolid=" + schoolid + " ]";
+        return "Models.DegreePK[ degreeid=" + degreeid + ", bsn=" + bsn + ", schoolid=" + schoolid + " ]";
     }
     
 }

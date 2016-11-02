@@ -73,7 +73,7 @@ public class AddressPK implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.AddressPK[ country=" + country + ", postalcode=" + postalcode + " ]";
+        return "Models.AddressPK[ country=" + country + ", postalcode=" + postalcode + " ]";
     }
     
 }
