@@ -48,6 +48,7 @@ import javax.swing.JOptionPane;
  */
 ///
 public class Test3 extends javax.swing.JFrame {
+
     private CardLayout mainCard;
     private CardLayout employeeMainCard;
     private CardLayout employeeAddMainCard;
@@ -67,14 +68,13 @@ public class Test3 extends javax.swing.JFrame {
     private ArrayList<Project> projectList = new ArrayList<>();
     private ArrayList<Employee> employeeList = new ArrayList<>();
     private ArrayList<HeadquarterInfo> HeadquarterList = new ArrayList();
-     
+
     private Set<String> countryList;
     private Set<String> instituteList;
-    
+
     private HeadquarterInfo headquarterInfo;
     private Project project;
-    
-    
+
     EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Dev1PU");
     EmployeeJpaController ejc = new EmployeeJpaController(emfactory);
     AddressJpaController ajc = new AddressJpaController(emfactory);
@@ -85,12 +85,13 @@ public class Test3 extends javax.swing.JFrame {
     ProjectJpaController pjc = new ProjectJpaController(emfactory);
     PositieEmployerJpaController pejc = new PositieEmployerJpaController(emfactory);
     PositieDescriptionJpaController pdjc = new PositieDescriptionJpaController(emfactory);
+
     /**
      * Creates new form Test3
      */
     public Test3() {
         initComponents();
-             createDisplayMainCardLayout();
+        createDisplayMainCardLayout();
         createEmployeeMainCardLayout();
         createEmployeeAddMainCardLayout();
         createEmployeeModifyMainCardLayout();
@@ -177,7 +178,6 @@ public class Test3 extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         EmployeeAddJobPosition_ProjectComboBox = new javax.swing.JComboBox();
         EmployeeAddJobPosition_OtherPositionButton = new javax.swing.JButton();
-        EmployeeAddJobPosition_OtherProjectButton = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         EmployeeAddJobPosition_ProjectList1 = new javax.swing.JList();
         jLabel33 = new javax.swing.JLabel();
@@ -211,18 +211,6 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeAddCrCountry_CountryNameTextfield = new javax.swing.JTextField();
         EmployeeAddCreateCountry_BackButton = new javax.swing.JButton();
         EmployeeAddCreateCountry_SaveButton = new javax.swing.JButton();
-        EmployeeAddCreateProjectPanel = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        EmployeeAddCrProject_ProjectNameTextfield = new javax.swing.JTextField();
-        EmployeeAddCrProject_BudgetTextfield = new javax.swing.JTextField();
-        EmployeeAddCrProject_AllocatedHoursTextfield = new javax.swing.JTextField();
-        EmployeeAddCrProject_CompanyNameTextfield = new javax.swing.JTextField();
-        EmployeeAddCreateProject_BackButton = new javax.swing.JButton();
-        EmployeeAddCreateProject_SaveButton = new javax.swing.JButton();
         EmployeeDeletePanel = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
@@ -772,11 +760,6 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeAddDegree_CourseNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         EmployeeAddDegree_DegreeList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        EmployeeAddDegree_DegreeList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane6.setViewportView(EmployeeAddDegree_DegreeList1);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -920,20 +903,7 @@ public class Test3 extends javax.swing.JFrame {
             }
         });
 
-        EmployeeAddJobPosition_OtherProjectButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        EmployeeAddJobPosition_OtherProjectButton.setText("Other");
-        EmployeeAddJobPosition_OtherProjectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmployeeAddJobPosition_OtherProjectButtonActionPerformed(evt);
-            }
-        });
-
         EmployeeAddJobPosition_ProjectList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        EmployeeAddJobPosition_ProjectList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane7.setViewportView(EmployeeAddJobPosition_ProjectList1);
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -996,7 +966,6 @@ public class Test3 extends javax.swing.JFrame {
                 .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(EmployeeAddJobPosition_AddToProjectListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(EmployeeAddJobPosition_OtherProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(EmployeeAddJobPosition_OtherPositionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(EmployeeAddJobPosition_RemoveFromProjectListButton)))
                 .addContainerGap(103, Short.MAX_VALUE))
@@ -1017,12 +986,11 @@ public class Test3 extends javax.swing.JFrame {
                     .addComponent(jLabel31)
                     .addComponent(EmployeeAddJobPosition_PositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmployeeAddJobPosition_OtherPositionButton))
-                .addGap(56, 56, 56)
+                .addGap(57, 57, 57)
                 .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(EmployeeAddJobPosition_ProjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EmployeeAddJobPosition_OtherProjectButton))
-                .addGap(36, 36, 36)
+                    .addComponent(EmployeeAddJobPosition_ProjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(EmployeeAddJobPosition_AddToProjectListButton)
                 .addGap(2, 2, 2)
                 .addGroup(EmployeeAddJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1095,7 +1063,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addComponent(EmployeeAddCreateInstitute_BackButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(EmployeeAddCreateInstitute_SaveButton)
-                .addGap(44, 44, 44))
+                .addGap(51, 51, 51))
         );
         EmployeeAddCreateInstitutionPanelLayout.setVerticalGroup(
             EmployeeAddCreateInstitutionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1276,105 +1244,6 @@ public class Test3 extends javax.swing.JFrame {
         );
 
         EmployeeAddMainCardLayoutPanel.add(EmployeeAddCreateCountryPanel, "card8");
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel44.setText("Create Project");
-
-        jLabel45.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel45.setText("Project name :");
-
-        jLabel46.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel46.setText("Budget :");
-
-        jLabel47.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel47.setText("Allocated hours :");
-
-        jLabel48.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel48.setText("Company name :");
-
-        EmployeeAddCrProject_ProjectNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        EmployeeAddCrProject_BudgetTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        EmployeeAddCrProject_AllocatedHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        EmployeeAddCrProject_CompanyNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        EmployeeAddCreateProject_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        EmployeeAddCreateProject_BackButton.setText("BACK");
-        EmployeeAddCreateProject_BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmployeeAddCreateProject_BackButtonActionPerformed(evt);
-            }
-        });
-
-        EmployeeAddCreateProject_SaveButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        EmployeeAddCreateProject_SaveButton.setText("SAVE");
-        EmployeeAddCreateProject_SaveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmployeeAddCreateProject_SaveButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout EmployeeAddCreateProjectPanelLayout = new javax.swing.GroupLayout(EmployeeAddCreateProjectPanel);
-        EmployeeAddCreateProjectPanel.setLayout(EmployeeAddCreateProjectPanelLayout);
-        EmployeeAddCreateProjectPanelLayout.setHorizontalGroup(
-            EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeeAddCreateProjectPanelLayout.createSequentialGroup()
-                .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EmployeeAddCreateProjectPanelLayout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel45)
-                            .addComponent(jLabel47)
-                            .addComponent(jLabel48))
-                        .addGap(44, 44, 44)
-                        .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmployeeAddCrProject_ProjectNameTextfield)
-                            .addComponent(EmployeeAddCrProject_BudgetTextfield)
-                            .addComponent(EmployeeAddCrProject_AllocatedHoursTextfield)
-                            .addComponent(EmployeeAddCrProject_CompanyNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)))
-                    .addGroup(EmployeeAddCreateProjectPanelLayout.createSequentialGroup()
-                        .addGap(429, 429, 429)
-                        .addComponent(jLabel44)))
-                .addContainerGap(389, Short.MAX_VALUE))
-            .addGroup(EmployeeAddCreateProjectPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(EmployeeAddCreateProject_BackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EmployeeAddCreateProject_SaveButton)
-                .addGap(54, 54, 54))
-        );
-        EmployeeAddCreateProjectPanelLayout.setVerticalGroup(
-            EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeeAddCreateProjectPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel44)
-                .addGap(38, 38, 38)
-                .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel45)
-                    .addComponent(EmployeeAddCrProject_ProjectNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel46)
-                    .addComponent(EmployeeAddCrProject_BudgetTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel47)
-                    .addComponent(EmployeeAddCrProject_AllocatedHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel48)
-                    .addComponent(EmployeeAddCrProject_CompanyNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                .addGroup(EmployeeAddCreateProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmployeeAddCreateProject_BackButton)
-                    .addComponent(EmployeeAddCreateProject_SaveButton))
-                .addGap(34, 34, 34))
-        );
-
-        EmployeeAddMainCardLayoutPanel.add(EmployeeAddCreateProjectPanel, "card9");
 
         EmployeeMainCardLayoutPanel.add(EmployeeAddMainCardLayoutPanel, "card2");
 
@@ -3415,41 +3284,40 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeButtonActionPerformed
 
     private void ProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectButtonActionPerformed
-      displayPageController("Project");
+        displayPageController("Project");
     }//GEN-LAST:event_ProjectButtonActionPerformed
 
     private void EmployeeGoToPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeGoToPageButtonActionPerformed
-      goToEmployeePage(checkEmployeeComboBox());
+        goToEmployeePage(checkEmployeeComboBox());
     }//GEN-LAST:event_EmployeeGoToPageButtonActionPerformed
 
     private void EmployeeAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
-       
-        if(checkNewEmployeeTextFields()){
-             createEmployee();
-             employeeAddPageController("address");
-        }else{
+
+        if (checkNewEmployeeTextFields()) {
+            createEmployee();
+            employeeAddPageController("address");
+        } else {
             JOptionPane.showMessageDialog(this, "Please fill all textfields");
-            
+
         }
-         
-        
+
+
     }//GEN-LAST:event_EmployeeAddBasicInfo_NextButtonActionPerformed
 
     private void EmployeeAddAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddAddress_OtherButtonActionPerformed
-      employeeAddPageController("crCountry");
+        employeeAddPageController("crCountry");
     }//GEN-LAST:event_EmployeeAddAddress_OtherButtonActionPerformed
 
     private void EmployeAddAddress_BacktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_BacktButtonActionPerformed
-      employeeAddPageController("basicInfo");
+        employeeAddPageController("basicInfo");
     }//GEN-LAST:event_EmployeAddAddress_BacktButtonActionPerformed
 
     private void EmployeAddAddress_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_NextButtonActionPerformed
-    if(checkNewAddressTextFields()){
-        employeeAddPageController("degree");
-    }
-    else{
-          JOptionPane.showMessageDialog(this, "Please fill all textfields");
-    }
+        if (checkNewAddressTextFields()) {
+            employeeAddPageController("degree");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+        }
     }//GEN-LAST:event_EmployeAddAddress_NextButtonActionPerformed
 
     private void EmployeeAddDegree_InstitutionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddDegree_InstitutionComboBoxActionPerformed
@@ -3457,91 +3325,111 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddDegree_InstitutionComboBoxActionPerformed
 
     private void EmployeAddDegree_AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_AddButtonActionPerformed
-      addToDegreeList();
+        addToDegreeList();
     }//GEN-LAST:event_EmployeAddDegree_AddButtonActionPerformed
 
     private void EmployeAddDegree_RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_RemoveButtonActionPerformed
-      removeFromDegreeList();
+        removeFromDegreeList();
     }//GEN-LAST:event_EmployeAddDegree_RemoveButtonActionPerformed
 
     private void EmployeAddDegree_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_NextButtonActionPerformed
-        employeeAddPageController("jobPosition");
+        if (checkDegreeList()) {
+            employeeAddPageController("jobPosition");
+        } else {
+            JOptionPane.showMessageDialog(this, "No degrees visible");
+        }
+
     }//GEN-LAST:event_EmployeAddDegree_NextButtonActionPerformed
 
     private void EmployeAddAddress_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddAddress_BackButtonActionPerformed
-      employeeAddPageController("address");
+        employeeAddPageController("address");
     }//GEN-LAST:event_EmployeAddAddress_BackButtonActionPerformed
 
     private void EmployeAddDegree_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddDegree_OtherButtonActionPerformed
-    employeeAddPageController("crInstitution");
+        employeeAddPageController("crInstitution");
     }//GEN-LAST:event_EmployeAddDegree_OtherButtonActionPerformed
 
     private void EmployeeAddJobPosition_OtherPositionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_OtherPositionButtonActionPerformed
-      employeeAddPageController("crJobPosition");
+        employeeAddPageController("crJobPosition");
     }//GEN-LAST:event_EmployeeAddJobPosition_OtherPositionButtonActionPerformed
 
-    private void EmployeeAddJobPosition_OtherProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_OtherProjectButtonActionPerformed
-      employeeAddPageController("crProject");
-    }//GEN-LAST:event_EmployeeAddJobPosition_OtherProjectButtonActionPerformed
-
     private void EmployeeAddJobPosition_AddToProjectListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_AddToProjectListButtonActionPerformed
-     addToEmployeeProjectList();
+        addToEmployeeProjectList();
     }//GEN-LAST:event_EmployeeAddJobPosition_AddToProjectListButtonActionPerformed
 
     private void EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed
-      removeFromEmployeeProjectList();
+        removeFromEmployeeProjectList();
     }//GEN-LAST:event_EmployeeAddJobPosition_RemoveFromProjectListButtonActionPerformed
 
     private void EmployeAddJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddJobPosition_BackButtonActionPerformed
-     employeeAddPageController("degree");
+        employeeAddPageController("degree");
     }//GEN-LAST:event_EmployeAddJobPosition_BackButtonActionPerformed
 
     private void EmployeAddJobPosition_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddJobPosition_SaveButtonActionPerformed
-     employeeAddPageController("basicInfo");
+      try{       
+          if(checkPositionProjectList()){
+           ultimateEmployeeSave();
+           employeeAddPageController("basicInfo");
+       }
+       else{
+            JOptionPane.showMessageDialog(this, "No Employee project positions visible");
+       }
+      }
+      catch(Exception ex){
+          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+      }
+
     }//GEN-LAST:event_EmployeAddJobPosition_SaveButtonActionPerformed
 
     private void EmployeeAddCreateInstitute_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateInstitute_BackButtonActionPerformed
-      employeeAddPageController("degree");
+        employeeAddPageController("degree");
     }//GEN-LAST:event_EmployeeAddCreateInstitute_BackButtonActionPerformed
 
     private void EmployeeAddCreateInstitute_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
         try {
+            if(checkInstitutionTextfields()){
             employeeAddNewInstututeComboboxModel();
             employeeAddPageController("degree");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Please fill all textfields");
+            }
         } catch (Exception ex) {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
 
     private void EmployeeAddCreateJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPosition_BackButtonActionPerformed
-      employeeAddPageController("jobPosition");
+        employeeAddPageController("jobPosition");
     }//GEN-LAST:event_EmployeeAddCreateJobPosition_BackButtonActionPerformed
 
     private void EmployeeAddCreateJobPostion_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
         try {
-            employeeAddNewPositionComboboxModel();
-            employeeAddPageController("jobPosition");
+            if(checkPositionTextfields()){
+             employeeAddNewPositionComboboxModel();
+             employeeAddPageController("jobPosition");   
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Please fill all textfields");
+            }
         } catch (Exception ex) {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
 
     private void EmployeeAddCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
-      employeeAddPageController("address");
+        employeeAddPageController("address");
     }//GEN-LAST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
 
     private void EmployeeAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
-       employeeAddNewCountryComboboxModel();
+       if(checkCountryTextfields()){
+        employeeAddNewCountryComboboxModel();
         employeeAddPageController("address");
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Please fill all textfields");
+       }
     }//GEN-LAST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
-
-    private void EmployeeAddCreateProject_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateProject_BackButtonActionPerformed
-        employeeAddPageController("jobPosition");
-    }//GEN-LAST:event_EmployeeAddCreateProject_BackButtonActionPerformed
-
-    private void EmployeeAddCreateProject_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateProject_SaveButtonActionPerformed
-      employeeAddPageController("jobPosition");
-    }//GEN-LAST:event_EmployeeAddCreateProject_SaveButtonActionPerformed
 
     private void EmployeeDelete_EmployeeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeDelete_EmployeeComboBoxActionPerformed
         // TODO add your handling code here:
@@ -3560,24 +3448,24 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyBasic_EmployeeComboBoxActionPerformed
 
     private void EmployeeModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
-       employeeModifyPageController("address");
+        employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
-/*
+    /*
     private void EmployeeModifyAddress_StreetTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_StreetTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmployeeModifyAddress_StreetTextFieldActionPerformed
 */
-    
+
     private void EmployeeModifyAddress_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_NextButtonActionPerformed
-       employeeModifyPageController("degree");
+        employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyAddress_NextButtonActionPerformed
 
     private void EmployeeModifyAddress_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_BackButtonActionPerformed
-     employeeModifyPageController("basicInfo");
+        employeeModifyPageController("basicInfo");
     }//GEN-LAST:event_EmployeeModifyAddress_BackButtonActionPerformed
 
     private void EmployeeModifyAddress_otherCountryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_otherCountryButtonActionPerformed
-   employeeModifyPageController("crCountry");
+        employeeModifyPageController("crCountry");
     }//GEN-LAST:event_EmployeeModifyAddress_otherCountryButtonActionPerformed
 
     private void EmployeeModifyAddress_AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_AddButtonActionPerformed
@@ -3593,43 +3481,43 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyAddress_ShowButtonActionPerformed
 
     private void EmployeeModifyDegree_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_BackButtonActionPerformed
-    employeeModifyPageController("address");
+        employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyDegree_BackButtonActionPerformed
 
     private void EmployeeModifyDegree_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_NextButtonActionPerformed
-  employeeModifyPageController("jobPosition");
+        employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeModifyDegree_NextButtonActionPerformed
 
     private void EmployeeModifyDegree_otherInstitutionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_otherInstitutionButtonActionPerformed
-      employeeModifyPageController("crInstitution");
+        employeeModifyPageController("crInstitution");
     }//GEN-LAST:event_EmployeeModifyDegree_otherInstitutionButtonActionPerformed
 
     private void EmployeeModifyJobPosition_otherPositionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_otherPositionButtonActionPerformed
-   employeeModifyPageController("crJobPosition");   
+        employeeModifyPageController("crJobPosition");
     }//GEN-LAST:event_EmployeeModifyJobPosition_otherPositionButtonActionPerformed
 
     private void EmployeeModifyJobPosition_otherProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_otherProjectButtonActionPerformed
-         employeeModifyPageController("crProject");
+        employeeModifyPageController("crProject");
     }//GEN-LAST:event_EmployeeModifyJobPosition_otherProjectButtonActionPerformed
 
     private void EmployeeModifyJobPosition_backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_backButtonActionPerformed
-       employeeModifyPageController("degree");
+        employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyJobPosition_backButtonActionPerformed
 
     private void EmployeeModifyJobPosition_saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_saveButtonActionPerformed
-       employeeModifyPageController("basicInfo");
+        employeeModifyPageController("basicInfo");
     }//GEN-LAST:event_EmployeeModifyJobPosition_saveButtonActionPerformed
 
     private void EmployeeModifyCrInstitution_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCrInstitution_BackButtonActionPerformed
-           employeeModifyPageController("degree");
+        employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyCrInstitution_BackButtonActionPerformed
 
     private void EmployeeModifyCrInstitution_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCrInstitution_SaveButtonActionPerformed
-      employeeModifyPageController("degree");
+        employeeModifyPageController("degree");
     }//GEN-LAST:event_EmployeeModifyCrInstitution_SaveButtonActionPerformed
 
     private void EmployeeCrJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeCrJobPosition_BackButtonActionPerformed
-         employeeModifyPageController("jobPosition");
+        employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeCrJobPosition_BackButtonActionPerformed
 
     private void EmployeeCrJobPosition_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeCrJobPosition_SaveButtonActionPerformed
@@ -3637,19 +3525,19 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeCrJobPosition_SaveButtonActionPerformed
 
     private void EmployeeModifyCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateCountry_BackButtonActionPerformed
-       employeeModifyPageController("address");
+        employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyCreateCountry_BackButtonActionPerformed
 
     private void EmployeeModifyCreateCountry_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateCountry_NextButtonActionPerformed
-       employeeModifyPageController("address");
+        employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyCreateCountry_NextButtonActionPerformed
 
     private void EmployeeModifyCreateProject_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateProject_BackButtonActionPerformed
-       employeeModifyPageController("jobPosition");
+        employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeModifyCreateProject_BackButtonActionPerformed
 
     private void EmployeeModifyCreateProject_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateProject_SaveButtonActionPerformed
-       employeeModifyPageController("jobPosition");
+        employeeModifyPageController("jobPosition");
     }//GEN-LAST:event_EmployeeModifyCreateProject_SaveButtonActionPerformed
 
     private void ProjectGoToPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectGoToPageButtonActionPerformed
@@ -3657,11 +3545,11 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectGoToPageButtonActionPerformed
 
     private void ProjectAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddBasicInfo_NextButtonActionPerformed
-       projectAddPageController("headquarter");
+        projectAddPageController("headquarter");
     }//GEN-LAST:event_ProjectAddBasicInfo_NextButtonActionPerformed
 
     private void ProjectAddHeadquarter_SelectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_SelectComboBoxActionPerformed
-       projectAddPageController("headquarter");
+        projectAddPageController("headquarter");
     }//GEN-LAST:event_ProjectAddHeadquarter_SelectComboBoxActionPerformed
 
     private void ProjectAddHeadquarter_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_OtherButtonActionPerformed
@@ -3669,7 +3557,7 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddHeadquarter_OtherButtonActionPerformed
 
     private void ProjectAddHeadquarter_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_SaveButtonActionPerformed
-         projectAddPageController("basicInfo");
+        projectAddPageController("basicInfo");
     }//GEN-LAST:event_ProjectAddHeadquarter_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_BackButtonActionPerformed
@@ -3681,11 +3569,11 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_BackButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
-      projectAddPageController("basicInfo");
+        projectAddPageController("basicInfo");
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_OtherButtonActionPerformed
-         projectAddPageController("crCountry");
+        projectAddPageController("crCountry");
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_OtherButtonActionPerformed
 
     private void ProjectAddCreatedHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreatedHeadquarter_BackButtonActionPerformed
@@ -3709,7 +3597,7 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectModifyBasicInfo_NextButtonActionPerformed
 
     private void ProjectModifyHeadquarter_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_SaveButtonActionPerformed
-         projectModifyPageController("basicInfo");
+        projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyHeadquarter_SaveButtonActionPerformed
 
     private void ProjectModifyHeadquarter_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_OtherButtonActionPerformed
@@ -3752,7 +3640,7 @@ public class Test3 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ProjectComboBoxActionPerformed
 
- private void createDisplayMainCardLayout() {
+    private void createDisplayMainCardLayout() {
         DisplayMainCardLayoutPanel.getLayout().addLayoutComponent("employee_panel", EmployeePanel);
         DisplayMainCardLayoutPanel.getLayout().addLayoutComponent("project_panel", ProjectPanel);
 
@@ -3813,7 +3701,6 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeAddMainCardLayoutPanel.getLayout().addLayoutComponent("employee_add_crInstitute_panel", EmployeeAddCreateInstitutionPanel);
         EmployeeAddMainCardLayoutPanel.getLayout().addLayoutComponent("employee_add_crCountry_panel", EmployeeAddCreateCountryPanel);
         EmployeeAddMainCardLayoutPanel.getLayout().addLayoutComponent("employee_add_crJobPosition_panel", EmployeeAddCreateJobPositionPanel);
-        EmployeeAddMainCardLayoutPanel.getLayout().addLayoutComponent("employee_add_crProject_panel", EmployeeAddCreateProjectPanel);
         employeeAddMainCard = (CardLayout) EmployeeAddMainCardLayoutPanel.getLayout();
     }
 
@@ -3971,23 +3858,22 @@ public class Test3 extends javax.swing.JFrame {
         employee.setEmployeename(name);
         employee.setSurname(surname);
     }
-    
-    private Boolean checkNewEmployeeTextFields(){
-        try{
-        int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextfield.getText());
-        String name = EmployeeAddBasic_NameTextfield.getText();
-        String surname = EmployeeAddBasic_SurnameTextfield.getText();
-       
-        if(name.isEmpty()|| surname.isEmpty() ){
-            return false;  
-        }
-        else {
-            return true;
-        }  
-        }catch(NumberFormatException e){
+
+    private Boolean checkNewEmployeeTextFields() {
+        try {
+            int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextfield.getText());
+            String name = EmployeeAddBasic_NameTextfield.getText();
+            String surname = EmployeeAddBasic_SurnameTextfield.getText();
+
+            if (name.isEmpty() || surname.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Bsn contains only numbers");
         }
-        return false;  
+        return false;
     }
 
     private void createEmployeeAddress() throws Exception {
@@ -4016,28 +3902,26 @@ public class Test3 extends javax.swing.JFrame {
         workingAddress.setEmployee(employee);
         workingAddressList.add(workingAddress);
     }
-    
-    private Boolean checkNewAddressTextFields(){
-        try{
-       String countryName = EmployeeAddAddres_CountryComboBox.getSelectedItem().toString();
-        String postalcode = EmployeeAddAddres_PostalcodeTextfield.getText();
-        String cityName = EmployeeAddAddres_CityTextfield.getText();
-        String street = EmployeeAddAddres_StreetTextfield.getText();
-        int number = Integer.parseInt(EmployeeAddAddres_NumberTextfield.getText());
-        
-        if(countryName.isEmpty()|| postalcode.isEmpty() || cityName.isEmpty() || street.isEmpty()){
-            return false;  
-        }
-        else {
-            return true;
-        }  
-        }catch(NumberFormatException e){
+
+    private Boolean checkNewAddressTextFields() {
+        try {
+            String countryName = EmployeeAddAddres_CountryComboBox.getSelectedItem().toString();
+            String postalcode = EmployeeAddAddres_PostalcodeTextfield.getText();
+            String cityName = EmployeeAddAddres_CityTextfield.getText();
+            String street = EmployeeAddAddres_StreetTextfield.getText();
+            int number = Integer.parseInt(EmployeeAddAddres_NumberTextfield.getText());
+
+            if (countryName.isEmpty() || postalcode.isEmpty() || cityName.isEmpty() || street.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Address number must contain numbers only");
         }
-        return false;  
+        return false;
     }
-    
-    
+
     private void employeeAddInstituteComboboxModel() {
         DefaultComboBoxModel schoolListModel = new DefaultComboBoxModel();
         schoolList = new ArrayList<School>(sjc.findSchoolEntities());
@@ -4053,11 +3937,26 @@ public class Test3 extends javax.swing.JFrame {
     }
 
     private void employeeAddNewInstututeComboboxModel() throws Exception {
+       
         School school = new School();
         school.setSchoolname(EmployeeAddCrInstitue_InsituteNameTextfield.getText());
         school.setSchoollevel(EmployeeAddCrInstitue_InstituteLevelTextfield.getText());
         sjc.create(school);
         employeeAddInstituteComboboxModel();
+
+    }
+    
+    private Boolean checkInstitutionTextfields(){
+      
+        String name = EmployeeAddCrInstitue_InsituteNameTextfield.getText();
+        String level = EmployeeAddCrInstitue_InstituteLevelTextfield.getText();
+        if(!name.isEmpty() && !level.isEmpty() ){
+            return true;
+        }
+        else{
+            return false;
+        }
+       
     }
 
     private void showDegreeList() {
@@ -4096,6 +3995,15 @@ public class Test3 extends javax.swing.JFrame {
 
     }
 
+    private Boolean checkDegreeList() {
+
+        if (DegreeList != null && !DegreeList.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private void removeFromDegreeList() {
         ObjectModel om = (ObjectModel) EmployeeAddDegree_DegreeList1.getSelectedValue();
         DegreePK dpk = new DegreePK(om.getId(), om.getIdsec(), om.getIdthird());
@@ -4132,7 +4040,15 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddAddres_CountryComboBox.setModel(countryListModel);
     }
-
+    private Boolean checkCountryTextfields(){
+        String name = EmployeeAddCrCountry_CountryNameTextfield.getText();
+        if(!name.isEmpty()){
+            return true;
+            }
+        else{
+            return false;
+        }
+   }
     private void employeeAddCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
         ArrayList<String> countryList = fillCountryList();
@@ -4166,8 +4082,29 @@ public class Test3 extends javax.swing.JFrame {
 
         pdjc.create(position);
     }
-
     
+    private Boolean checkPositionTextfields(){
+        try{
+        String name = EmployeeAddCrJobPosition_PositionNameTextfield.getText();
+        String description = EmployeeAddCrJobPosition_DescriptionTextfield.getText();
+        int hFee = Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextfield.getText());
+        int Ahours = Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextfield.getText());
+        
+        if(!name.isEmpty() && !description.isEmpty()){
+          return true;
+            }
+        else{
+            return false;
+            }
+        }
+       
+        catch( NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Hour fee and Amount of hours only contain numbers");
+        }
+        return false;
+    
+    }
+   
     private void employeeAddProjectComboboxModel() {
         DefaultComboBoxModel positionListModel = new DefaultComboBoxModel();
         projectList = new ArrayList<Project>(pjc.findProjectEntities());
@@ -4180,16 +4117,18 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddJobPosition_ProjectComboBox.setModel(positionListModel);
     }
-/*
-    private void employeeAddNewProjectComboboxModel() throws Exception {
-        Project project = new Project();
-        project.setProjectname(EmployeeAddCrProject_ProjectNameTextfield.getText());
-        project.setBudget(Double.parseDouble(EmployeeAddCrProject_BudgetTextfield.getText()));
-        project.setAllocatedhour(Integer.parseInt(EmployeeAddCrProject_AllocatedHoursTextfield.getText()));
-        project.setCompanyname(EmployeeAddCrProject_CompanyNameTextfield.getText());
-        pjc.create(project);
-    }
-*/
+    
+    /*
+     private void employeeAddNewProjectComboboxModel() throws Exception {
+     Project project = new Project();
+     project.setProjectname(EmployeeAddCrProject_ProjectNameTextfield.getText());
+     project.setBudget(Double.parseDouble(EmployeeAddCrProject_BudgetTextfield.getText()));
+     project.setAllocatedhour(Integer.parseInt(EmployeeAddCrProject_AllocatedHoursTextfield.getText()));
+     project.setCompanyname(EmployeeAddCrProject_CompanyNameTextfield.getText());
+     pjc.create(project);
+     }
+     */
+
     private void addToEmployeeProjectList() {
         HeadquarterInfo headInfo = hijc.findHeadquarterInfo(2);
         ObjectModel omposition = (ObjectModel) EmployeeAddJobPosition_PositionComboBox.getSelectedItem();
@@ -4233,7 +4172,15 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddJobPosition_ProjectList1.setModel(epList);
     }
+    
+    private Boolean checkPositionProjectList() {
 
+        if (PositionEmployerList != null && !PositionEmployerList.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     private void removeFromEmployeeProjectList() {
         ObjectModel om = (ObjectModel) EmployeeAddJobPosition_ProjectList1.getSelectedValue();
         PositieEmployerPK pePK = new PositieEmployerPK(om.getIdsec(), om.getId());
@@ -4389,53 +4336,52 @@ public class Test3 extends javax.swing.JFrame {
         ObjectModel om = (ObjectModel) EmployeeModifyBasic_EmployeeComboBox.getSelectedItem();
         employee = ejc.findEmployee(om.getId());
     }
-    
-    private void findEmployeeAddress(){
+
+    private void findEmployeeAddress() {
         findEmployee();
         workingAddressList = new ArrayList<WorkingAddress>(wajc.findWorkingAddressEntities());
         ArrayList<WorkingAddress> employeeWA = new ArrayList<>();
         for (WorkingAddress employeeWAddress : workingAddressList) {
             int employeeWorkingAddressBsn = employeeWAddress.getWorkingAddressPK().getBsn();
-           if(employeeWorkingAddressBsn== employee.getBsn() ){
-               employeeWA.add(employeeWAddress);
+            if (employeeWorkingAddressBsn == employee.getBsn()) {
+                employeeWA.add(employeeWAddress);
             }
         }
         workingAddressList = employeeWA;
     }
-    
-    private void EmployeeAddressList(){
-         DefaultListModel employeeAddreesList = new DefaultListModel<>();
+
+    private void EmployeeAddressList() {
+        DefaultListModel employeeAddreesList = new DefaultListModel<>();
         ObjectModel om;
         AddressPK adPK;
         Address address1;
-       
-        for (WorkingAddress workingAddress1 : workingAddressList ) {
+
+        for (WorkingAddress workingAddress1 : workingAddressList) {
             om = new ObjectModel();
             adPK = new AddressPK();
-            
+
             String country = workingAddress1.getWorkingAddressPK().getCountry();
             String postalcode = workingAddress1.getWorkingAddressPK().getPostalcode();
-                    
-          
+
             String streetname = workingAddress1.getAddress().getStreetname();
             String streetnumber = workingAddress1.getAddress().getBuildingnumber() + " ";
-           
+
             om.setIdFourth(country);
             om.setIdFifth(postalcode);
-            om.setDescription(country +" "+streetname+" " + streetnumber);
-            employeeAddreesList.addElement(om);   
-           
+            om.setDescription(country + " " + streetname + " " + streetnumber);
+            employeeAddreesList.addElement(om);
+
         }
         EmployeeModifyAddress_AddressList1.setModel(employeeAddreesList);
     }
-    
-    private void setEmployeeBasicInfo(){
-        EmployeeModifyBasic_BsnTextfield.setText(employee.getBsn()+"");
+
+    private void setEmployeeBasicInfo() {
+        EmployeeModifyBasic_BsnTextfield.setText(employee.getBsn() + "");
         EmployeeModifyBasic_NameTextfield.setText(employee.getEmployeename());
         EmployeeModifyBasic_SurnameTextfield.setText(employee.getSurname());
     }
-    
-    private void showAddress(){
+
+    private void showAddress() {
         ObjectModel om = (ObjectModel) EmployeeModifyAddress_AddressList1.getSelectedValue();
         AddressPK apk = new AddressPK();
         apk.setCountry(om.getIdFourth());
@@ -4447,7 +4393,7 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeModifyAddress_StreetTextfield.setText(address.getStreetname().toString());
         EmployeeModifyAddress_NumberTextfield.setText(address.getBuildingnumber().toString());
     }
-    
+
     private void employeeModifyCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
         ArrayList<String> countryList = fillCountryList();
@@ -4459,7 +4405,7 @@ public class Test3 extends javax.swing.JFrame {
 
     }
 
-    private void modifyEmployeeAddress(){
+    private void modifyEmployeeAddress() {
         String city = EmployeeModifyAddress_CityTextfield.getText();
         String street = EmployeeModifyAddress_StreetTextfield.getText();
         int number = Integer.parseInt(EmployeeModifyAddress_NumberTextfield.getText());
@@ -4475,7 +4421,7 @@ public class Test3 extends javax.swing.JFrame {
         }
     }
 
-       private void createEmployeeModifyAddress() throws Exception {
+    private void createEmployeeModifyAddress() throws Exception {
         WorkingAddressPK waPk = new WorkingAddressPK();
         workingAddress = new WorkingAddress();
         address = new Address();
@@ -4499,42 +4445,36 @@ public class Test3 extends javax.swing.JFrame {
         workingAddress.setAddress(address);
         workingAddress.setEmployee(employee);
         workingAddressList.add(workingAddress);
-        
-        }
 
-    
-    
-    
-    
-    
+    }
+
     /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      *Project Model Add Methods
      */
-    
     private void insertProject() throws Exception {
-       
-       // createHeadquarterAddress();
+
+        // createHeadquarterAddress();
         createHeadquarter();
-     //   createProjectCountry();
+        //   createProjectCountry();
         //createHeadquarterAddress();
-         createProject();
+        createProject();
     }
 
     private void createProject() {
         project = new Project();
-          
+
         String projectName = ProjectAddBasic_ProjectNameTextfield.getText();
         double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
         int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
         String CompanyName = ProjectAddBasic_CompanyNameTextfield.getText();
-        
+
         project.setProjectname(projectName);
         project.setBudget(budget);
         project.setAllocatedhour(allocatedHours);
         project.setCompanyname(CompanyName);
         project.setHeadquarterid(headquarterInfo);
     }
-    
+
     private void fillSelectHeadquarterBasicComboBox() {
         DefaultComboBoxModel HeadquarterlistModel = new DefaultComboBoxModel();
         HeadquarterList = new ArrayList<HeadquarterInfo>(hijc.findHeadquarterInfoEntities());
@@ -4547,13 +4487,14 @@ public class Test3 extends javax.swing.JFrame {
         }
         ProjectAddHeadquarter_SelectComboBox.setModel(HeadquarterlistModel);
     }
-    
-    private HeadquarterInfo findSelectedHeadquarter(){
+
+    private HeadquarterInfo findSelectedHeadquarter() {
         ObjectModel om = (ObjectModel) ProjectAddHeadquarter_SelectComboBox.getSelectedItem();
         headquarterInfo = hijc.findHeadquarterInfo(om.getId());
         return headquarterInfo;
-        
+
     }
+
     private void createHeadquarterAddress() throws Exception {
         ArrayList<HeadquarterInfo> headList = new ArrayList<>();
         headList.add(findSelectedHeadquarter());
@@ -4573,14 +4514,15 @@ public class Test3 extends javax.swing.JFrame {
         address.setStreetname(street);
         address.setBuildingnumber(number);
         address.setHeadquarterInfoCollection(HeadquarterList);
-        
+
         addressList.add(address);
-     //   headquarterInfo.setAddressCollection(addressList);
-        
+        //   headquarterInfo.setAddressCollection(addressList);
+
     }
-    private void createHeadquarter(){
+
+    private void createHeadquarter() {
         headquarterInfo = findSelectedHeadquarter();
-          
+
 //       String BuildingName = ProjectAddCreateHeadquarter_BuildingNameTextField.getText();
 //        int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextField.getText());
 //        double monthRent = Double.parseDouble(ProjectAddCreateHeadquarter_MonthRentTextField.getText());
@@ -4589,40 +4531,38 @@ public class Test3 extends javax.swing.JFrame {
 //        headquarterInfo.setRoomamount(roomAmount);
 //        headquarterInfo.setMonthrent(monthRent);
 //        ObjectModel om = (ObjectModel) ProjectAddHeadquarter_SelectComboBox.getSelectedItem();
-       AddressPK apk = new AddressPK();
+        AddressPK apk = new AddressPK();
         apk.setCountry("Holland");
         apk.setPostalcode("3042PM");
         Address ad = ajc.findAddress(apk);
         addressList = new ArrayList<>();
         addressList.add(ad);
         Collection<Address> cal = addressList;
-     //   headquarterInfo.setAddressCollection(cal);
+        //   headquarterInfo.setAddressCollection(cal);
     }
-    
-    private void createProjectCountry(){
-        address =  new Address();
-        
+
+    private void createProjectCountry() {
+        address = new Address();
+
         String country = ProjectAddCreateCountry_CountryTextfield.getText();
     }
+
     private void ultimateProjectSave() throws Exception {
-      insertProject();
+        insertProject();
 //      hijc.updatepersist(headquarterInfo);
-      pjc.create(project);  
+        pjc.create(project);
 //        for (HeadquarterInfo HeadquarterList : HeadquarterList) {
 //            hijc.create(HeadquarterList);
 //        }
 
         //employee.setWorkingAddressCollection(workingAddressList);
-
-
         pjc.edit(project);
-        JOptionPane.showConfirmDialog(null, "Project : " + project.getProjectname()+ " has been added to the system.");
+        JOptionPane.showConfirmDialog(null, "Project : " + project.getProjectname() + " has been added to the system.");
     }
-    
+
     /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      *Project Model Delete Methods
      */
-    
     private void fillProjectDeleteComboBox() {
         DefaultComboBoxModel ProjectListModel = new DefaultComboBoxModel();
         projectList = new ArrayList<Project>(pjc.findProjectEntities());
@@ -4635,51 +4575,50 @@ public class Test3 extends javax.swing.JFrame {
         }
         ProjectDelete_SelectProjectComboBox.setModel(ProjectListModel);
     }
+
     private void deleteProject() {
-        ObjectModel om =(ObjectModel) ProjectDelete_SelectProjectComboBox.getSelectedItem();
+        ObjectModel om = (ObjectModel) ProjectDelete_SelectProjectComboBox.getSelectedItem();
         int projectID = om.getId();
-     
-           ArrayList<Project> projectList;
-           ArrayList<HeadquarterInfo> headquarterlist = new ArrayList<>(hijc.findHeadquarterInfoEntities());
-            ArrayList<PositieEmployer> pelist = new  ArrayList<PositieEmployer>(pejc.findPositieEmployerEntities());
-            for (PositieEmployer pee : pelist) {
-                int projectId = pee.getProjectid().getProjectid();
-               if(projectId == projectID ){
+
+        ArrayList<Project> projectList;
+        ArrayList<HeadquarterInfo> headquarterlist = new ArrayList<>(hijc.findHeadquarterInfoEntities());
+        ArrayList<PositieEmployer> pelist = new ArrayList<PositieEmployer>(pejc.findPositieEmployerEntities());
+        for (PositieEmployer pee : pelist) {
+            int projectId = pee.getProjectid().getProjectid();
+            if (projectId == projectID) {
+                try {
+                    pejc.destroy(pee.getPositieEmployerPK());
+                } catch (NonexistentEntityException ex) {
+                    Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        for (HeadquarterInfo head : headquarterlist) {
+            projectList = new ArrayList<>(head.getProjectCollection());
+            for (Project project : projectList) {
+                if (project.getProjectid() == projectID) {
                     try {
-                        pejc.destroy(pee.getPositieEmployerPK());
+                        hijc.destroy(head.getHeadquarterid());
+                    } catch (IllegalOrphanException ex) {
+                        Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (NonexistentEntityException ex) {
                         Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
                     }
-               }
-            }
-            for (HeadquarterInfo head : headquarterlist) {
-               projectList = new ArrayList<>(head.getProjectCollection());
-                for (Project project : projectList) {
-                  if(project.getProjectid() == projectID){
-                      try {
-                          hijc.destroy(head.getHeadquarterid());
-                      } catch (IllegalOrphanException ex) {
-                          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
-                      } catch (NonexistentEntityException ex) {
-                          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
-                      }
-                  }
                 }
-            
             }
-            
+
+        }
+
         try {
             pjc.destroy(projectID);
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
         fillProjectDeleteComboBox();
         JOptionPane.showConfirmDialog(null, "It is done");
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ButtonPanel;
@@ -4713,10 +4652,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JTextField EmployeeAddCrJobPosition_DescriptionTextfield;
     private javax.swing.JTextField EmployeeAddCrJobPosition_HourFeeTextfield;
     private javax.swing.JTextField EmployeeAddCrJobPosition_PositionNameTextfield;
-    private javax.swing.JTextField EmployeeAddCrProject_AllocatedHoursTextfield;
-    private javax.swing.JTextField EmployeeAddCrProject_BudgetTextfield;
-    private javax.swing.JTextField EmployeeAddCrProject_CompanyNameTextfield;
-    private javax.swing.JTextField EmployeeAddCrProject_ProjectNameTextfield;
     private javax.swing.JPanel EmployeeAddCreateCountryPanel;
     private javax.swing.JButton EmployeeAddCreateCountry_BackButton;
     private javax.swing.JButton EmployeeAddCreateCountry_SaveButton;
@@ -4726,9 +4661,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel EmployeeAddCreateJobPositionPanel;
     private javax.swing.JButton EmployeeAddCreateJobPosition_BackButton;
     private javax.swing.JButton EmployeeAddCreateJobPostion_SaveButton;
-    private javax.swing.JPanel EmployeeAddCreateProjectPanel;
-    private javax.swing.JButton EmployeeAddCreateProject_BackButton;
-    private javax.swing.JButton EmployeeAddCreateProject_SaveButton;
     private javax.swing.JPanel EmployeeAddDegreePanel;
     private javax.swing.JTextField EmployeeAddDegree_CourseNameTextfield;
     private javax.swing.JList EmployeeAddDegree_DegreeList1;
@@ -4736,7 +4668,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JPanel EmployeeAddJobPositionPanel;
     private javax.swing.JButton EmployeeAddJobPosition_AddToProjectListButton;
     private javax.swing.JButton EmployeeAddJobPosition_OtherPositionButton;
-    private javax.swing.JButton EmployeeAddJobPosition_OtherProjectButton;
     private javax.swing.JComboBox EmployeeAddJobPosition_PositionComboBox;
     private javax.swing.JComboBox EmployeeAddJobPosition_ProjectComboBox;
     private javax.swing.JList EmployeeAddJobPosition_ProjectList1;
@@ -4951,11 +4882,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
