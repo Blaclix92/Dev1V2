@@ -3545,7 +3545,13 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectGoToPageButtonActionPerformed
 
     private void ProjectAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddBasicInfo_NextButtonActionPerformed
-        projectAddPageController("headquarter");
+        
+        if (checkNewProjectTextFields()) {
+            createProject();
+            projectAddPageController("headquarter");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+        }
     }//GEN-LAST:event_ProjectAddBasicInfo_NextButtonActionPerformed
 
     private void ProjectAddHeadquarter_SelectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_SelectComboBoxActionPerformed
@@ -3557,7 +3563,12 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddHeadquarter_OtherButtonActionPerformed
 
     private void ProjectAddHeadquarter_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_SaveButtonActionPerformed
-        projectAddPageController("basicInfo");
+        try {
+            ultimateProjectSave();
+            projectAddPageController("basicInfo");
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ProjectAddHeadquarter_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarter_BackButtonActionPerformed
@@ -3569,7 +3580,19 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_BackButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
-        projectAddPageController("basicInfo");
+        try{       
+          if(checkProjectAddressTextfields()){
+           createHeadquarterAddress();
+           createHeadquarter();
+           projectAddPageController("headquarter");
+       }
+       else{
+            JOptionPane.showMessageDialog(this, "Nee");
+       }
+      }
+      catch(Exception ex){
+          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_OtherButtonActionPerformed
@@ -3581,7 +3604,13 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddCreatedHeadquarter_BackButtonActionPerformed
 
     private void ProjectAddCreateHeadquarter_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateHeadquarter_NextButtonActionPerformed
-        projectAddPageController("headquarterAddress");
+        
+        if (checkNewProjectHeadquarterTextFields()) {
+            projectAddPageController("headquarterAddress");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+        }
+       
     }//GEN-LAST:event_ProjectAddCreateHeadquarter_NextButtonActionPerformed
 
     private void ProjectAddCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateCountry_BackButtonActionPerformed
@@ -3589,7 +3618,13 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddCreateCountry_BackButtonActionPerformed
 
     private void ProjectAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateCountry_SaveButtonActionPerformed
-        projectAddPageController("headquarterAddress");
+        
+        if (checkProjectCountryTextfields()) {
+            projectAddNewCountryComboboxModel();
+            projectAddPageController("headquarterAddress");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+        }
     }//GEN-LAST:event_ProjectAddCreateCountry_SaveButtonActionPerformed
 
     private void ProjectModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyBasicInfo_NextButtonActionPerformed
@@ -4453,11 +4488,7 @@ public class Test3 extends javax.swing.JFrame {
      */
     private void insertProject() throws Exception {
 
-        // createHeadquarterAddress();
-        createHeadquarter();
-        //   createProjectCountry();
-        //createHeadquarterAddress();
-        createProject();
+       createProject();
     }
 
     private void createProject() {
@@ -4467,12 +4498,30 @@ public class Test3 extends javax.swing.JFrame {
         double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
         int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
         String CompanyName = ProjectAddBasic_CompanyNameTextfield.getText();
-
+       
         project.setProjectname(projectName);
         project.setBudget(budget);
         project.setAllocatedhour(allocatedHours);
         project.setCompanyname(CompanyName);
-        project.setHeadquarterid(headquarterInfo);
+        project.setHeadquarterid(findSelectedHeadquarter());
+    }
+    
+    private Boolean checkNewProjectTextFields() {
+        try {
+            String projectName = ProjectAddBasic_ProjectNameTextfield.getText();
+            double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
+            int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
+            String companyName = ProjectAddBasic_CompanyNameTextfield.getText();
+
+            if (projectName.isEmpty() || companyName.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Wrong value numbers");
+        }
+        return false;
     }
 
     private void fillSelectHeadquarterBasicComboBox() {
@@ -4495,68 +4544,111 @@ public class Test3 extends javax.swing.JFrame {
 
     }
 
-    private void createHeadquarterAddress() throws Exception {
-        ArrayList<HeadquarterInfo> headList = new ArrayList<>();
-        headList.add(findSelectedHeadquarter());
-        addressList = new ArrayList<>();
-        address = new Address();
-        AddressPK addresspk = new AddressPK();
-        String countryName = ProjectAddHeadquarterAdress_CountryComboBox.getSelectedItem().toString();
-        String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextfield.getText();
-        String cityName = ProjectAddHeadquarterAdress_CityTextfield.getText();
-        String street = ProjectAddHeadquarterAdress_StreetNameTextfield.getText();
-        int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
-
-        addresspk.setCountry(countryName);
-        addresspk.setPostalcode(postalcode);
-        address.setAddressPK(addresspk);
-        address.setCity(cityName);
-        address.setStreetname(street);
-        address.setBuildingnumber(number);
-        address.setHeadquarterInfoCollection(HeadquarterList);
-
-        addressList.add(address);
-        //   headquarterInfo.setAddressCollection(addressList);
+    private void createHeadquarterAddress() {
+        try {
+            ArrayList<HeadquarterInfo> headList = new ArrayList<>();
+            headList.add(findSelectedHeadquarter());
+            addressList = new ArrayList<>();
+            address = new Address();
+            AddressPK addresspk = new AddressPK();
+            String countryName = ProjectAddHeadquarterAdress_CountryComboBox.getSelectedItem().toString();
+            String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextfield.getText();
+            String cityName = ProjectAddHeadquarterAdress_CityTextfield.getText();
+            String street = ProjectAddHeadquarterAdress_StreetNameTextfield.getText();
+            int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
+            
+            addresspk.setCountry(countryName);
+            addresspk.setPostalcode(postalcode);
+            address.setAddressPK(addresspk);
+            address.setCity(cityName);
+            address.setStreetname(street);
+            address.setBuildingnumber(number);
+            address.setHeadquarterInfoCollection(HeadquarterList);
+            
+            addressList.add(address);
+            
+           ajc.create(address);
+           
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     private void createHeadquarter() {
-        headquarterInfo = findSelectedHeadquarter();
+        headquarterInfo = new  HeadquarterInfo();
 
-//       String BuildingName = ProjectAddCreateHeadquarter_BuildingNameTextField.getText();
-//        int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextField.getText());
-//        double monthRent = Double.parseDouble(ProjectAddCreateHeadquarter_MonthRentTextField.getText());
-//        
-//        headquarterInfo.setBuildingname(BuildingName);
-//        headquarterInfo.setRoomamount(roomAmount);
-//        headquarterInfo.setMonthrent(monthRent);
-//        ObjectModel om = (ObjectModel) ProjectAddHeadquarter_SelectComboBox.getSelectedItem();
-        AddressPK apk = new AddressPK();
-        apk.setCountry("Holland");
-        apk.setPostalcode("3042PM");
-        Address ad = ajc.findAddress(apk);
-        addressList = new ArrayList<>();
-        addressList.add(ad);
-        Collection<Address> cal = addressList;
-        //   headquarterInfo.setAddressCollection(cal);
+        String BuildingName = ProjectAddCreateHeadquarter_BuildingNameTextfield.getText();
+        int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextfield.getText());
+        double monthRent = Double.parseDouble(ProjectAddCreateHeadquarter_MonthRentTextfield.getText());
+        
+        headquarterInfo.setBuildingname(BuildingName);
+        headquarterInfo.setRoomamount(roomAmount);
+        headquarterInfo.setMonthrent(monthRent);
+        headquarterInfo.setAddress(address);
+        
+        hijc.create(headquarterInfo);
+        
+        fillSelectHeadquarterBasicComboBox();
+    }
+    
+    private Boolean checkNewProjectHeadquarterTextFields() {
+        try {
+            String buildingName = ProjectAddCreateHeadquarter_BuildingNameTextfield.getText();
+            int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextfield.getText());
+            int monthRent = Integer.parseInt(ProjectAddCreateHeadquarter_MonthRentTextfield.getText());
+
+            if (buildingName.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Wrong value numbers");
+        }
+        return false;
     }
 
-    private void createProjectCountry() {
-        address = new Address();
+    private void projectAddNewCountryComboboxModel() {
+        DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
+        countryList.add(ProjectAddCreateCountry_CountryTextfield.getText());
+        ArrayList<String> countrylist = new ArrayList<String>(countryList);
+        for (String countryName : countrylist) {
+            countryListModel.addElement(countryName);
+        }
+        ProjectAddHeadquarterAdress_CountryComboBox.setModel(countryListModel);
+    }
+    private Boolean checkProjectCountryTextfields(){
+        String name = ProjectAddCreateCountry_CountryTextfield.getText();
+        if(!name.isEmpty()){
+            return true;
+            }
+        else{
+            return false;
+        }
+   }
+    private Boolean checkProjectAddressTextfields(){
+        try {
+            String countryName = ProjectAddHeadquarterAdress_CountryComboBox.getSelectedItem().toString();
+            String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextfield.getText();
+            String cityName = ProjectAddHeadquarterAdress_CityTextfield.getText();
+            String street = ProjectAddHeadquarterAdress_StreetNameTextfield.getText();
+            int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
 
-        String country = ProjectAddCreateCountry_CountryTextfield.getText();
+            if (countryName.isEmpty() || postalcode.isEmpty() || cityName.isEmpty() || street.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Address number must contain numbers only");
+        }
+        return false;
     }
 
     private void ultimateProjectSave() throws Exception {
         insertProject();
-//      hijc.updatepersist(headquarterInfo);
         pjc.create(project);
-//        for (HeadquarterInfo HeadquarterList : HeadquarterList) {
-//            hijc.create(HeadquarterList);
-//        }
-
-        //employee.setWorkingAddressCollection(workingAddressList);
-        pjc.edit(project);
         JOptionPane.showConfirmDialog(null, "Project : " + project.getProjectname() + " has been added to the system.");
     }
 
