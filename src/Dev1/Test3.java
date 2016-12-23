@@ -58,8 +58,9 @@ public class Test3 extends javax.swing.JFrame {
     private CardLayout projectModifyMainCard;
     private Employee employee;
     private Address address;
-    private  Degree degree;
+    private Degree degree;
     private WorkingAddress workingAddress;
+    private PositieDescription postionDescription;
     private ArrayList<Address> addressList = new ArrayList<>();
     private ArrayList<WorkingAddress> workingAddressList = new ArrayList<>();
     private ArrayList<Degree> DegreeList = new ArrayList<>();
@@ -115,6 +116,9 @@ public class Test3 extends javax.swing.JFrame {
         fillProjectModifyBasicComboBox();
         employeeModifyInstituteComboboxModel();
         projectModifyCountryComboboxModel();
+        employeeModifyPositionComboboxModel();
+        employeeModifyProjectComboboxModel();
+        fillProjectModifyHeadquarterComboBox();
     }
 
     /**
@@ -235,12 +239,12 @@ public class Test3 extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         EmployeeModifyBasic_EmployeeComboBox = new javax.swing.JComboBox();
         jLabel56 = new javax.swing.JLabel();
-        EmployeeModifyBasic_BsnTextfield = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         EmployeeModifyBasic_NameTextfield = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
         EmployeeModifyBasic_SurnameTextfield = new javax.swing.JTextField();
         EmployeeModifyBasicInfo_NextButton = new javax.swing.JButton();
+        EmployeeModifyBasicInfo_BsnLabel = new javax.swing.JLabel();
         EmployeeModifyAddressPanel = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
@@ -294,13 +298,13 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeModifyJobPosition_saveButton = new javax.swing.JButton();
         EmployeeModifyJobPosition_ShowButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        EmployeeModifyJobPosition_PositionNameTextfield = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        EmployeeModifyJobPosition_DescriptionTextfield = new javax.swing.JTextField();
+        EmployeeModifyJobPosition_HourFeeTextfield = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        EmployeeModifyJobPosition_AmountOfHoursTextfield = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         EmployeeModifyCreateInstitutionPanel = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
@@ -424,16 +428,8 @@ public class Test3 extends javax.swing.JFrame {
         ProjectModifyHeadquarterInfoRoomAmountTextfield = new javax.swing.JTextField();
         ProjectModifyHeadquarterInfoMonthRentTextfield = new javax.swing.JTextField();
         ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield = new javax.swing.JLabel();
-        ProjectModifyCreateHeadquarterPanel = new javax.swing.JPanel();
-        jLabel217 = new javax.swing.JLabel();
-        jLabel218 = new javax.swing.JLabel();
-        jLabel219 = new javax.swing.JLabel();
-        jLabel220 = new javax.swing.JLabel();
-        ProjectModifyCreateHeadquarter_BuildingNameTextfield = new javax.swing.JTextField();
-        ProjectModifyCreateHeadquarter_RoomAmountTextfield = new javax.swing.JTextField();
-        ProjectModifyCreateHeadquarter_MonthRentTextfield = new javax.swing.JTextField();
-        ProjectModifyCreateHeadquarter_BackButton = new javax.swing.JButton();
-        ProjectModifyCreateHeadquarter_NextButton = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        ProjectModifyHeadquarterInfoHeadquarterComboBox = new javax.swing.JComboBox();
         ProjectModifyHeadquarterAddressPanel = new javax.swing.JPanel();
         jLabel221 = new javax.swing.JLabel();
         jLabel222 = new javax.swing.JLabel();
@@ -1398,8 +1394,6 @@ public class Test3 extends javax.swing.JFrame {
         jLabel56.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel56.setText("Bsn :");
 
-        EmployeeModifyBasic_BsnTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
         jLabel57.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel57.setText("Name :");
 
@@ -1418,38 +1412,38 @@ public class Test3 extends javax.swing.JFrame {
             }
         });
 
+        EmployeeModifyBasicInfo_BsnLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyBasicInfo_BsnLabel.setText("...");
+
         javax.swing.GroupLayout EmployeeModifyBasicInfoPanelLayout = new javax.swing.GroupLayout(EmployeeModifyBasicInfoPanel);
         EmployeeModifyBasicInfoPanel.setLayout(EmployeeModifyBasicInfoPanelLayout);
         EmployeeModifyBasicInfoPanelLayout.setHorizontalGroup(
             EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EmployeeModifyBasicInfo_NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
-                        .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
-                                .addGap(350, 350, 350)
-                                .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(47, 47, 47)
-                                .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(EmployeeModifyBasic_NameTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(EmployeeModifyBasic_EmployeeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(EmployeeModifyBasic_BsnTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
-                                    .addComponent(EmployeeModifyBasic_SurnameTextfield)))
-                            .addGroup(EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
-                                .addGap(442, 442, 442)
-                                .addComponent(jLabel54)))
-                        .addGap(0, 150, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(350, 350, 350)
+                        .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(EmployeeModifyBasic_NameTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(EmployeeModifyBasic_EmployeeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EmployeeModifyBasic_SurnameTextfield)
+                            .addComponent(EmployeeModifyBasicInfo_BsnLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
+                        .addGap(442, 442, 442)
+                        .addComponent(jLabel54)))
+                .addContainerGap(165, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeModifyBasicInfoPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(EmployeeModifyBasicInfo_NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         EmployeeModifyBasicInfoPanelLayout.setVerticalGroup(
             EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1460,10 +1454,10 @@ public class Test3 extends javax.swing.JFrame {
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel55)
                     .addComponent(EmployeeModifyBasic_EmployeeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(41, 41, 41)
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56)
-                    .addComponent(EmployeeModifyBasic_BsnTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmployeeModifyBasicInfo_BsnLabel))
                 .addGap(18, 18, 18)
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel57)
@@ -1472,7 +1466,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addGroup(EmployeeModifyBasicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58)
                     .addComponent(EmployeeModifyBasic_SurnameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
                 .addComponent(EmployeeModifyBasicInfo_NextButton)
                 .addContainerGap())
         );
@@ -1482,10 +1476,13 @@ public class Test3 extends javax.swing.JFrame {
         jLabel59.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel59.setText("Modify Address");
 
+        jLabel60.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel60.setText("Country:");
 
+        jLabel61.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel61.setText("Postal Code:");
 
+        EmployeeModifyAddress_CountryComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeModifyAddress_CountryComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmployeeModifyAddress_CountryComboBoxActionPerformed(evt);
@@ -1498,8 +1495,10 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeModifyAddress_NumberTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jLabel62.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel62.setText("Street Name:");
 
+        jLabel63.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel63.setText("Number:");
 
         EmployeeModifyAddress_NextButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -1561,8 +1560,10 @@ public class Test3 extends javax.swing.JFrame {
             }
         });
 
+        jLabel64.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel64.setText("City:");
 
+        EmployeeModifyAddress_PostalCodeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeModifyAddress_PostalCodeTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmployeeModifyAddress_PostalCodeTextfieldActionPerformed(evt);
@@ -1604,7 +1605,7 @@ public class Test3 extends javax.swing.JFrame {
                             .addGroup(EmployeeModifyAddressPanelLayout.createSequentialGroup()
                                 .addGap(53, 53, 53)
                                 .addComponent(EmployeeModifyAddress_otherCountryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 88, Short.MAX_VALUE))))
+                                .addGap(0, 78, Short.MAX_VALUE))))
                     .addGroup(EmployeeModifyAddressPanelLayout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1656,7 +1657,7 @@ public class Test3 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(EmployeeModifyAddress_RemoveButton))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(EmployeeModifyAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmployeeModifyAddress_BackButton)
                     .addComponent(EmployeeModifyAddress_NextButton))
@@ -1841,6 +1842,11 @@ public class Test3 extends javax.swing.JFrame {
         jLabel71.setText("Project :");
 
         EmployeeModifyJobPosition_PositionComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyJobPosition_PositionComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeeModifyJobPosition_PositionComboBoxActionPerformed(evt);
+            }
+        });
 
         EmployeeModifyJobPosition_ProjectComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -1854,6 +1860,11 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeModifyJobPosition_AddToListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeModifyJobPosition_AddToListButton.setText("Add To List");
+        EmployeeModifyJobPosition_AddToListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeeModifyJobPosition_AddToListButtonActionPerformed(evt);
+            }
+        });
 
         jLabel72.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel72.setText("Position listed");
@@ -1863,6 +1874,11 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeModifyJobPosition_RemoveFromListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeModifyJobPosition_RemoveFromListButton.setText("Remove Frome List");
+        EmployeeModifyJobPosition_RemoveFromListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeeModifyJobPosition_RemoveFromListButtonActionPerformed(evt);
+            }
+        });
 
         EmployeeModifyJobPosition_backButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         EmployeeModifyJobPosition_backButton.setText("BACK");
@@ -1873,7 +1889,7 @@ public class Test3 extends javax.swing.JFrame {
         });
 
         EmployeeModifyJobPosition_saveButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        EmployeeModifyJobPosition_saveButton.setText("SAVE");
+        EmployeeModifyJobPosition_saveButton.setText("Finish");
         EmployeeModifyJobPosition_saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmployeeModifyJobPosition_saveButtonActionPerformed(evt);
@@ -1882,11 +1898,16 @@ public class Test3 extends javax.swing.JFrame {
 
         EmployeeModifyJobPosition_ShowButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EmployeeModifyJobPosition_ShowButton.setText("Show");
+        EmployeeModifyJobPosition_ShowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeeModifyJobPosition_ShowButtonActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Position name:");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyJobPosition_PositionNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Description:");
@@ -1894,17 +1915,22 @@ public class Test3 extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Hour fee:");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyJobPosition_DescriptionTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyJobPosition_HourFeeTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Amount of hours:");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmployeeModifyJobPosition_AmountOfHoursTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Modify");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EmployeeModifyJobPositionPanelLayout = new javax.swing.GroupLayout(EmployeeModifyJobPositionPanel);
         EmployeeModifyJobPositionPanel.setLayout(EmployeeModifyJobPositionPanelLayout);
@@ -1950,13 +1976,13 @@ public class Test3 extends javax.swing.JFrame {
                                     .addComponent(jLabel71))
                                 .addGap(32, 32, 32)
                                 .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EmployeeModifyJobPosition_DescriptionTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EmployeeModifyJobPosition_HourFeeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EmployeeModifyJobPosition_AmountOfHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(EmployeeModifyJobPosition_ProjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(EmployeeModifyJobPosition_PositionComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 303, Short.MAX_VALUE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addComponent(EmployeeModifyJobPosition_PositionNameTextfield, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(EmployeeModifyJobPositionPanelLayout.createSequentialGroup()
                                         .addGap(84, 84, 84)
@@ -1990,19 +2016,19 @@ public class Test3 extends javax.swing.JFrame {
                             .addComponent(EmployeeModifyJobPosition_PositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmployeeModifyJobPosition_PositionNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmployeeModifyJobPosition_DescriptionTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmployeeModifyJobPosition_HourFeeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmployeeModifyJobPosition_AmountOfHoursTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(EmployeeModifyJobPositionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3044,53 +3070,68 @@ public class Test3 extends javax.swing.JFrame {
         ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield.setText("...");
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Headquarter:");
+
+        ProjectModifyHeadquarterInfoHeadquarterComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ProjectModifyHeadquarterInfoHeadquarterComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ProjectModifyHeadquarterInfoHeadquarterComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ProjectModifyHeadquarterPanelLayout = new javax.swing.GroupLayout(ProjectModifyHeadquarterPanel);
         ProjectModifyHeadquarterPanel.setLayout(ProjectModifyHeadquarterPanelLayout);
         ProjectModifyHeadquarterPanelLayout.setHorizontalGroup(
             ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
-                .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ProjectModifyHeadquarter_BackButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ProjectModifyHeadquarter_SaveButton))
+                .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
                         .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
-                                .addGap(345, 345, 345)
-                                .addComponent(jLabel215)
-                                .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel216)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGap(48, 48, 48)
-                                .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(ProjectModifyHeadquarterInfoMonthRentTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                                        .addComponent(ProjectModifyHeadquarterInfoRoomAmountTextfield, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ProjectModifyHeadquarterInfoBuildingNameTextfield, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(33, 33, 33)))
-                        .addComponent(ProjectModifyHeadquarter_OtherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 154, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(ProjectModifyHeadquarter_BackButton)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
+                                .addGap(345, 345, 345)
+                                .addComponent(jLabel215)))
+                        .addGap(114, 114, 114)
+                        .addComponent(ProjectModifyHeadquarter_SaveButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel216)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel12))
+                        .addGap(48, 48, 48)
+                        .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ProjectModifyHeadquarterInfoMonthRentTextfield)
+                            .addComponent(ProjectModifyHeadquarterInfoRoomAmountTextfield)
+                            .addComponent(ProjectModifyHeadquarterInfoBuildingNameTextfield)
+                            .addComponent(ProjectModifyHeadquarterInfoHeadquarterComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(100, 100, 100)
+                        .addComponent(ProjectModifyHeadquarter_OtherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         ProjectModifyHeadquarterPanelLayout.setVerticalGroup(
             ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jLabel215)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(ProjectModifyHeadquarterInfoHeadquarterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel216)
-                    .addComponent(ProjectModifyHeadquarter_OtherButton)
-                    .addComponent(ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield))
-                .addGap(18, 18, 18)
+                    .addComponent(ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield)
+                    .addComponent(ProjectModifyHeadquarter_OtherButton))
+                .addGap(23, 23, 23)
                 .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(ProjectModifyHeadquarterInfoBuildingNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3102,7 +3143,7 @@ public class Test3 extends javax.swing.JFrame {
                 .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ProjectModifyHeadquarterInfoMonthRentTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(0, 287, Short.MAX_VALUE))
+                .addGap(0, 212, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectModifyHeadquarterPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ProjectModifyHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3112,95 +3153,6 @@ public class Test3 extends javax.swing.JFrame {
         );
 
         ProjectModifyMainCardLayoutPanel.add(ProjectModifyHeadquarterPanel, "card3");
-
-        jLabel217.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel217.setText("Create Headquarter");
-
-        jLabel218.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel218.setText("Building name :");
-
-        jLabel219.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel219.setText("Room amount :");
-
-        jLabel220.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel220.setText("Month rent :");
-
-        ProjectModifyCreateHeadquarter_BuildingNameTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        ProjectModifyCreateHeadquarter_RoomAmountTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        ProjectModifyCreateHeadquarter_MonthRentTextfield.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        ProjectModifyCreateHeadquarter_BackButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        ProjectModifyCreateHeadquarter_BackButton.setText("BACK");
-        ProjectModifyCreateHeadquarter_BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProjectModifyCreateHeadquarter_BackButtonActionPerformed(evt);
-            }
-        });
-
-        ProjectModifyCreateHeadquarter_NextButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        ProjectModifyCreateHeadquarter_NextButton.setText("NEXT");
-        ProjectModifyCreateHeadquarter_NextButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProjectModifyCreateHeadquarter_NextButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ProjectModifyCreateHeadquarterPanelLayout = new javax.swing.GroupLayout(ProjectModifyCreateHeadquarterPanel);
-        ProjectModifyCreateHeadquarterPanel.setLayout(ProjectModifyCreateHeadquarterPanelLayout);
-        ProjectModifyCreateHeadquarterPanelLayout.setHorizontalGroup(
-            ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectModifyCreateHeadquarterPanelLayout.createSequentialGroup()
-                .addContainerGap(342, Short.MAX_VALUE)
-                .addComponent(jLabel217)
-                .addGap(389, 389, 389))
-            .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createSequentialGroup()
-                .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createSequentialGroup()
-                        .addGap(317, 317, 317)
-                        .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel219)
-                            .addComponent(jLabel218)
-                            .addComponent(jLabel220))
-                        .addGap(39, 39, 39)
-                        .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ProjectModifyCreateHeadquarter_BuildingNameTextfield)
-                            .addComponent(ProjectModifyCreateHeadquarter_RoomAmountTextfield)
-                            .addComponent(ProjectModifyCreateHeadquarter_MonthRentTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ProjectModifyCreateHeadquarter_BackButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ProjectModifyCreateHeadquarter_NextButton)))
-                .addContainerGap())
-        );
-        ProjectModifyCreateHeadquarterPanelLayout.setVerticalGroup(
-            ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel217)
-                .addGap(89, 89, 89)
-                .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel218)
-                    .addComponent(ProjectModifyCreateHeadquarter_BuildingNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel219)
-                    .addComponent(ProjectModifyCreateHeadquarter_RoomAmountTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel220)
-                    .addComponent(ProjectModifyCreateHeadquarter_MonthRentTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
-                .addGroup(ProjectModifyCreateHeadquarterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProjectModifyCreateHeadquarter_BackButton)
-                    .addComponent(ProjectModifyCreateHeadquarter_NextButton))
-                .addContainerGap())
-        );
-
-        ProjectModifyMainCardLayoutPanel.add(ProjectModifyCreateHeadquarterPanel, "card4");
 
         jLabel221.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel221.setText("Modify Headquarter Address");
@@ -3495,19 +3447,17 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeAddJobPosition_BackButtonActionPerformed
 
     private void EmployeAddJobPosition_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeAddJobPosition_SaveButtonActionPerformed
-      try{       
-          if(checkPositionProjectList()){
-           ultimateEmployeeSave();
-           refreshList();
-           employeeAddPageController("basicInfo");
-       }
-       else{
-            JOptionPane.showMessageDialog(this, "No Employee project positions visible");
-       }
-      }
-      catch(Exception ex){
-          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
-      }
+        try {
+            if (checkPositionProjectList()) {
+                ultimateEmployeeSave();
+                refreshList();
+                employeeAddPageController("basicInfo");
+            } else {
+                JOptionPane.showMessageDialog(this, "No Employee project positions visible");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_EmployeAddJobPosition_SaveButtonActionPerformed
 
@@ -3517,11 +3467,10 @@ public class Test3 extends javax.swing.JFrame {
 
     private void EmployeeAddCreateInstitute_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateInstitute_SaveButtonActionPerformed
         try {
-            if(checkInstitutionTextfields()){
-            employeeAddNewInstututeComboboxModel();
-            employeeAddPageController("degree");
-            }
-            else{
+            if (checkInstitutionTextfields()) {
+                employeeAddNewInstututeComboboxModel();
+                employeeAddPageController("degree");
+            } else {
                 JOptionPane.showMessageDialog(this, "Please fill all textfields");
             }
         } catch (Exception ex) {
@@ -3535,11 +3484,10 @@ public class Test3 extends javax.swing.JFrame {
 
     private void EmployeeAddCreateJobPostion_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateJobPostion_SaveButtonActionPerformed
         try {
-            if(checkPositionTextfields()){
-             employeeAddNewPositionComboboxModel();
-             employeeAddPageController("jobPosition");   
-            }
-            else{
+            if (checkPositionTextfields()) {
+                employeeAddNewPositionComboboxModel();
+                employeeAddPageController("jobPosition");
+            } else {
                 JOptionPane.showMessageDialog(this, "Please fill all textfields");
             }
         } catch (Exception ex) {
@@ -3552,13 +3500,12 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddCreateCountry_BackButtonActionPerformed
 
     private void EmployeeAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
-       if(checkCountryTextfields()){
-        employeeAddNewCountryComboboxModel();
-        employeeAddPageController("address");
-       }
-       else{
-           JOptionPane.showMessageDialog(this, "Please fill all textfields");
-       }
+        if (checkCountryTextfields()) {
+            employeeAddNewCountryComboboxModel();
+            employeeAddPageController("address");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+        }
     }//GEN-LAST:event_EmployeeAddCreateCountry_SaveButtonActionPerformed
 
     private void EmployeeDelete_EmployeeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeDelete_EmployeeComboBoxActionPerformed
@@ -3566,21 +3513,23 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeDelete_EmployeeComboBoxActionPerformed
 
     private void EmployeeDelete_DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeDelete_DeleteButtonActionPerformed
-      deleteEmployee();
-      refreshList();
+        deleteEmployee();
+        refreshList();
     }//GEN-LAST:event_EmployeeDelete_DeleteButtonActionPerformed
 
     private void EmployeeDelete_SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeDelete_SearchButtonActionPerformed
-       showSelectedEmployee();
+        showSelectedEmployee();
     }//GEN-LAST:event_EmployeeDelete_SearchButtonActionPerformed
 
     private void EmployeeModifyBasic_EmployeeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyBasic_EmployeeComboBoxActionPerformed
-     searchEmployee();
-     EmployeeDegreeList();
-     EmployeePositionList();
+        searchEmployee();
+        EmployeeDegreeList();
+        EmployeePositionList();
     }//GEN-LAST:event_EmployeeModifyBasic_EmployeeComboBoxActionPerformed
 
     private void EmployeeModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
+        updateemployeeBasicInfo();
+         
         employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
     /*
@@ -3616,7 +3565,7 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyAddress_ModifyButtonActionPerformed
 
     private void EmployeeModifyAddress_ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_ShowButtonActionPerformed
-      showAddress();
+        showAddress();
     }//GEN-LAST:event_EmployeeModifyAddress_ShowButtonActionPerformed
 
     private void EmployeeModifyDegree_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_BackButtonActionPerformed
@@ -3648,7 +3597,17 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyCrInstitution_BackButtonActionPerformed
 
     private void EmployeeModifyCrInstitution_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCrInstitution_SaveButtonActionPerformed
-        employeeModifyPageController("degree");
+        try {
+            if (checkInstitutionModifyTextfields()) {
+                employeeModifyNewInstututeComboboxModel();
+                employeeModifyPageController("degree");
+            } else {
+                JOptionPane.showMessageDialog(this, "Please fill all textfields");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EmployeeModifyCrInstitution_SaveButtonActionPerformed
 
     private void EmployeeCrJobPosition_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeCrJobPosition_BackButtonActionPerformed
@@ -3656,7 +3615,17 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeCrJobPosition_BackButtonActionPerformed
 
     private void EmployeeCrJobPosition_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeCrJobPosition_SaveButtonActionPerformed
-        employeeModifyPageController("jobPosition");
+        try {
+            if (checkPositionModifyTextfields()) {
+                employeeModifyNewPositionComboboxModel();
+                employeeModifyPageController("jobPosition");
+            } else {
+                JOptionPane.showMessageDialog(this, "Please fill all textfields");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EmployeeCrJobPosition_SaveButtonActionPerformed
 
     private void EmployeeModifyCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateCountry_BackButtonActionPerformed
@@ -3664,7 +3633,14 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeModifyCreateCountry_BackButtonActionPerformed
 
     private void EmployeeModifyCreateCountry_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyCreateCountry_NextButtonActionPerformed
-        employeeModifyPageController("address");
+        if (checkCountryModifyTextfields()) {
+            employeeModifyNewCountryComboboxModel();
+            employeeModifyPageController("address");
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill all textfields");
+        }
+
     }//GEN-LAST:event_EmployeeModifyCreateCountry_NextButtonActionPerformed
 
     private void ProjectGoToPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectGoToPageButtonActionPerformed
@@ -3672,7 +3648,7 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectGoToPageButtonActionPerformed
 
     private void ProjectAddBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddBasicInfo_NextButtonActionPerformed
-        
+
         if (checkNewProjectTextFields()) {
             createProject();
             projectAddPageController("headquarter");
@@ -3708,20 +3684,18 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_BackButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
-        try{       
-          if(checkProjectAddressTextfields()){
-           createHeadquarterAddress();
-           createHeadquarter();
-           projectAddPageController("headquarter");
-           
-       }
-       else{
-            JOptionPane.showMessageDialog(this, "Nee");
-       }
-      }
-      catch(Exception ex){
-          Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
-      }
+        try {
+            if (checkProjectAddressTextfields()) {
+                createHeadquarterAddress();
+                createHeadquarter();
+                projectAddPageController("headquarter");
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Nee");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ProjectAddHeadquarterAddress_SaveButtonActionPerformed
 
     private void ProjectAddHeadquarterAddress_OtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddHeadquarterAddress_OtherButtonActionPerformed
@@ -3733,13 +3707,13 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddCreatedHeadquarter_BackButtonActionPerformed
 
     private void ProjectAddCreateHeadquarter_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateHeadquarter_NextButtonActionPerformed
-        
+
         if (checkNewProjectHeadquarterTextFields()) {
             projectAddPageController("headquarterAddress");
         } else {
             JOptionPane.showMessageDialog(this, "Please fill all textfields");
         }
-       
+
     }//GEN-LAST:event_ProjectAddCreateHeadquarter_NextButtonActionPerformed
 
     private void ProjectAddCreateCountry_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateCountry_BackButtonActionPerformed
@@ -3747,7 +3721,7 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddCreateCountry_BackButtonActionPerformed
 
     private void ProjectAddCreateCountry_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectAddCreateCountry_SaveButtonActionPerformed
-        
+
         if (checkProjectCountryTextfields()) {
             projectAddNewCountryComboboxModel();
             projectAddPageController("headquarterAddress");
@@ -3757,12 +3731,13 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectAddCreateCountry_SaveButtonActionPerformed
 
     private void ProjectModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyBasicInfo_NextButtonActionPerformed
-        
+        updateprojectModifyBasicInfo();
         projectModifyPageController("headquarter");
-        
+
     }//GEN-LAST:event_ProjectModifyBasicInfo_NextButtonActionPerformed
 
     private void ProjectModifyHeadquarter_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_SaveButtonActionPerformed
+        updateprojectModifyHeadquarter();
         projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyHeadquarter_SaveButtonActionPerformed
 
@@ -3773,14 +3748,6 @@ public class Test3 extends javax.swing.JFrame {
     private void ProjectModifyHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarter_BackButtonActionPerformed
         projectModifyPageController("basicInfo");
     }//GEN-LAST:event_ProjectModifyHeadquarter_BackButtonActionPerformed
-
-    private void ProjectModifyCreateHeadquarter_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyCreateHeadquarter_BackButtonActionPerformed
-        projectModifyPageController("basicInfo");
-    }//GEN-LAST:event_ProjectModifyCreateHeadquarter_BackButtonActionPerformed
-
-    private void ProjectModifyCreateHeadquarter_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyCreateHeadquarter_NextButtonActionPerformed
-        projectModifyPageController("crCountry");
-    }//GEN-LAST:event_ProjectModifyCreateHeadquarter_NextButtonActionPerformed
 
     private void ProjectModifyHeadquarterAddress_SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterAddress_SaveButtonActionPerformed
         ultimateSaveModify();
@@ -3827,17 +3794,17 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProjectModifyBasic_SelectProjectComboBoxActionPerformed
 
     private void EmployeeModifyDegree_ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_ShowButtonActionPerformed
-      showDegree();
+        showDegree();
     }//GEN-LAST:event_EmployeeModifyDegree_ShowButtonActionPerformed
 
     private void EmployeeModifyDegree_InstituteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_InstituteComboBoxActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_EmployeeModifyDegree_InstituteComboBoxActionPerformed
 
     private void ProjectModifyHeadquarterAddress_CountryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterAddress_CountryComboBoxActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_ProjectModifyHeadquarterAddress_CountryComboBoxActionPerformed
 
     private void EmployeeModifyAddress_CountryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_CountryComboBoxActionPerformed
@@ -3849,20 +3816,44 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeeAddAddres_CountryComboBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      EmployeeModifyDegree();
+        EmployeeModifyDegree();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void EmployeeModifyDegree_AddToListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_AddToListButtonActionPerformed
-       addToEmployeeModifyDegreeList();
+        addToEmployeeModifyDegreeList();
     }//GEN-LAST:event_EmployeeModifyDegree_AddToListButtonActionPerformed
 
     private void EmployeeModifyDegree_RemoveFromListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyDegree_RemoveFromListButtonActionPerformed
-     removeFromEmployeeModifyDegreeList();
+        removeFromEmployeeModifyDegreeList();
     }//GEN-LAST:event_EmployeeModifyDegree_RemoveFromListButtonActionPerformed
 
     private void EmployeeModifyAddress_PostalCodeTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_PostalCodeTextfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmployeeModifyAddress_PostalCodeTextfieldActionPerformed
+
+    private void EmployeeModifyJobPosition_PositionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_PositionComboBoxActionPerformed
+        setEmployeePositionDescription();
+    }//GEN-LAST:event_EmployeeModifyJobPosition_PositionComboBoxActionPerformed
+
+    private void EmployeeModifyJobPosition_ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_ShowButtonActionPerformed
+        showEmployeeJobPosition();
+    }//GEN-LAST:event_EmployeeModifyJobPosition_ShowButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        EmployeeModifyJobPositieEmployer();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void EmployeeModifyJobPosition_RemoveFromListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_RemoveFromListButtonActionPerformed
+        removeFromEmployeeModifyPositionList();
+    }//GEN-LAST:event_EmployeeModifyJobPosition_RemoveFromListButtonActionPerformed
+
+    private void EmployeeModifyJobPosition_AddToListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyJobPosition_AddToListButtonActionPerformed
+        addToEmployeeModifyPositionList();
+    }//GEN-LAST:event_EmployeeModifyJobPosition_AddToListButtonActionPerformed
+
+    private void ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed
+        fillProjectModifyHeadquarterInfo();
+    }//GEN-LAST:event_ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed
 
     private void createDisplayMainCardLayout() {
         DisplayMainCardLayoutPanel.getLayout().addLayoutComponent("employee_panel", EmployeePanel);
@@ -3879,14 +3870,14 @@ public class Test3 extends javax.swing.JFrame {
             mainCard.show(DisplayMainCardLayoutPanel, "project_panel");
         }
     }
-    
-    private void refreshList(){
+
+    private void refreshList() {
         employeeAddCountryComboboxModel();
         employeeAddProjectComboboxModel();
         fillEmployeeDeleteComboBox();
-        fillEmployeeModifyBasicComboBox();  
+        fillEmployeeModifyBasicComboBox();
         employeeModifyCountryComboboxModel();
-        projectAddCountryComboboxModel();; 
+        projectAddCountryComboboxModel();;
         fillProjectDeleteComboBox();
         fillProjectModifyBasicComboBox();
         employeeAddProjectComboboxModel();
@@ -4057,7 +4048,6 @@ public class Test3 extends javax.swing.JFrame {
         ProjectModifyMainCardLayoutPanel.getLayout().addLayoutComponent("project_modify_basicInfo_panel", ProjectModifyBasicInfoPanel);
         ProjectModifyMainCardLayoutPanel.getLayout().addLayoutComponent("project_modify_headquarter_panel", ProjectModifyHeadquarterPanel);
         ProjectModifyMainCardLayoutPanel.getLayout().addLayoutComponent("project_modify_headquarterAddress_panel", ProjectModifyHeadquarterAddressPanel);
-        ProjectModifyMainCardLayoutPanel.getLayout().addLayoutComponent("project_modify_crHeadquarter_panel", ProjectModifyCreateHeadquarterPanel);
         ProjectModifyMainCardLayoutPanel.getLayout().addLayoutComponent("project_modify_crCountry_panel", ProjectModifyCreateCountryPanel);
         projectModifyMainCard = (CardLayout) ProjectModifyMainCardLayoutPanel.getLayout();
     }
@@ -4172,7 +4162,7 @@ public class Test3 extends javax.swing.JFrame {
     }
 
     private void employeeAddNewInstututeComboboxModel() throws Exception {
-       
+
         School school = new School();
         school.setSchoolname(EmployeeAddCrInstitue_InsituteNameTextfield.getText());
         school.setSchoollevel(EmployeeAddCrInstitue_InstituteLevelTextfield.getText());
@@ -4180,18 +4170,17 @@ public class Test3 extends javax.swing.JFrame {
         employeeAddInstituteComboboxModel();
 
     }
-    
-    private Boolean checkInstitutionTextfields(){
-      
+
+    private Boolean checkInstitutionTextfields() {
+
         String name = EmployeeAddCrInstitue_InsituteNameTextfield.getText();
         String level = EmployeeAddCrInstitue_InstituteLevelTextfield.getText();
-        if(!name.isEmpty() && !level.isEmpty() ){
+        if (!name.isEmpty() && !level.isEmpty()) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-       
+
     }
 
     private void showDegreeList() {
@@ -4275,15 +4264,16 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddAddres_CountryComboBox.setModel(countryListModel);
     }
-    private Boolean checkCountryTextfields(){
+
+    private Boolean checkCountryTextfields() {
         String name = EmployeeAddCrCountry_CountryNameTextfield.getText();
-        if(!name.isEmpty()){
+        if (!name.isEmpty()) {
             return true;
-            }
-        else{
+        } else {
             return false;
         }
-   }
+    }
+
     private void employeeAddCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
         ArrayList<String> countryList = fillCountryList();
@@ -4318,29 +4308,26 @@ public class Test3 extends javax.swing.JFrame {
         pdjc.create(position);
         employeeAddPositionComboboxModel();
     }
-    
-    private Boolean checkPositionTextfields(){
-        try{
-        String name = EmployeeAddCrJobPosition_PositionNameTextfield.getText();
-        String description = EmployeeAddCrJobPosition_DescriptionTextfield.getText();
-        int hFee = Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextfield.getText());
-        int Ahours = Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextfield.getText());
-        
-        if(!name.isEmpty() && !description.isEmpty()){
-          return true;
+
+    private Boolean checkPositionTextfields() {
+        try {
+            String name = EmployeeAddCrJobPosition_PositionNameTextfield.getText();
+            String description = EmployeeAddCrJobPosition_DescriptionTextfield.getText();
+            int hFee = Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextfield.getText());
+            int Ahours = Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextfield.getText());
+
+            if (!name.isEmpty() && !description.isEmpty()) {
+                return true;
+            } else {
+                return false;
             }
-        else{
-            return false;
-            }
-        }
-       
-        catch( NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Hour fee and Amount of hours only contain numbers");
         }
         return false;
-    
+
     }
-   
+
     private void employeeAddProjectComboboxModel() {
         DefaultComboBoxModel positionListModel = new DefaultComboBoxModel();
         projectList = new ArrayList<Project>(pjc.findProjectEntities());
@@ -4353,7 +4340,7 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddJobPosition_ProjectComboBox.setModel(positionListModel);
     }
-    
+
     /*
      private void employeeAddNewProjectComboboxModel() throws Exception {
      Project project = new Project();
@@ -4364,7 +4351,6 @@ public class Test3 extends javax.swing.JFrame {
      pjc.create(project);
      }
      */
-
     private void addToEmployeeProjectList() {
         HeadquarterInfo headInfo = hijc.findHeadquarterInfo(2);
         ObjectModel omposition = (ObjectModel) EmployeeAddJobPosition_PositionComboBox.getSelectedItem();
@@ -4408,7 +4394,7 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeAddJobPosition_ProjectList1.setModel(epList);
     }
-    
+
     private Boolean checkPositionProjectList() {
 
         if (PositionEmployerList != null && !PositionEmployerList.isEmpty()) {
@@ -4417,6 +4403,7 @@ public class Test3 extends javax.swing.JFrame {
             return false;
         }
     }
+
     private void removeFromEmployeeProjectList() {
         ObjectModel om = (ObjectModel) EmployeeAddJobPosition_ProjectList1.getSelectedValue();
         PositieEmployerPK pePK = new PositieEmployerPK(om.getIdsec(), om.getId());
@@ -4506,7 +4493,7 @@ public class Test3 extends javax.swing.JFrame {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
         clearLabels();
-       // fillEmployeeDeleteComboBox();
+        // fillEmployeeDeleteComboBox();
         JOptionPane.showConfirmDialog(null, "Employee with bsn: " + bsn + " has been removed from the system.");
     }
 
@@ -4567,16 +4554,42 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeModifyBasic_EmployeeComboBox.setModel(employeeListModel);
     }
-    private void searchEmployee(){
+
+    private void searchEmployee() {
         findEmployee();
         setEmployeeBasicInfo();
         EmployeeAddressList();
-        
-        
+
     }
+
     private void findEmployee() {
         ObjectModel om = (ObjectModel) EmployeeModifyBasic_EmployeeComboBox.getSelectedItem();
         employee = ejc.findEmployee(om.getId());
+    }
+    private void updateemployeeBasicInfo(){
+        try {
+            employee.setBsn(Integer.parseInt(EmployeeModifyBasicInfo_BsnLabel.getText()));
+            employee.setEmployeename(EmployeeModifyBasic_NameTextfield.getText());
+            employee.setSurname(EmployeeModifyBasic_SurnameTextfield.getText());
+            ejc.edit(employee);
+            fillEmployeeModifyBasicComboBox();
+            
+            String updatename = employee.getEmployeename()+" " +employee.getSurname();
+            for (int i = 0; i < EmployeeModifyBasic_EmployeeComboBox.getSize().height - 1; i++) {
+            String nameItem = EmployeeModifyBasic_EmployeeComboBox.getItemAt(i).toString();
+            
+            if (nameItem.matches(updatename)) {
+                
+                EmployeeModifyBasic_EmployeeComboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+            
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void findEmployeeAddress() {
@@ -4591,13 +4604,14 @@ public class Test3 extends javax.swing.JFrame {
         }
         workingAddressList = employeeWA;
     }
+    
 
     private void EmployeeAddressList() {
         DefaultListModel employeeAddreesList = new DefaultListModel<>();
         ObjectModel om;
         findEmployeeAddress();
         //AddressPK adPK;
-       // Address address1;
+        // Address address1;
 
         for (WorkingAddress workingAddress1 : workingAddressList) {
             om = new ObjectModel();
@@ -4617,7 +4631,8 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeModifyAddress_AddressList1.setModel(employeeAddreesList);
     }
-        private void findEmployeeDegrees() {
+
+    private void findEmployeeDegrees() {
         findEmployee();
         DegreeList = new ArrayList<Degree>(djc.findDegreeEntities());
         ArrayList<Degree> employeeDL = new ArrayList<>();
@@ -4635,7 +4650,7 @@ public class Test3 extends javax.swing.JFrame {
         ObjectModel om;
         findEmployeeDegrees();
         //AddressPK adPK;
-       // Address address1;
+        // Address address1;
 
         for (Degree degree : DegreeList) {
             om = new ObjectModel();
@@ -4645,18 +4660,18 @@ public class Test3 extends javax.swing.JFrame {
             String level = degree.getSchool().getSchoollevel();
 
             String coursename = degree.getCoursename();
-            
 
             om.setId(degree.getDegreePK().getDegreeid());
             om.setIdsec(degree.getDegreePK().getBsn());
-            om.setIdthird(degree.getDegreePK().getSchoolid()); 
+            om.setIdthird(degree.getDegreePK().getSchoolid());
             om.setDescription(Schoolname + " " + level + " " + coursename);
             employeeAddreesList.addElement(om);
 
         }
         EmployeeModifyDegree_DegreeList.setModel(employeeAddreesList);
     }
-            private void findEmployeePosition() {
+
+    private void findEmployeePosition() {
         findEmployee();
         PositionEmployerList = new ArrayList<PositieEmployer>(pejc.findPositieEmployerEntities());
         ArrayList<PositieEmployer> employeePE = new ArrayList<>();
@@ -4673,24 +4688,89 @@ public class Test3 extends javax.swing.JFrame {
         DefaultListModel employeePositionList = new DefaultListModel<>();
         ObjectModel om;
         findEmployeePosition();
-       
+
         for (PositieEmployer pe : PositionEmployerList) {
             om = new ObjectModel();
-            
+
             String ProjectName = pe.getProjectid().getProjectname();
             String PositionName = pe.getPositieDescription().getPositiename();
             om.setId(pe.getPositieEmployerPK().getPositieid());
             om.setIdsec(pe.getPositieEmployerPK().getBsn());
-            om.setDescription("As "+PositionName + " and works in project "+ProjectName);
+            om.setDescription("As " + PositionName + " and works in project " + ProjectName);
             employeePositionList.addElement(om);
 
         }
         EmployeeModifyJobPosition_PositionList.setModel(employeePositionList);
     }
 
+    private void employeeModifyPositionComboboxModel() {
+        DefaultComboBoxModel positionListModel = new DefaultComboBoxModel();
+        positionList = new ArrayList<PositieDescription>(pdjc.findPositieDescriptionEntities());
+        ObjectModel om;
+        for (PositieDescription position : positionList) {
+            om = new ObjectModel();
+            om.setId(position.getPositieid());
+            om.setDescription(position.getPositiename());
+            positionListModel.addElement(om);
+        }
+        EmployeeModifyJobPosition_PositionComboBox.setModel(positionListModel);
+    }
+
+    private Boolean checkPositionModifyTextfields() {
+        try {
+            String name = EmployeeModifyCrJobPosition_ProjectNameTextfield.getText();
+            String description = EmployeeModifyCrJobPosition_DescriptionTextfield.getText();
+            int hFee = Integer.parseInt(EmployeeModifyCrJobPosition_HourFeeTextfield.getText());
+            int Ahours = Integer.parseInt(EmployeeModifyCrJobPosition_AmountHoursTextfield.getText());
+
+            if (!name.isEmpty() && !description.isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Hour fee and Amount of hours only contain numbers");
+        }
+        return false;
+    }
+
+    private void employeeModifyNewPositionComboboxModel() throws Exception {
+        postionDescription = new PositieDescription();
+        postionDescription.setPositiename(EmployeeModifyCrJobPosition_ProjectNameTextfield.getText());
+        postionDescription.setPositiedescription(EmployeeModifyCrJobPosition_DescriptionTextfield.getText());
+        postionDescription.setAmountshours(Integer.parseInt(EmployeeModifyCrJobPosition_AmountHoursTextfield.getText()));
+        postionDescription.setHourfee(Integer.parseInt(EmployeeModifyCrJobPosition_HourFeeTextfield.getText()));
+
+        pdjc.create(postionDescription);
+        employeeModifyPositionComboboxModel();
+    }
+
+    private void employeeModifyProjectComboboxModel() {
+        DefaultComboBoxModel positionListModel = new DefaultComboBoxModel();
+        projectList = new ArrayList<Project>(pjc.findProjectEntities());
+        ObjectModel om;
+        for (Project project : projectList) {
+            om = new ObjectModel();
+            om.setId(project.getProjectid());
+            om.setDescription(project.getProjectname());
+            positionListModel.addElement(om);
+        }
+        EmployeeModifyJobPosition_ProjectComboBox.setModel(positionListModel);
+    }
+
+    private void setEmployeePositionDescription() {
+        ObjectModel om = (ObjectModel) EmployeeModifyJobPosition_PositionComboBox.getSelectedItem();
+        postionDescription = pdjc.findPositieDescription(om.getId());
+        EmployeeModifyJobPosition_PositionNameTextfield.setText(postionDescription.getPositiename());
+        EmployeeModifyJobPosition_DescriptionTextfield.setText(postionDescription.getPositiedescription());
+        EmployeeModifyJobPosition_AmountOfHoursTextfield.setText(postionDescription.getAmountshours() + "");
+        EmployeeModifyJobPosition_HourFeeTextfield.setText(postionDescription.getHourfee() + "");
+
+    }
+
     private void setEmployeeBasicInfo() {
         findEmployee();
-        EmployeeModifyBasic_BsnTextfield.setText(employee.getBsn() + "");
+        EmployeeModifyBasicInfo_BsnLabel.setText(employee.getBsn() + "");
         EmployeeModifyBasic_NameTextfield.setText(employee.getEmployeename());
         EmployeeModifyBasic_SurnameTextfield.setText(employee.getSurname());
     }
@@ -4708,22 +4788,54 @@ public class Test3 extends javax.swing.JFrame {
         EmployeeModifyAddress_StreetTextfield.setText(address.getStreetname());
         EmployeeModifyAddress_NumberTextfield.setText(address.getBuildingnumber().toString());
     }
+
     private void showDegree() {
         ObjectModel om = (ObjectModel) EmployeeModifyDegree_DegreeList.getSelectedValue();
-        DegreePK dpk = new DegreePK(om.getId(),om.getIdsec(),om.getIdthird());
+        DegreePK dpk = new DegreePK(om.getId(), om.getIdsec(), om.getIdthird());
         degree = djc.findDegree(dpk);
-        String selectedInstitution = degree.getSchool().getSchoolname() + " "+ degree.getSchool().getSchoollevel();
-        
-        for (int i = 0; i < EmployeeModifyDegree_InstituteComboBox.getSize().height -1; i++) {
+        String selectedInstitution = degree.getSchool().getSchoolname() + " " + degree.getSchool().getSchoollevel();
+
+        for (int i = 0; i < EmployeeModifyDegree_InstituteComboBox.getSize().height - 1; i++) {
             String IstituteItem = EmployeeModifyDegree_InstituteComboBox.getItemAt(i).toString();
-            if(IstituteItem.matches(selectedInstitution)){
+            if (IstituteItem.matches(selectedInstitution)) {
                 EmployeeModifyDegree_InstituteComboBox.setSelectedIndex(i);
                 EmployeeModifyDegree_CourseNameTextfield.setText(degree.getCoursename());
                 break;
-            }        
+            }
         }
     }
-        private void employeeModifyInstituteComboboxModel() {
+
+    private void showEmployeeJobPosition() {
+        ObjectModel om = (ObjectModel) EmployeeModifyJobPosition_PositionList.getSelectedValue();
+        ObjectModel om2;
+
+        PositieEmployerPK pepk = new PositieEmployerPK(om.getId(), om.getIdsec());
+        PositieEmployer pe = pejc.findPositieEmployer(pepk);
+        String selectedPositie = pe.getPositieDescription().getPositiename();
+        String selectedProject = pe.getProjectid().getProjectname();
+
+        for (int i = 0; i < EmployeeModifyJobPosition_PositionComboBox.getSize().height - 1; i++) {
+            String positieItem = EmployeeModifyJobPosition_PositionComboBox.getItemAt(i).toString();
+            if (positieItem.matches(selectedPositie)) {
+                om2 = (ObjectModel) EmployeeModifyJobPosition_PositionComboBox.getItemAt(i);
+                postionDescription = pdjc.findPositieDescription(om.getId());
+                EmployeeModifyJobPosition_PositionComboBox.setSelectedIndex(i);
+                setEmployeePositionDescription();
+                break;
+            }
+        }
+        for (int i = 0; i < EmployeeModifyJobPosition_ProjectComboBox.getSize().height - 1; i++) {
+            String projectItem = EmployeeModifyJobPosition_ProjectComboBox.getItemAt(i).toString();
+            if (projectItem.matches(selectedProject)) {
+                om2 = (ObjectModel) EmployeeModifyJobPosition_ProjectComboBox.getItemAt(i);
+                project = pjc.findProject(om2.getId());
+                EmployeeModifyJobPosition_ProjectComboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+    }
+
+    private void employeeModifyInstituteComboboxModel() {
         DefaultComboBoxModel schoolListModel = new DefaultComboBoxModel();
         schoolList = new ArrayList<School>(sjc.findSchoolEntities());
         ObjectModel om;
@@ -4735,8 +4847,26 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeModifyDegree_InstituteComboBox.setModel(schoolListModel);
     }
-        
-        private void EmployeeModifyDegree(){
+
+    private Boolean checkInstitutionModifyTextfields() {
+        String name = EmployeeModifyCrInstitution_InstituteNameTextfield.getText();
+        String level = EmployeeModifyCrInstitution_InstituteLevelTextfield.getText();
+        if (!name.isEmpty() && !level.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void employeeModifyNewInstututeComboboxModel() {
+        School school = new School();
+        school.setSchoolname(EmployeeModifyCrInstitution_InstituteNameTextfield.getText());
+        school.setSchoollevel(EmployeeModifyCrInstitution_InstituteLevelTextfield.getText());
+        sjc.create(school);
+        employeeModifyInstituteComboboxModel();
+    }
+
+    private void EmployeeModifyDegree() {
         try {
             ObjectModel om = (ObjectModel) EmployeeModifyDegree_InstituteComboBox.getSelectedItem();
             School school = sjc.findSchool(om.getId());
@@ -4744,11 +4874,47 @@ public class Test3 extends javax.swing.JFrame {
             degree.setCoursename(EmployeeModifyDegree_CourseNameTextfield.getText());
             djc.edit(degree);
             EmployeeDegreeList();
-            
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Course name can only be changed.");
         }
+    }
+
+    private void EmployeeModifyJobPositieEmployer() {
+        try {
+            ObjectModel om = (ObjectModel) EmployeeModifyJobPosition_ProjectComboBox.getSelectedItem();
+
+            postionDescription.setPositiename(EmployeeModifyJobPosition_PositionNameTextfield.getText());
+            postionDescription.setPositiedescription(EmployeeModifyJobPosition_DescriptionTextfield.getText());
+            postionDescription.setHourfee(Integer.parseInt(EmployeeModifyJobPosition_HourFeeTextfield.getText()));
+            postionDescription.setAmountshours(Integer.parseInt(EmployeeModifyJobPosition_AmountOfHoursTextfield.getText()));
+            for (PositieEmployer pe : PositionEmployerList) {
+
+                if (pe.getPositieDescription().getPositieid() == postionDescription.getPositieid() && pe.getProjectid().getProjectid() == project.getProjectid()) {
+
+                    pe.setPositieDescription(postionDescription);
+                    project = pjc.findProject(om.getId());
+                    //pejd.setProjectid(project);
+                    //PositionEmployerList.add(pejd);
+                    pdjc.edit(postionDescription);
+                    pe.setProjectid(project);
+                    employee.setPositieEmployerCollection(PositionEmployerList);
+                    pe.setEmployee(employee);
+                    pejc.edit(pe);
+
+                }
+            }
+
+            ejc.edit(employee);
+            EmployeePositionList();
+
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+
         }
+    }
 
     private void employeeModifyCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
@@ -4759,6 +4925,25 @@ public class Test3 extends javax.swing.JFrame {
         }
         EmployeeModifyAddress_CountryComboBox.setModel(countryListModel);
 
+    }
+
+    private Boolean checkCountryModifyTextfields() {
+        String name = EmployeeModifyCrCountry_CountryTextfield.getText();
+        if (!name.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void employeeModifyNewCountryComboboxModel() {
+        DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
+        countryList.add(EmployeeModifyCrCountry_CountryTextfield.getText());
+        ArrayList<String> countrylist = new ArrayList<String>(countryList);
+        for (String countryName : countrylist) {
+            countryListModel.addElement(countryName);
+        }
+        EmployeeModifyAddress_CountryComboBox.setModel(countryListModel);
     }
 
     private void modifyEmployeeAddress() {
@@ -4805,18 +4990,19 @@ public class Test3 extends javax.swing.JFrame {
         wajc.create(workingAddress);
 
     }
-        private void addToEmployeeModifyDegreeList() {
+
+    private void addToEmployeeModifyDegreeList() {
         try {
             ObjectModel om = (ObjectModel) EmployeeModifyDegree_InstituteComboBox.getSelectedItem();
             int schoolId = om.getId();
             School school = sjc.findSchool(schoolId);
-            
+
             String courseName = EmployeeModifyDegree_CourseNameTextfield.getText();
-            
+
             DegreePK dpk = new DegreePK();
             dpk.setBsn(employee.getBsn());
             dpk.setSchoolid(school.getSchoolid());
-            
+
             degree = new Degree();
             degree.setCoursename(courseName);
             degree.setSchool(school);
@@ -4835,18 +5021,63 @@ public class Test3 extends javax.swing.JFrame {
             ObjectModel om = (ObjectModel) EmployeeModifyDegree_DegreeList.getSelectedValue();
             DegreePK dpk = new DegreePK(om.getId(), om.getIdsec(), om.getIdthird());
             djc.destroy(dpk);
-             EmployeeDegreeList();
+            EmployeeDegreeList();
         } catch (NonexistentEntityException ex) {
-           JOptionPane.showMessageDialog(this, "Please select a degree.");
+            JOptionPane.showMessageDialog(this, "Please select a degree.");
         }
     }
 
+    private void addToEmployeeModifyPositionList() {
+        try {
+            ObjectModel omPosition = (ObjectModel) EmployeeModifyJobPosition_PositionComboBox.getSelectedItem();
+            ObjectModel omProject = (ObjectModel) EmployeeModifyJobPosition_ProjectComboBox.getSelectedItem();
+            postionDescription = pdjc.findPositieDescription(omPosition.getId());
+            project = pjc.findProject(omProject.getId());
+
+            PositieEmployerPK pepk = new PositieEmployerPK();
+            pepk.setPositieid(postionDescription.getPositieid());
+            pepk.setBsn(employee.getBsn());
+            PositieEmployer pe = new PositieEmployer();
+            pe.setPositieEmployerPK(pepk);
+            pe.setEmployee(employee);
+            pe.setProjectid(project);
+            pe.setPositieDescription(postionDescription);
+            pe.setHeadquarterid(project.getHeadquarterid());
+
+            PositionEmployerList.add(pe);
+            employee.setPositieEmployerCollection(PositionEmployerList);
+
+            pejc.create(pe);
+            ejc.edit(employee);
+            EmployeePositionList();
+
+        } catch (NonexistentEntityException ex) {
+            JOptionPane.showMessageDialog(this, "This employee position does not exist.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "This position cannot be used twice.");
+        }
+
+    }
+
+    private void removeFromEmployeeModifyPositionList() {
+        try {
+            ObjectModel om = (ObjectModel) EmployeeModifyJobPosition_PositionList.getSelectedValue();
+            PositieEmployerPK pepk = new PositieEmployerPK(om.getId(), om.getIdsec());
+            pejc.destroy(pepk);
+            EmployeePositionList();
+        } catch (NonexistentEntityException ex) {
+            JOptionPane.showMessageDialog(this, "Please select a degree.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "This employee position already exist");
+        }
+    }
     /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      *Project Model Add Methods
      */
+
     private void insertProject() throws Exception {
 
-       createProject();
+        createProject();
     }
 
     private void createProject() {
@@ -4856,14 +5087,18 @@ public class Test3 extends javax.swing.JFrame {
         double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
         int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
         String CompanyName = ProjectAddBasic_CompanyNameTextfield.getText();
-       
-        project.setProjectname(projectName);
-        project.setBudget(budget);
-        project.setAllocatedhour(allocatedHours);
-        project.setCompanyname(CompanyName);
-        project.setHeadquarterid(findSelectedHeadquarter());
+        double budget10Persentage = budget * 0.10;
+        if (budget10Persentage > findSelectedHeadquarter().getMonthrent()) {
+            project.setProjectname(projectName);
+            project.setBudget(budget);
+            project.setAllocatedhour(allocatedHours);
+            project.setCompanyname(CompanyName);
+            project.setHeadquarterid(findSelectedHeadquarter());
+        } else {
+            JOptionPane.showMessageDialog(this, "Low budget. Cannot be added.");
+        }
     }
-    
+
     private Boolean checkNewProjectTextFields() {
         try {
             String projectName = ProjectAddBasic_ProjectNameTextfield.getText();
@@ -4914,7 +5149,7 @@ public class Test3 extends javax.swing.JFrame {
             String cityName = ProjectAddHeadquarterAdress_CityTextfield.getText();
             String street = ProjectAddHeadquarterAdress_StreetNameTextfield.getText();
             int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
-            
+
             addresspk.setCountry(countryName);
             addresspk.setPostalcode(postalcode);
             address.setAddressPK(addresspk);
@@ -4922,11 +5157,11 @@ public class Test3 extends javax.swing.JFrame {
             address.setStreetname(street);
             address.setBuildingnumber(number);
             address.setHeadquarterInfoCollection(HeadquarterList);
-            
+
             addressList.add(address);
-            
-           ajc.create(address);
-           
+
+            ajc.create(address);
+
         } catch (Exception ex) {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4934,22 +5169,22 @@ public class Test3 extends javax.swing.JFrame {
     }
 
     private void createHeadquarter() {
-        headquarterInfo = new  HeadquarterInfo();
+        headquarterInfo = new HeadquarterInfo();
 
         String BuildingName = ProjectAddCreateHeadquarter_BuildingNameTextfield.getText();
         int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextfield.getText());
         double monthRent = Double.parseDouble(ProjectAddCreateHeadquarter_MonthRentTextfield.getText());
-        
+
         headquarterInfo.setBuildingname(BuildingName);
         headquarterInfo.setRoomamount(roomAmount);
         headquarterInfo.setMonthrent(monthRent);
         headquarterInfo.setAddress(address);
-        
+
         hijc.create(headquarterInfo);
-        
+
         fillSelectHeadquarterBasicComboBox();
     }
-    
+
     private Boolean checkNewProjectHeadquarterTextFields() {
         try {
             String buildingName = ProjectAddCreateHeadquarter_BuildingNameTextfield.getText();
@@ -4976,16 +5211,17 @@ public class Test3 extends javax.swing.JFrame {
         }
         ProjectAddHeadquarterAdress_CountryComboBox.setModel(countryListModel);
     }
-    private Boolean checkProjectCountryTextfields(){
+
+    private Boolean checkProjectCountryTextfields() {
         String name = ProjectAddCreateCountry_CountryTextfield.getText();
-        if(!name.isEmpty()){
+        if (!name.isEmpty()) {
             return true;
-            }
-        else{
+        } else {
             return false;
         }
-   }
-     private void projectAddCountryComboboxModel() {
+    }
+
+    private void projectAddCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
         ArrayList<String> countryList = fillCountryList();
 
@@ -4995,7 +5231,8 @@ public class Test3 extends javax.swing.JFrame {
         ProjectAddHeadquarterAdress_CountryComboBox.setModel(countryListModel);
 
     }
-    private Boolean checkProjectAddressTextfields(){
+
+    private Boolean checkProjectAddressTextfields() {
         try {
             String countryName = ProjectAddHeadquarterAdress_CountryComboBox.getSelectedItem().toString();
             String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextfield.getText();
@@ -5078,6 +5315,7 @@ public class Test3 extends javax.swing.JFrame {
         fillProjectDeleteComboBox();
         JOptionPane.showConfirmDialog(null, "It is done");
     }
+
     private void showSelectedProject() {
         ObjectModel om = (ObjectModel) ProjectDelete_SelectProjectComboBox.getSelectedItem();
         Project project = pjc.findProject(om.getId());
@@ -5085,14 +5323,16 @@ public class Test3 extends javax.swing.JFrame {
         double budget = project.getBudget();
         int allocatedHours = project.getAllocatedhour();
         String companyName = project.getCompanyname();
-         
+
         ProjectDeleteProjectNameLabel.setText(projectName);
-        ProjectDeleteBudgetLabel.setText(budget+"");
-        ProjectDeleteAllocatedHoursLabel.setText(allocatedHours+"");
+        ProjectDeleteBudgetLabel.setText(budget + "");
+        ProjectDeleteAllocatedHoursLabel.setText(allocatedHours + "");
         ProjectDeleteCompanyNameLabel.setText(companyName);
-        
+
     }
+
     //Project modify functions
+
     private void fillProjectModifyBasicComboBox() {
         DefaultComboBoxModel projectListModel = new DefaultComboBoxModel();
         projectList = new ArrayList<Project>(pjc.findProjectEntities());
@@ -5105,25 +5345,42 @@ public class Test3 extends javax.swing.JFrame {
         }
         ProjectModifyBasic_SelectProjectComboBox.setModel(projectListModel);
     }
-    private void searchProject(){
+
+    private void fillProjectModifyHeadquarterComboBox() {
+        DefaultComboBoxModel headquaterinfoListModel = new DefaultComboBoxModel();
+        HeadquarterList = new ArrayList<HeadquarterInfo>(hijc.findHeadquarterInfoEntities());
+        ObjectModel om;
+        for (HeadquarterInfo headquarterinfo : HeadquarterList) {
+            om = new ObjectModel();
+            om.setId(headquarterinfo.getHeadquarterid());
+            om.setDescription(headquarterinfo.getBuildingname());
+            headquaterinfoListModel.addElement(om);
+        }
+        ProjectModifyHeadquarterInfoHeadquarterComboBox.setModel(headquaterinfoListModel);
+    }
+
+    private void searchProject() {
         findProject();
         setProjectBasicInfo();
         showHeadQuarterInfo();
         showHeadQuaterInfoAddress();
-        
+
     }
+
     private void findProject() {
         ObjectModel om = (ObjectModel) ProjectModifyBasic_SelectProjectComboBox.getSelectedItem();
-        project = pjc.findProject(om.getId());   
+        project = pjc.findProject(om.getId());
     }
+
     private void setProjectBasicInfo() {
         findProject();
         ProjectModifyBasic_ProjectNameTextfield.setText(project.getProjectname());
         ProjectModifyBasic_BudgetTextfield.setText(project.getBudget() + "");
         ProjectModifyBasic_AllocatedHoursTextfield.setText(project.getAllocatedhour() + "");
         ProjectModifyBasic_CompanyNameTextfield.setText(project.getCompanyname());
-        
+
     }
+
     private void projectModifyCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
         ArrayList<String> countryList = fillCountryList();
@@ -5134,6 +5391,7 @@ public class Test3 extends javax.swing.JFrame {
         ProjectModifyHeadquarterAddress_CountryComboBox.setModel(countryListModel);
 
     }
+
     private void projectModifyNewCountryComboboxModel() {
         DefaultComboBoxModel countryListModel = new DefaultComboBoxModel();
         countryList.add(ProjectModifyCreateCountry_CountryTextfield.getText());
@@ -5143,34 +5401,96 @@ public class Test3 extends javax.swing.JFrame {
         }
         ProjectModifyHeadquarterAddress_CountryComboBox.setModel(countryListModel);
     }
-    private void showHeadQuarterInfo() {
-       // ObjectModel om = (ObjectModel) ProjectModifyBasic_SelectProjectComboBox.getSelectedItem();
-        headquarterInfo = hijc.findHeadquarterInfo(project.getHeadquarterid().getHeadquarterid());
-        
+
+    private void fillProjectModifyHeadquarterInfo() {
+        ObjectModel omheadq = (ObjectModel) ProjectModifyHeadquarterInfoHeadquarterComboBox.getSelectedItem();
+        headquarterInfo = hijc.findHeadquarterInfo(omheadq.getId());
         address = headquarterInfo.getAddress();
-        
         ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield.setText(
-            address.getAddressPK().getCountry() + " "+address.getStreetname() +
-            " " + address.getBuildingnumber());
+                address.getAddressPK().getCountry() + " " + address.getStreetname()
+                + " " + address.getBuildingnumber());
         ProjectModifyHeadquarterInfoBuildingNameTextfield.setText(headquarterInfo.getBuildingname());
-        ProjectModifyHeadquarterInfoRoomAmountTextfield.setText(headquarterInfo.getRoomamount()+"");
-        ProjectModifyHeadquarterInfoMonthRentTextfield.setText(headquarterInfo.getMonthrent()+"");
+        ProjectModifyHeadquarterInfoRoomAmountTextfield.setText(headquarterInfo.getRoomamount() + "");
+        ProjectModifyHeadquarterInfoMonthRentTextfield.setText(headquarterInfo.getMonthrent() + "");
     }
-    private void showHeadQuaterInfoAddress(){
-       
+    private void updateprojectModifyBasicInfo(){
+        try {
+            project.setProjectname(ProjectModifyBasic_ProjectNameTextfield.getText());
+            project.setBudget(Double.parseDouble(ProjectModifyBasic_BudgetTextfield.getText()));
+            project.setAllocatedhour(Integer.parseInt(ProjectModifyBasic_AllocatedHoursTextfield.getText()));
+            project.setCompanyname(ProjectModifyBasic_CompanyNameTextfield.getText());
+            pjc.edit(project);
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void updateprojectModifyHeadquarter() {
+        try {
+            double budget = project.getBudget();
+            double budget10Persentage = budget * 0.10;
+            if (budget10Persentage > headquarterInfo.getMonthrent()) {
+
+                headquarterInfo.setAddress(headquarterInfo.getAddress());
+                headquarterInfo.setBuildingname(ProjectModifyHeadquarterInfoBuildingNameTextfield.getText());
+                headquarterInfo.setMonthrent(Double.parseDouble(ProjectModifyHeadquarterInfoMonthRentTextfield.getText()));
+                headquarterInfo.setRoomamount(Integer.parseInt(ProjectModifyHeadquarterInfoRoomAmountTextfield.getText()));
+                hijc.edit(headquarterInfo);
+                project.setHeadquarterid(headquarterInfo);
+                pjc.edit(project);
+                JOptionPane.showConfirmDialog(null, "It is done");
+            } else {
+                JOptionPane.showConfirmDialog(null, "Project is not financially possible");
+            }
+            ;
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void showHeadQuarterInfo() {
+        // ObjectModel om = (ObjectModel) ProjectModifyBasic_SelectProjectComboBox.getSelectedItem();
+        headquarterInfo = hijc.findHeadquarterInfo(project.getHeadquarterid().getHeadquarterid());
+
+        address = headquarterInfo.getAddress();
+        for (int i = 0; i < ProjectModifyHeadquarterInfoHeadquarterComboBox.getSize().height - 1; i++) {
+            String headqItem = ProjectModifyHeadquarterInfoHeadquarterComboBox.getItemAt(i).toString();
+            if (headqItem.matches(headquarterInfo.getBuildingname())) {
+                //om2 = (ObjectModel) EmployeeModifyJobPosition_PositionComboBox.getItemAt(i);
+                //postionDescription = pdjc.findPositieDescription(om.getId());
+                ProjectModifyHeadquarterInfoHeadquarterComboBox.setSelectedIndex(i);
+                //setEmployeePositionDescription();
+                break;
+            }
+        }
+
+        ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield.setText(
+                address.getAddressPK().getCountry() + " " + address.getStreetname()
+                + " " + address.getBuildingnumber());
+        ProjectModifyHeadquarterInfoBuildingNameTextfield.setText(headquarterInfo.getBuildingname());
+        ProjectModifyHeadquarterInfoRoomAmountTextfield.setText(headquarterInfo.getRoomamount() + "");
+        ProjectModifyHeadquarterInfoMonthRentTextfield.setText(headquarterInfo.getMonthrent() + "");
+    }
+
+    private void showHeadQuaterInfoAddress() {
+
         ProjectModifyHeadquarterAddress_CountryComboBox.setSelectedItem(address.getAddressPK().getCountry());
         ProjectModifyHeadquarterAddress_PostalcodeTextfield.setText(address.getAddressPK().getPostalcode());
         ProjectModifyHeadquarterAddress_CityTextfield.setText(address.getCity());
         ProjectModifyHeadquarterAddress_StreetNameTextfield.setText(address.getStreetname());
-        ProjectModifyHeadquarterAddress_NumberTextfield.setText(address.getBuildingnumber()+"");
+        ProjectModifyHeadquarterAddress_NumberTextfield.setText(address.getBuildingnumber() + "");
     }
-    private void ultimateSaveModify(){
-      
+
+    private void ultimateSaveModify() {
+
         try {
-           String country =  ProjectModifyHeadquarterAddress_CountryComboBox.getSelectedItem().toString();
+            String country = ProjectModifyHeadquarterAddress_CountryComboBox.getSelectedItem().toString();
             AddressPK addresspk = new AddressPK();
             address = new Address();
-          
+
             addresspk.setCountry(country);
             addresspk.setPostalcode(ProjectModifyHeadquarterAddress_PostalcodeTextfield.getText());
             address.setAddressPK(addresspk);
@@ -5181,17 +5501,17 @@ public class Test3 extends javax.swing.JFrame {
             HeadquarterList.add(headquarterInfo);
             address.setHeadquarterInfoCollection(HeadquarterList);
             headquarterInfo.setAddress(address);
-            
-           ajc.create(address);
-         hijc.edit(headquarterInfo);
-            
-           showHeadQuarterInfo();
-           showHeadQuaterInfoAddress();
+
+            ajc.create(address);
+            hijc.edit(headquarterInfo);
+
+            showHeadQuarterInfo();
+            showHeadQuaterInfoAddress();
             //ajc
         } catch (Exception ex) {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
     }
 
 
@@ -5276,8 +5596,8 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JTextField EmployeeModifyAddress_StreetTextfield;
     private javax.swing.JButton EmployeeModifyAddress_otherCountryButton;
     private javax.swing.JPanel EmployeeModifyBasicInfoPanel;
+    private javax.swing.JLabel EmployeeModifyBasicInfo_BsnLabel;
     private javax.swing.JButton EmployeeModifyBasicInfo_NextButton;
-    private javax.swing.JTextField EmployeeModifyBasic_BsnTextfield;
     private javax.swing.JComboBox EmployeeModifyBasic_EmployeeComboBox;
     private javax.swing.JTextField EmployeeModifyBasic_NameTextfield;
     private javax.swing.JTextField EmployeeModifyBasic_SurnameTextfield;
@@ -5307,8 +5627,12 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JButton EmployeeModifyDegree_otherInstitutionButton;
     private javax.swing.JPanel EmployeeModifyJobPositionPanel;
     private javax.swing.JButton EmployeeModifyJobPosition_AddToListButton;
+    private javax.swing.JTextField EmployeeModifyJobPosition_AmountOfHoursTextfield;
+    private javax.swing.JTextField EmployeeModifyJobPosition_DescriptionTextfield;
+    private javax.swing.JTextField EmployeeModifyJobPosition_HourFeeTextfield;
     private javax.swing.JComboBox EmployeeModifyJobPosition_PositionComboBox;
     private javax.swing.JList EmployeeModifyJobPosition_PositionList;
+    private javax.swing.JTextField EmployeeModifyJobPosition_PositionNameTextfield;
     private javax.swing.JComboBox EmployeeModifyJobPosition_ProjectComboBox;
     private javax.swing.JButton EmployeeModifyJobPosition_RemoveFromListButton;
     private javax.swing.JButton EmployeeModifyJobPosition_ShowButton;
@@ -5371,12 +5695,6 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JButton ProjectModifyCreateCountry_BackButton;
     private javax.swing.JTextField ProjectModifyCreateCountry_CountryTextfield;
     private javax.swing.JButton ProjectModifyCreateCountry_NextButton;
-    private javax.swing.JPanel ProjectModifyCreateHeadquarterPanel;
-    private javax.swing.JButton ProjectModifyCreateHeadquarter_BackButton;
-    private javax.swing.JTextField ProjectModifyCreateHeadquarter_BuildingNameTextfield;
-    private javax.swing.JTextField ProjectModifyCreateHeadquarter_MonthRentTextfield;
-    private javax.swing.JButton ProjectModifyCreateHeadquarter_NextButton;
-    private javax.swing.JTextField ProjectModifyCreateHeadquarter_RoomAmountTextfield;
     private javax.swing.JPanel ProjectModifyHeadquarterAddressPanel;
     private javax.swing.JButton ProjectModifyHeadquarterAddress_BackButton;
     private javax.swing.JTextField ProjectModifyHeadquarterAddress_CityTextfield;
@@ -5388,6 +5706,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JTextField ProjectModifyHeadquarterAddress_StreetNameTextfield;
     private javax.swing.JTextField ProjectModifyHeadquarterInfoBuildingNameTextfield;
     private javax.swing.JLabel ProjectModifyHeadquarterInfoHeadquarterAddressNameTextfield;
+    private javax.swing.JComboBox ProjectModifyHeadquarterInfoHeadquarterComboBox;
     private javax.swing.JTextField ProjectModifyHeadquarterInfoMonthRentTextfield;
     private javax.swing.JTextField ProjectModifyHeadquarterInfoRoomAmountTextfield;
     private javax.swing.JPanel ProjectModifyHeadquarterPanel;
@@ -5407,6 +5726,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -5429,11 +5749,7 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel214;
     private javax.swing.JLabel jLabel215;
     private javax.swing.JLabel jLabel216;
-    private javax.swing.JLabel jLabel217;
-    private javax.swing.JLabel jLabel218;
-    private javax.swing.JLabel jLabel219;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel220;
     private javax.swing.JLabel jLabel221;
     private javax.swing.JLabel jLabel222;
     private javax.swing.JLabel jLabel223;
@@ -5521,9 +5837,5 @@ public class Test3 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
