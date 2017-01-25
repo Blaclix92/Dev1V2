@@ -31,7 +31,6 @@ import Model.WorkingAddress;
 import Model.WorkingAddressPK;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -56,11 +55,15 @@ public class Test3 extends javax.swing.JFrame {
     private CardLayout projectMainCard;
     private CardLayout projectAddMainCard;
     private CardLayout projectModifyMainCard;
+    
     private Employee employee;
     private Address address;
     private Degree degree;
+    private HeadquarterInfo headquarterInfo;
+    private Project project;
     private WorkingAddress workingAddress;
     private PositieDescription postionDescription;
+    
     private ArrayList<Address> addressList = new ArrayList<>();
     private ArrayList<WorkingAddress> workingAddressList = new ArrayList<>();
     private ArrayList<Degree> DegreeList = new ArrayList<>();
@@ -74,8 +77,6 @@ public class Test3 extends javax.swing.JFrame {
     private Set<String> countryList;
     private Set<String> instituteList;
 
-    private HeadquarterInfo headquarterInfo;
-    private Project project;
 
     EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Dev1PU");
     EmployeeJpaController ejc = new EmployeeJpaController(emfactory);
@@ -3017,7 +3018,7 @@ public class Test3 extends javax.swing.JFrame {
         });
 
         ProjectModifyHeadquarter_OtherButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ProjectModifyHeadquarter_OtherButton.setText("Other");
+        ProjectModifyHeadquarter_OtherButton.setText("Edit");
         ProjectModifyHeadquarter_OtherButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProjectModifyHeadquarter_OtherButtonActionPerformed(evt);
@@ -3508,7 +3509,7 @@ public class Test3 extends javax.swing.JFrame {
 
     private void EmployeeModifyBasicInfo_NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
         updateemployeeBasicInfo();
-         
+        //refreshList(); 
         employeeModifyPageController("address");
     }//GEN-LAST:event_EmployeeModifyBasicInfo_NextButtonActionPerformed
     /*
@@ -3764,7 +3765,8 @@ public class Test3 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void EmployeeModifyAddress_RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeModifyAddress_RemoveButtonActionPerformed
-        // TODO add your handling code here:
+       removeFromEmployeeModifyAddressList();
+        
     }//GEN-LAST:event_EmployeeModifyAddress_RemoveButtonActionPerformed
 
     private void ProjectModifyBasic_SelectProjectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyBasic_SelectProjectComboBoxActionPerformed
@@ -3832,6 +3834,7 @@ public class Test3 extends javax.swing.JFrame {
 
     private void ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed
         fillProjectModifyHeadquarterInfo();
+        showHeadQuaterInfoAddress();
     }//GEN-LAST:event_ProjectModifyHeadquarterInfoHeadquarterComboBoxActionPerformed
 
     private void createDisplayMainCardLayout() {
@@ -4065,7 +4068,7 @@ public class Test3 extends javax.swing.JFrame {
 
     private Boolean checkNewEmployeeTextFields() {
         try {
-            int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextfield.getText());
+            //int bsn = Integer.parseInt(EmployeeAddBasic_BsnTextfield.getText());
             String name = EmployeeAddBasic_NameTextfield.getText();
             String surname = EmployeeAddBasic_SurnameTextfield.getText();
 
@@ -4292,8 +4295,8 @@ public class Test3 extends javax.swing.JFrame {
         try {
             String name = EmployeeAddCrJobPosition_PositionNameTextfield.getText();
             String description = EmployeeAddCrJobPosition_DescriptionTextfield.getText();
-            int hFee = Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextfield.getText());
-            int Ahours = Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextfield.getText());
+            //int hFee = Integer.parseInt(EmployeeAddCrJobPosition_HourFeeTextfield.getText());
+            //int Ahours = Integer.parseInt(EmployeeAddCrJobPosition_AmountOfHoursTextfield.getText());
 
             if (!name.isEmpty() && !description.isEmpty()) {
                 return true;
@@ -4331,7 +4334,6 @@ public class Test3 extends javax.swing.JFrame {
      }
      */
     private void addToEmployeeProjectList() {
-        HeadquarterInfo headInfo = hijc.findHeadquarterInfo(2);
         ObjectModel omposition = (ObjectModel) EmployeeAddJobPosition_PositionComboBox.getSelectedItem();
         int positionId = omposition.getId();
         PositieDescription positieDescription = pdjc.findPositieDescription(positionId);
@@ -4339,6 +4341,7 @@ public class Test3 extends javax.swing.JFrame {
         ObjectModel omProject = (ObjectModel) EmployeeAddJobPosition_ProjectComboBox.getSelectedItem();
         int projectId = omProject.getId();
         Project project = pjc.findProject(projectId);
+        HeadquarterInfo headInfo = hijc.findHeadquarterInfo(project.getHeadquarterid().getHeadquarterid());
 
         PositieEmployerPK pePK = new PositieEmployerPK();
         pePK.setBsn(employee.getBsn());
@@ -4466,9 +4469,7 @@ public class Test3 extends javax.swing.JFrame {
             }
 
             ejc.destroy(bsn);
-        } catch (IllegalOrphanException ex) {
-            Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NonexistentEntityException ex) {
+        } catch (IllegalOrphanException | NonexistentEntityException ex) {
             Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
         }
         clearLabels();
@@ -4796,7 +4797,7 @@ public class Test3 extends javax.swing.JFrame {
         for (int i = 0; i < EmployeeModifyJobPosition_PositionComboBox.getSize().height - 1; i++) {
             String positieItem = EmployeeModifyJobPosition_PositionComboBox.getItemAt(i).toString();
             if (positieItem.matches(selectedPositie)) {
-                om2 = (ObjectModel) EmployeeModifyJobPosition_PositionComboBox.getItemAt(i);
+                //om2 = (ObjectModel) EmployeeModifyJobPosition_PositionComboBox.getItemAt(i);
                 postionDescription = pdjc.findPositieDescription(om.getId());
                 EmployeeModifyJobPosition_PositionComboBox.setSelectedIndex(i);
                 setEmployeePositionDescription();
@@ -5005,6 +5006,23 @@ public class Test3 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please select a degree.");
         }
     }
+    
+        private void removeFromEmployeeModifyAddressList() {
+        try {
+            ObjectModel om = (ObjectModel) EmployeeModifyAddress_AddressList1.getSelectedValue();
+            AddressPK apk = new AddressPK(om.getIdFourth(),om.getIdFifth());
+            WorkingAddressPK wpk = new WorkingAddressPK(employee.getBsn(),om.getIdFourth(),om.getIdFifth());
+            try {
+                wajc.destroy(wpk);
+                ajc.destroy(apk);
+            } catch (IllegalOrphanException ex) {
+                Logger.getLogger(Test3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             EmployeeAddressList();
+        } catch (NonexistentEntityException ex) {
+            JOptionPane.showMessageDialog(this, "Please select a degree.");
+        }
+    }
 
     private void addToEmployeeModifyPositionList() {
         try {
@@ -5066,23 +5084,23 @@ public class Test3 extends javax.swing.JFrame {
         double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
         int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
         String CompanyName = ProjectAddBasic_CompanyNameTextfield.getText();
-        double budget10Persentage = budget * 0.10;
-        if (budget10Persentage > findSelectedHeadquarter().getMonthrent()) {
+      //  double budget10Persentage = budget * 0.10;
+      //  if (budget10Persentage > findSelectedHeadquarter().getMonthrent()) {
             project.setProjectname(projectName);
             project.setBudget(budget);
             project.setAllocatedhour(allocatedHours);
             project.setCompanyname(CompanyName);
             project.setHeadquarterid(findSelectedHeadquarter());
-        } else {
-            JOptionPane.showMessageDialog(this, "Low budget. Cannot be added.");
-        }
+      //  } else {
+    //        JOptionPane.showMessageDialog(this, "Low budget. Cannot be added.");
+    //    }
     }
 
     private Boolean checkNewProjectTextFields() {
         try {
             String projectName = ProjectAddBasic_ProjectNameTextfield.getText();
-            double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
-            int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
+            //double budget = Double.parseDouble(ProjectAddBasic_BudgetTextfield.getText());
+            //int allocatedHours = Integer.parseInt(ProjectAddBasic_AllocatedHoursTextfield.getText());
             String companyName = ProjectAddBasic_CompanyNameTextfield.getText();
 
             if (projectName.isEmpty() || companyName.isEmpty()) {
@@ -5118,9 +5136,9 @@ public class Test3 extends javax.swing.JFrame {
 
     private void createHeadquarterAddress() {
         try {
-            ArrayList<HeadquarterInfo> headList = new ArrayList<>();
-            headList.add(findSelectedHeadquarter());
-            addressList = new ArrayList<>();
+           // ArrayList<HeadquarterInfo> headList = new ArrayList<>();
+          // headList.add(findSelectedHeadquarter());
+            //addressList = new ArrayList<>();
             address = new Address();
             AddressPK addresspk = new AddressPK();
             String countryName = ProjectAddHeadquarterAdress_CountryComboBox.getSelectedItem().toString();
@@ -5135,9 +5153,9 @@ public class Test3 extends javax.swing.JFrame {
             address.setCity(cityName);
             address.setStreetname(street);
             address.setBuildingnumber(number);
-            address.setHeadquarterInfoCollection(HeadquarterList);
+           // address.setHeadquarterInfoCollection(HeadquarterList);
 
-            addressList.add(address);
+            //addressList.add(address);
 
             ajc.create(address);
 
@@ -5167,8 +5185,8 @@ public class Test3 extends javax.swing.JFrame {
     private Boolean checkNewProjectHeadquarterTextFields() {
         try {
             String buildingName = ProjectAddCreateHeadquarter_BuildingNameTextfield.getText();
-            int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextfield.getText());
-            int monthRent = Integer.parseInt(ProjectAddCreateHeadquarter_MonthRentTextfield.getText());
+            //int roomAmount = Integer.parseInt(ProjectAddCreateHeadquarter_RoomAmountTextfield.getText());
+            //int monthRent = Integer.parseInt(ProjectAddCreateHeadquarter_MonthRentTextfield.getText());
 
             if (buildingName.isEmpty()) {
                 return false;
@@ -5217,7 +5235,7 @@ public class Test3 extends javax.swing.JFrame {
             String postalcode = ProjectAddHeadquarterAdress_PostalcodeTextfield.getText();
             String cityName = ProjectAddHeadquarterAdress_CityTextfield.getText();
             String street = ProjectAddHeadquarterAdress_StreetNameTextfield.getText();
-            int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
+            //int number = Integer.parseInt(ProjectAddHeadquarterAdress_NumberTextfield.getText());
 
             if (countryName.isEmpty() || postalcode.isEmpty() || cityName.isEmpty() || street.isEmpty()) {
                 return false;
@@ -5231,9 +5249,16 @@ public class Test3 extends javax.swing.JFrame {
     }
 
     private void ultimateProjectSave() throws Exception {
-        insertProject();
-        pjc.create(project);
-        JOptionPane.showConfirmDialog(null, "Project : " + project.getProjectname() + " has been added to the system.");
+       
+        double budget10Persentage = project.getBudget() * 0.10;
+        if (budget10Persentage > findSelectedHeadquarter().getMonthrent()) {
+             insertProject();
+             pjc.create(project);
+             JOptionPane.showConfirmDialog(null, "Project : " + project.getProjectname() + " has been added to the system.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Low budget. Cannot be added.");
+        }
+        
     }
 
     /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -5469,7 +5494,7 @@ public class Test3 extends javax.swing.JFrame {
             String country = ProjectModifyHeadquarterAddress_CountryComboBox.getSelectedItem().toString();
             AddressPK addresspk = new AddressPK();
             address = new Address();
-
+            workingAddressList = new ArrayList<>();
             addresspk.setCountry(country);
             addresspk.setPostalcode(ProjectModifyHeadquarterAddress_PostalcodeTextfield.getText());
             address.setAddressPK(addresspk);
@@ -5477,13 +5502,15 @@ public class Test3 extends javax.swing.JFrame {
             address.setStreetname(ProjectModifyHeadquarterAddress_StreetNameTextfield.getText());
             address.setBuildingnumber(Integer.parseInt(ProjectModifyHeadquarterAddress_NumberTextfield.getText()));
             HeadquarterList = new ArrayList<>();
+            char ch =' ';
+            address.setBuildingletter(ch);
             HeadquarterList.add(headquarterInfo);
             address.setHeadquarterInfoCollection(HeadquarterList);
             headquarterInfo.setAddress(address);
-
-            ajc.create(address);
+            address.setWorkingAddressCollection(workingAddressList);
+            ajc.edit(address);
             hijc.edit(headquarterInfo);
-
+            fillProjectModifyHeadquarterComboBox();
             showHeadQuarterInfo();
             showHeadQuaterInfoAddress();
             //ajc
